@@ -5,7 +5,7 @@
 - `git clone https://github.com/rhofvendahl/climate_africa`, then `cd climate_africa`
 - Install [Pipenv](https://pipenv.pypa.io/en/latest/)
 - `pipenv install`, then `pipenv shell`
-- [TODO: DB Setup]
+- DB Setup: follow [this guide](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/).
 - python manage.py runserver
 
 ## License

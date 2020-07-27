@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'interface',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware' # I thought this was handled by django-heroku. Maybe not?
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'climate_africa.urls'
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'climate_africa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'climate_africa',
+        'USER': 'russell',
+        # 'PASSWORD': '', # replace with env('DB_PASSWORD') asap.
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
 
@@ -114,6 +120,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # OVERWRITTEN by django-heroku?
 # # Static files (CSS, JavaScript, Images)
 # # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -124,6 +131,7 @@ USE_TZ = True
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
+
 
 # Configure Django App for Heroku.
 # Manages DATABASE_URL, ALLOWED_HOSTS, WhiteNoise (static assets), logging, Heroku CI
