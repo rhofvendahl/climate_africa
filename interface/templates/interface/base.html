@@ -1,6 +1,5 @@
 {% load bootstrap4 %}
 {% load static %}
-{% load tz_detect %}
 
 <!DOCTYPE html>
 
@@ -12,7 +11,7 @@
     {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
-    {% include 'header.html' %}
+    {% include 'interface/header.html' %}
     <div class='container-fluid'>
         {% block content %}{% endblock %}
     </div>
