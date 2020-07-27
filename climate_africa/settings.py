@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware' # I thought this was handled by django-heroku. Maybe not?
 ]
 
 ROOT_URLCONF = 'climate_africa.urls'
@@ -113,15 +114,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# OVERWRITTEN by django-heroku?
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/1.9/howto/static-files/
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+#
+# # Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 # Configure Django App for Heroku.
 # Manages DATABASE_URL, ALLOWED_HOSTS, WhiteNoise (static assets), logging, Heroku CI
