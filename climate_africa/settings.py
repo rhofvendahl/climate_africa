@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'interface',
-    'posts',
+    # 'interface',
+    # 'posts',
 
     'bootstrap4',
 ]
