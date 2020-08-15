@@ -89,8 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'climate_africa',
-        'USER': 'russell',
-        # 'PASSWORD': '', # replace with env('DB_PASSWORD') asap.
+        'USER': 'postgres',
+        'PASSWORD': 'postgres', # replace with env('DB_PASSWORD') asap.
         # 'HOST': 'localhost',
         # 'PORT': '',
     }
