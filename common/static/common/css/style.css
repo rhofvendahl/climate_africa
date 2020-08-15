@@ -56,8 +56,9 @@ body {
 
 #phone-screen {
     position: absolute;
-    width: 420px; /* (7x60) */
-    height: 720px; /* (12x60) */
+    /* Most phones 16:9 aspect ratio */
+    width: 420px;
+    height: 747px;
     left: -210.5px;
     top: -360px;
 }
