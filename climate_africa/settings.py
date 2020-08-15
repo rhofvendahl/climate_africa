@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'compose',
     'map',
     'story',
-    'settings_menu',
-    'view_post',
-    'view_profile',
+    'menu',
+    # 'view_post',
+    # 'view_profile',
 
     'bootstrap4',
 ]

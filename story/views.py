@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def init(request):
-    context = {}
-    return render(request, 'story/story.html', context=context)
+    return redirect('story:stories')
+
+def stories(request):
+    context = {
+    }
+    return render(request, 'story/stories.html', context=context)

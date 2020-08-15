@@ -1,0 +1,10 @@
+{% extends 'common/base.html' %}
+
+{% block content_style %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'story/css/style.css' %}'>
+{% endblock %}
+
+{% block content %}
+<div id='story'></div>
+{% endblock %}

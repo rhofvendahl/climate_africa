@@ -1,0 +1,19 @@
+#header-icon-map {
+    background-color: #D9EAD3;
+    color: #38761D;
+}
+
+#map {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: lightblue;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#map::-webkit-scrollbar {
+    display: none;
+}

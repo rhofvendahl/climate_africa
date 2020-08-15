@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def init(request):
-    context = {}
-    return render(request, 'map/map.html', context=context)
+    return redirect('map:posts')
+
+def posts(request):
+    context = {
+    }
+    return render(request, 'map/posts.html', context=context)

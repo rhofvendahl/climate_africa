@@ -1,0 +1,19 @@
+#header-icon-menu {
+    background-color: #D9EAD3;
+    color: #38761D;
+}
+
+#menu {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #262525;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#menu::-webkit-scrollbar {
+    display: none;
+}

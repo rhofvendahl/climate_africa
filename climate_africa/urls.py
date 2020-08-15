@@ -22,6 +22,6 @@ urlpatterns = [
     path('browse/', include('browse.urls', 'browse')),
     path('compose/', include('compose.urls', 'compose')),
     path('map/', include('map.urls', 'map')),
-    path('settings/', include('settings_menu.urls', 'settings_menu')),
+    path('menu/', include('menu.urls', 'menu')),
     path('admin/', admin.site.urls),
 ]

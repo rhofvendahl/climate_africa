@@ -1,0 +1,19 @@
+#header-icon-compose {
+    background-color: #D9EAD3;
+    color: #38761D;
+}
+
+#compose {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: lightgrey;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#compose::-webkit-scrollbar {
+    display: none;
+}
