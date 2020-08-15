@@ -1,5 +1,7 @@
 $(document).ready(function() {
     console.log('hey');
-    // $('body').append($('#phone-screen > *'));
-    // $('#phone').hide();
+    if (window.innerWidth <= 800) {
+        $('body').append($('#phone-screen > *'));
+        $('#phone').hide();
+    }
 });
