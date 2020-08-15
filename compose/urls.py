@@ -1,7 +1,7 @@
 from django.urls import path
-from common import views
+from compose import views
 
-app_name = 'common'
+app_name = 'compose'
 
 urlpatterns = [
     path('', views.init, name='init'),

@@ -18,5 +18,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('common.urls', 'common')),
+    path('story/', include('story.urls', 'story')),
+    path('browse/', include('browse.urls', 'browse')),
+    path('compose/', include('compose.urls', 'compose')),
+    path('map/', include('map.urls', 'map')),
+    path('settings/', include('settings_menu.urls', 'settings_menu')),
     path('admin/', admin.site.urls),
 ]

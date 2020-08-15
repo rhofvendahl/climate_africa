@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from common.models import Post
 
-# Create your views here.
+def init(request):
+    return redirect('browse:posts')
+
+def posts(request):
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'browse/posts.html', context=context)

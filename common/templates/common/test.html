@@ -1,16 +1,16 @@
 {% extends 'common/base.html' %}
 {% block content %}
 
-{% load static %}
+<!-- { load static } -->
 
 {% if posts %}
 {% for post in posts %}
-<div class="card mt-4">
-    <div class="card-header">{{ post.title }}</div>
-    <div class="card-body">
-        <h5 class="card-title">[Author], {{ post.created_at }}</h5>
-        <p class="card-text">{{ post.text }}</p>
-        <a href="#" class="btn btn-primary">View testimonial</a>
+<div class='card mt-4'>
+    <div class='card-header'>{{ post.title }}</div>
+    <div class='card-body'>
+        <h5 class='card-title'>[Author], {{ post.created_at }}</h5>
+        <p class='card-text'>{{ post.text }}</p>
+        <a href='#' class='btn btn-primary'>View testimonial</a>
     </div>
 </div>
 {% endfor %}

@@ -3,7 +3,7 @@ body {
     width: 100%;
     height: 100%;
 }
-
+/*
 .custom-shadow-sm {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
@@ -14,13 +14,18 @@ body {
 
 .custom-shadow-lg {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+} */
+
+.custom-shadow-lg {
+    box-shadow: 0 3px 7px rgba(0,0,0,.8);
 }
 
-#header {
-    width: 100%;
-    height: 68px;
-    background-color: blue;
-    background-color: #134E23;
+.custom-shadow {
+    box-shadow: 0 2px 5px rgba(0,0,0,.7);
+}
+
+.custom-shadow-sm {
+    box-shadow: 0 1px 3px rgba(0,0,0,.6);
 }
 
 #phone {
@@ -53,4 +58,50 @@ body {
     height: 720px; /* (12x60) */
     left: -210.5px;
     top: -360px;
+}
+
+#header {
+    position: relative; /* necessary to place header shadow over container, for some bizarre reason. also for z-index to work. */
+    width: 100%;
+    height: 68px;
+    background-color: blue;
+    background-color: #134E23;
+    z-index: 1;
+}
+
+#header .row {
+    height: 100%;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header-icon-wrapper {
+    position: relative;
+    padding: 0px;
+}
+
+.header-icon {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    left: 50%;
+    top: 50%;
+    background-color: #38761D;
+    color: #D9EAD3;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 12px;
+}
+
+.container {
+    position: absolute;
+    /* position: relative; */
+    /* Better solution than this would be good */
+    /* height: calc(100% - 68px); */
+    top: 68px;
+    bottom: 0px;
+    padding: 0px;
 }
