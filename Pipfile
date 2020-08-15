@@ -18,4 +18,4 @@ Django = "==2.2.11"
 django-heroku = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
