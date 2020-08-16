@@ -5,7 +5,8 @@ $(document).ready(function() {
         $('body').append($('#phone-screen > *'));
         $('#phone').hide();
 
-        $('html').css('font-size', 'calc(24px + 1vw)')
+        // $('html').css('font-size', 'calc(24px + 1vw)')
+        $('html').css('font-size', 'calc(32px)')
     } else {
         $('html').css('font-size', '14px');
     }
