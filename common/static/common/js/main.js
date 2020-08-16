@@ -4,7 +4,10 @@ $(document).ready(function() {
 
         $('body').append($('#phone-screen > *'));
         $('#phone').hide();
+
+        $('html').css('font-size', 'calc(6px + 1vw)')
+    } else {
+        $('html').css('font-size', '16px');
     }
-    // alert('width: ' + window.innerWidth + ', height: ' + window.innerHeight);
-    // alert('screen width: ' + window.screen.width + ', screen height: ' + window.screen.height);
+
 });
