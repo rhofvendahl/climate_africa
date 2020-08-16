@@ -5,9 +5,9 @@ $(document).ready(function() {
         $('body').append($('#phone-screen > *'));
         $('#phone').hide();
 
-        $('html').css('font-size', 'calc(1em + 1.3vw)')
+        $('html').css('font-size', 'calc(1em + 1.5vw)')
     } else {
-        $('html').css('font-size', '16px');
+        $('html').css('font-size', '14px');
     }
 
 });
