@@ -1,9 +1,52 @@
-<div id='header' class='custom-shadow'>
+{% load static %}
+
+<!-- <div id='header' class='custom-shadow'>
     <div class='row'>
-        <!-- <div class='header-icon-wrapper col'><a href='{ url 'story:init' }' id='header-icon-story' class='header-icon'>Stry</a></div> -->
-        <div class='header-icon-wrapper col'><a href='{% url 'compose:init' %}' id='header-icon-compose' class='header-icon'>Cmps</a></div>
+        <div class='header-icon-wrapper col'><a href='{ url 'story:init' }' id='header-icon-story' class='header-icon'>Stry</a></div>
         <div class='header-icon-wrapper col'><a href='{% url 'browse:init' %}' id='header-icon-browse' class='header-icon'>Brws</a></div>
+        <div class='header-icon-wrapper col'><a href='{% url 'compose:init' %}' id='header-icon-compose' class='header-icon'>Cmps</a></div>
         <div class='header-icon-wrapper col'><a href='{% url 'map:init' %}' id='header-icon-map' class='header-icon'>Mp</a></div>
         <div class='header-icon-wrapper col'><a href='{% url 'menu:init' %}' id='header-icon-menu' class='header-icon'>Stngs</a></div>
+    </div>
+</div> -->
+
+<div id='header'>
+    <div class='row'>
+        <div class='header-icon-wrapper col'>
+            <a href='{% url 'compose:init' %}'>
+                {% if request.resolver_match.app_name == 'compose' %}
+                <img id='header-icon-compose' class='header-icon custom-shadow' src='{% static 'common/img/compose_icon_selected_yellow_light.png' %}' alt='compose icon selected'/>
+                {% else %}
+                <img id='header-icon-compose' class='header-icon custom-shadow' src='{% static 'common/img/compose_icon_unselected.png' %}' alt='compose icon unselected'/>
+                {% endif %}
+            </a>
+        </div>
+        <div class='header-icon-wrapper col'>
+            <a href='{% url 'browse:init' %}'>
+                {% if request.resolver_match.app_name == 'browse' %}
+                <img id='header-icon-browse' class='header-icon custom-shadow' src='{% static 'common/img/browse_icon_selected_red_light.png' %}' alt='browse icon selected'/>
+                {% else %}
+                <img id='header-icon-browse' class='header-icon custom-shadow' src='{% static 'common/img/browse_icon_unselected.png' %}' alt='browse icon unselected'/>
+                {% endif %}
+            </a>
+        </div>
+        <div class='header-icon-wrapper col'>
+            <a href='{% url 'map:init' %}'>
+                {% if request.resolver_match.app_name == 'map' %}
+                <img id='header-icon-map' class='header-icon custom-shadow' src='{% static 'common/img/map_icon_selected_green_light.png' %}' alt='map icon selected'/>
+                {% else %}
+                <img id='header-icon-map' class='header-icon custom-shadow' src='{% static 'common/img/map_icon_unselected.png' %}' alt='map icon unselected'/>
+                {% endif %}
+            </a>
+        </div>
+        <div class='header-icon-wrapper col'>
+            <a href='{% url 'menu:init' %}'>
+                {% if request.resolver_match.app_name == 'menu' %}
+                <img id='header-icon-menu' class='header-icon custom-shadow' src='{% static 'common/img/menu_icon_selected_grey_light.png' %}' alt='menu icon selected'/>
+                {% else %}
+                <img id='header-icon-menu' class='header-icon custom-shadow' src='{% static 'common/img/menu_icon_unselected.png' %}' alt='menu icon unselected'/>
+                {% endif %}
+            </a>
+        </div>
     </div>
 </div>
