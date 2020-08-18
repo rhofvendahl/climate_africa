@@ -81,6 +81,23 @@ body {
     top: -360px;
 }
 
+#return-header-wrapper {
+    position: absolute;
+    width: 100%;
+    padding-left: 50%;
+    z-index: 1;
+}
+
+#return-header {
+    height: 1.8rem;
+    width: 3.6rem;
+    margin-left: -2rem;
+    margin-top: .7rem;
+    display: none;
+    /* position: absolute; */
+
+}
+
 #header {
     position: absolute; /* necessary to place header shadow over container, for some bizarre reason. also for z-index to work. */
     width: 100%;
@@ -88,6 +105,14 @@ body {
     /* background-color: #134E23; */
     z-index: 1;
     top: 3rem;
+}
+
+.header-show {
+    top: 3rem;
+}
+
+.header-hide {
+    top: -2.5rem;
 }
 
 #header .row {

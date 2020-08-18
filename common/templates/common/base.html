@@ -13,6 +13,7 @@
 
     {% bootstrap_javascript jquery='full' %}
     <script type='text/javascript' src='{% static 'common/js/main.js' %}'></script>
+    {% block content_script %}{% endblock %}
 </head>
 <body>
     <div id='phone'>

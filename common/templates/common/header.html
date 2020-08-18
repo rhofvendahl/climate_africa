@@ -10,6 +10,18 @@
     </div>
 </div> -->
 
+<div id='return-header-wrapper'>
+    {% if request.resolver_match.app_name == 'compose' %}
+    <img id='return-header' class='custom-shadow' src='{% static 'common/img/downward_triangle_yellow.png' %}' alt='return triangle compose'/>
+    {% elif request.resolver_match.app_name == 'browse' %}
+    <img id='return-header' class='custom-shadow' src='{% static 'common/img/downward_triangle_red.png' %}' alt='return triangle browse'/>
+    {% elif request.resolver_match.app_name == 'map' %}
+    <img id='return-header' class='custom-shadow' src='{% static 'common/img/downward_triangle_green.png' %}' alt='return triangle mape'/>
+    {% elif request.resolver_match.app_name == 'menu' %}
+    <img id='return-header' class='custom-shadow' src='{% static 'common/img/downward_triangle_grey.png' %}' alt='return triangle menu'/>
+    {% endif %}
+</div>
+
 <div id='header'>
     <div class='row'>
         <div class='header-icon-wrapper col'>
