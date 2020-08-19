@@ -5,6 +5,11 @@
 <link rel='stylesheet' href='{% static 'browse/css/style.css' %}'>
 {% endblock %}
 
+{% block content_script %}
+{% load static %}
+<script type='text/javascript' src='{% static 'browse/js/main.js' %}'></script>
+{% endblock %}
+
 {% block content %}
 <div id='browse'>
     {% if posts %}
