@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'climate_africa',
         'USER': 'postgres',
         'PASSWORD': 'postgres', # replace with env('DB_PASSWORD') asap.
-        # 'HOST': 'localhost',
+        'HOST': 'localhost',
         # 'PORT': '',
     }
 }
