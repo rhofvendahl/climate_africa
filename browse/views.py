@@ -10,3 +10,10 @@ def posts(request):
         'posts': posts,
     }
     return render(request, 'browse/posts.html', context=context)
+
+def post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {
+        'post': post,
+    }
+    return render(request, 'browse/post.html', context=context)

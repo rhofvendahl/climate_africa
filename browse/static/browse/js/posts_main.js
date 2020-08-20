@@ -109,7 +109,7 @@
 
 $(document).ready(function() {
     // Kludgey; starts out with expanded, to get expanded height; replace when possible
-    var initialFooterHeight = $('#browse-footer').height();
+    var initialFooterHeight = $('#posts-footer').height();
     // $('#browse-footer').css({height: '4rem'});
     console.log(initialFooterHeight);
 
@@ -122,13 +122,13 @@ $(document).ready(function() {
         $('#tags-bar').show();
         $('#sort-bar').show();
 
-        $('#browse-footer').animate({height: '15.4rem'}, 400);
+        $('#posts-footer').animate({height: '15.4rem'}, 250);
     });
     $('#search-collapse-icon').click(function() {
         $('#search-collapse-icon').hide();
         $('#search-expand-icon').show();
 
-        $('#browse-footer').animate({height: '4rem'}, 400, function() {
+        $('#posts-footer').animate({height: '4rem'}, 250, function() {
             $('#location-bar').hide();
             $('#tags-bar').hide();
             $('#sort-bar').hide();

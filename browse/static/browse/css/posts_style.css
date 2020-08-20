@@ -1,14 +1,8 @@
-#header-icon-browse {
-    /* background-color: #CC0B00; */
-    /* color: #EFEFEF; */
-}
-
-#browse {
+#posts {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 100%;
-    /* padding-top: 5rem; */
     background-color: #262525;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -16,7 +10,7 @@
     padding-bottom: 5rem;
 }
 
-#browse::-webkit-scrollbar {
+#posts::-webkit-scrollbar {
     display: none;
 }
 
@@ -44,7 +38,6 @@
     padding-left: .8rem;
     padding-right: 1rem;
     padding-top: .4rem;
-    /* background-color: #134E23; */
     background-color: #383838;
     border-top-right-radius: .65rem;
     height: 100%;
@@ -111,10 +104,9 @@
     background-color: #AAAAAA;
 }
 
-#browse-footer {
+#posts-footer {
     position: absolute;
     width: 100%;
-    /* height: auto; */
     height: 4rem;
 
     /* kludgey, but can't animate to auto. so, = .7rem*2 + 2.6rem*4 + 1.2rem*3 */
@@ -122,10 +114,6 @@
 
     background-color: #434343;
     bottom: 0px;
-}
-
-#browse-footer > .row {
-    height: 100%;
 }
 
 #footer-bars {
@@ -151,16 +139,6 @@
 }
 
 #search-bar {
-    /* position: relative; */
-    /* height: 100%; */
-    /* left: 2rem; */
-    /* top: .6rem; */
-    /* bottom: .6rem; */
-    /* width: 2.6rem; */
-    /* height: 2.6rem; */
-    /* width: 100%; */
-    /* border-radius: .5rem; */
-    /* display: visible; */
 }
 
 #search-icon-wrapper, #location-bar-dropdown, #sort-bar-dropdown {
@@ -196,48 +174,29 @@
     padding-right: .5rem;
     padding-top: .3rem;
 }
-/*
-#search-expand-collapse-icon-wrapper {
-    position: absolute;
-    background-color: green;
-    right: 0;
-    left: 80%;
-    top: .6rem;
-    bottom: .6rem;
-} */
 
 #search-expand-icon, #search-collapse-icon {
     position: absolute;
     top: .7rem;
-    /* bottom: .6rem; */
-    /* right: .6rem; */
     height: 2.6rem; /* Height of footer - .6 from top/bottom; kludgey */
-    /* margin-left: -1.3rem; */
     right: 1.6rem;
 }
 
 #search-expand-icon {
-    /* height: 2rem; */
-    /* height: 100%; */
 }
 
 #search-collapse-icon {
     display: none;
-    /* height: 100%; */
-    /* height: 2rem; */
 }
 
 #location-bar {
-    /* background-color: red; */
     height: 2.6rem;
 }
 
 #tags-bar {
-    /* background-color: orange; */
     height: 2.6rem;
 }
 
 #sort-bar {
-    /* background-color: yellow; */
     height: 2.6rem;
 }

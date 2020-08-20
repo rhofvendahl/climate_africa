@@ -2,44 +2,46 @@
 
 {% block content_style %}
 {% load static %}
-<link rel='stylesheet' href='{% static 'browse/css/style.css' %}'>
+<link rel='stylesheet' href='{% static 'browse/css/posts_style.css' %}'>
 {% endblock %}
 
 {% block content_script %}
 {% load static %}
-<script type='text/javascript' src='{% static 'browse/js/main.js' %}'></script>
+<script type='text/javascript' src='{% static 'browse/js/posts_main.js' %}'></script>
 {% endblock %}
 
 {% block content %}
-<div id='browse'>
+<div id='posts' >
     {% if posts %}
     {% for post in posts %}
-    <div class='post custom-shadow'>
-        <div class='post-header'>
-            <div class='post-header-left'>
-                <div class='author-image'></div>
+    <a href='{% url 'browse:post' post_id=post.id %}'>
+        <div class='post custom-shadow'>
+            <div class='post-header'>
+                <div class='post-header-left'>
+                    <div class='author-image'></div>
+                </div>
+                <div class='post-header-right'>
+                    <div class='author-name-country'>[Author], {{ post.created_at }}</div>
+                    <div class='title'>{{ post.title }}</div>
+                </div>
             </div>
-            <div class='post-header-right'>
-                <div class='author-name-country'>[Author], {{ post.created_at }}</div>
-                <div class='title'>{{ post.title }}</div>
+            <div class='post-body'>
+                <!-- <div class='row'> -->
+                    <div class='post-body-left'>
+                        <p class=''>{{ post.text }}</p>
+                        <!-- <a href='#' class='btn'>View testimonial</a> -->
+                    </div>
+                    <div class='post-body-right'>
+                        <div class='post-image'></div>
+                    </div>
+                <!-- </div> -->
             </div>
         </div>
-        <div class='post-body'>
-            <!-- <div class='row'> -->
-                <div class='post-body-left'>
-                    <p class=''>{{ post.text }}</p>
-                    <!-- <a href='#' class='btn'>View testimonial</a> -->
-                </div>
-                <div class='post-body-right'>
-                    <div class='post-image'></div>
-                </div>
-            <!-- </div> -->
-        </div>
-    </div>
+    </a>
     {% endfor %}
     {% endif %}
 </div>
-<div id='browse-footer' class='custom-shadow'>
+<div id='posts-footer' class='custom-shadow'>
     <div id='footer-bars'>
         <div id='search-bar'>
             <div id='search-icon-wrapper'>

@@ -1,0 +1,99 @@
+#post {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #262525;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 5rem;
+}
+
+#post::-webkit-scrollbar {
+    display: none;
+}
+
+#image {
+    position: relative;
+    background-color: #D1D6C4;
+    /* width: 100%; */
+    height: 20rem;
+    z-index: 1;
+}
+
+#info-section {
+    position: absolute;
+    /* width: 100%; */
+    height: 4rem;
+    /* background-color: red; */
+}
+
+#author-info {
+    width: 14rem;
+    height: 100%;
+    background-color: #383838;
+    border-bottom-right-radius: .65rem;
+}
+
+#author-image {
+    background-color: #CDA990;
+    height: 100%;
+    width: 4rem;
+}
+
+#other-info {
+    /* position: absolute; */
+    /* right: 0px;
+    top: 0px; */
+    /* width: 2rem; */
+    height: 4rem;
+    color: #d9d9d9;
+    float: right;
+    /* background-color: yellow; */
+}
+
+#title {
+    margin-top: 4rem; /* height of info-section */
+    color: #6AA850;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#tags {
+    background-color: orange;
+    /* width: 100%; */
+    height: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#text {
+    /* width: 100%; */
+    height: 50rem;
+    background-color: black;
+    color: #F3F3F3;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .8rem;
+    border-radius: .65rem;
+    /* padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: 1rem; */
+    padding: 1rem;
+}
+
+
+#post-footer {
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    bottom: 0px;
+    background-color: #434343;
+}
+
+#post-footer > .row {
+    height: 100%;
+}

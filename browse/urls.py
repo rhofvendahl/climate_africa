@@ -6,4 +6,5 @@ app_name = 'browse'
 urlpatterns = [
     path('', views.init, name='init'),
     path('posts/', views.posts, name='posts'),
+    path('posts/<int:post_id>/', views.post, name='post'),
 ]

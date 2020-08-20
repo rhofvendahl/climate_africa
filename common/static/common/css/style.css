@@ -40,6 +40,12 @@ body {
     -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
 }
+/*
+.no-shadow {
+    -webkit-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+} */
 
 #phone {
     position: absolute;
@@ -73,16 +79,22 @@ body {
     top: -450px;
     z-index: 2;
 }
-
+/*
 #phone-screen {
     position: absolute;
-    /* Most phones 16:9 aspect ratio */
     width: 420px;
     height: 747px;
     left: -210.5px;
     top: -360px;
-}
+} */
 
+#phone-screen {
+    position: absolute;
+    width: 420px; /* (7x60) */
+    height: 720px; /* (12x60) */
+    left: -210.5px;
+    top: -360px;
+}
 #return-header-wrapper {
     position: absolute;
     width: 100%;
