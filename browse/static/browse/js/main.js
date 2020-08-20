@@ -106,3 +106,32 @@
 //         }
 //     });
 // });
+
+$(document).ready(function() {
+    // Kludgey; starts out with expanded, to get expanded height; replace when possible
+    var initialFooterHeight = $('#browse-footer').height();
+    // $('#browse-footer').css({height: '4rem'});
+    console.log(initialFooterHeight);
+
+
+    $('#search-expand-icon').click(function() {
+        $('#search-expand-icon').hide();
+        $('#search-collapse-icon').show();
+
+        $('#location-bar').show();
+        $('#tags-bar').show();
+        $('#sort-bar').show();
+
+        $('#browse-footer').animate({height: '15.4rem'}, 400);
+    });
+    $('#search-collapse-icon').click(function() {
+        $('#search-collapse-icon').hide();
+        $('#search-expand-icon').show();
+
+        $('#browse-footer').animate({height: '4rem'}, 400, function() {
+            $('#location-bar').hide();
+            $('#tags-bar').hide();
+            $('#sort-bar').hide();
+        });
+    });
+});

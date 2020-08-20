@@ -5,14 +5,15 @@
 
 #browse {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     width: 100%;
     /* padding-top: 5rem; */
     background-color: #262525;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    padding-bottom: 5rem;
 }
 
 #browse::-webkit-scrollbar {
@@ -28,22 +29,23 @@
 
 .post-header {
     position: relative;
-    height: 3.5rem;
+    height: 3.8rem;
 }
 
 .post-header-left {
     position: absolute;
     left: 0;
     height: 100%;
-    width: 3.5rem;
+    width: 3.8rem;
 }
 
 .post-header-right {
     position: absolute;
-    padding-left: .65rem;
+    padding-left: .8rem;
     padding-right: 1rem;
     padding-top: .4rem;
-    background-color: #134E23;
+    /* background-color: #134E23; */
+    background-color: #383838;
     border-top-right-radius: .65rem;
     height: 100%;
     right: 0;
@@ -53,7 +55,7 @@
 .author-image {
     width: 100%;
     height: 100%;
-    background-color: lightgrey;
+    background-color: #CDA990;
     border-top-left-radius: .65rem;
 }
 
@@ -63,12 +65,13 @@
 
 .title {
     font-weight: bold;
-    color: white;
+    color: #6AA84F;
+    font-size: 1.25rem;
 }
 
 .post-body {
     position: relative;
-    height: 10rem;
+    height: 11rem;
 }
 
 
@@ -89,12 +92,12 @@
 .post-body-right {
     position: absolute;
     height: 100%;
-    width: 10rem;
+    width: 11rem;
     right: 0;
 }
 
 .post-image {
-    background-color: #AAAAAA;
+    background-color: #D1D6C4;
     border-bottom-right-radius: .65rem;
     width: 100%;
     height: 100%;
@@ -106,4 +109,135 @@
 
 .btn:hover {
     background-color: #AAAAAA;
+}
+
+#browse-footer {
+    position: absolute;
+    width: 100%;
+    /* height: auto; */
+    height: 4rem;
+
+    /* kludgey, but can't animate to auto. so, = .7rem*2 + 2.6rem*4 + 1.2rem*3 */
+    /* height: 15.4;  */
+
+    background-color: #434343;
+    bottom: 0px;
+}
+
+#browse-footer > .row {
+    height: 100%;
+}
+
+#footer-bars {
+    position: relative;
+    margin-left: 1.6rem;
+    margin-top: .7rem;
+    margin-bottom: -.5rem; /* margin-top - margin-bottom of footer bar children */
+    margin-right: 5.8rem; /* margin-left + width of expand + margin-left */
+}
+
+#footer-bars > * {
+    position: relative;
+    width: 100%;
+    height: 2.6rem;
+    border-radius: .5rem;
+    margin-bottom: 1.2rem;
+    background-color: #606060;
+    /* display: none; */
+}
+
+#location-bar, #tags-bar, #sort-bar {
+    display: none;
+}
+
+#search-bar {
+    /* position: relative; */
+    /* height: 100%; */
+    /* left: 2rem; */
+    /* top: .6rem; */
+    /* bottom: .6rem; */
+    /* width: 2.6rem; */
+    /* height: 2.6rem; */
+    /* width: 100%; */
+    /* border-radius: .5rem; */
+    /* display: visible; */
+}
+
+#search-icon-wrapper, #location-bar-dropdown, #sort-bar-dropdown {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    background-color: #6AA84F;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#search-icon-wrapper {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+#search-icon {
+    height: 100%;
+}
+
+#location-bar-dropdown {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: .3rem;
+}
+
+#sort-bar-dropdown {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: .3rem;
+}
+/*
+#search-expand-collapse-icon-wrapper {
+    position: absolute;
+    background-color: green;
+    right: 0;
+    left: 80%;
+    top: .6rem;
+    bottom: .6rem;
+} */
+
+#search-expand-icon, #search-collapse-icon {
+    position: absolute;
+    top: .7rem;
+    /* bottom: .6rem; */
+    /* right: .6rem; */
+    height: 2.6rem; /* Height of footer - .6 from top/bottom; kludgey */
+    /* margin-left: -1.3rem; */
+    right: 1.6rem;
+}
+
+#search-expand-icon {
+    /* height: 2rem; */
+    /* height: 100%; */
+}
+
+#search-collapse-icon {
+    display: none;
+    /* height: 100%; */
+    /* height: 2rem; */
+}
+
+#location-bar {
+    /* background-color: red; */
+    height: 2.6rem;
+}
+
+#tags-bar {
+    /* background-color: orange; */
+    height: 2.6rem;
+}
+
+#sort-bar {
+    /* background-color: yellow; */
+    height: 2.6rem;
 }
