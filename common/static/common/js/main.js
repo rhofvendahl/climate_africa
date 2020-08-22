@@ -36,6 +36,7 @@ $(document).ready(function() {
                 animating = false;
             });
             $('#return-header').fadeOut(400);
+            
             // $('#return-header').animate({marginTop: "-2.5rem"}, 400, function() {
             //     $('#return-header').hide();
             // });

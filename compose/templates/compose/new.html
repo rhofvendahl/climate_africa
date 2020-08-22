@@ -2,9 +2,18 @@
 
 {% block content_style %}
 {% load static %}
-<link rel='stylesheet' href='{% static 'compose/css/style.css' %}'>
+<link rel='stylesheet' href='{% static 'compose/css/new_style.css' %}'>
 {% endblock %}
 
 {% block content %}
-<div id='compose'></div>
+<div id='compose'>
+    <div id='writing-mat' class='custom-shadow'>
+        <div id='title-input'>Title</div>
+        <div id='text-input'>Text</div>
+    </div>
+    <div id='meta-mat' class='custom-shadow'>
+        <div id='intentions-input'>Intentions</div>
+        <div id='location-input'>Location</div>
+    </div>
+</div>
 {% endblock %}

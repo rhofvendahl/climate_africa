@@ -1,0 +1,53 @@
+#compose {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #262525;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 1.5rem;
+}
+
+#compose::-webkit-scrollbar {
+    display: none;
+}
+
+#writing-mat, #meta-mat {
+    background-color: #434343;
+    border-radius: .65rem;
+    padding: 1rem;
+}
+
+#writing-mat {
+}
+
+#title-input, #text-input {
+    background-color: #EFEFEF;
+    border-radius: .25rem;
+    color: #666666;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+
+#text-input {
+    margin-top: 1rem;
+    height: 10rem;
+}
+
+#meta-mat {
+    margin-top: 1.5rem;
+}
+
+#intentions-input, #location-input {
+    background-color: #EFEFEF;
+    border-radius: .25rem;
+    color: #666666;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+
+#location-input {
+    margin-top: 1rem;
+}
