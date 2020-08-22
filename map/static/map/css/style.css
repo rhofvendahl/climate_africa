@@ -12,6 +12,7 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
 }
 
 #map::-webkit-scrollbar {

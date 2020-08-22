@@ -8,6 +8,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 5rem;
+    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
 }
 
 #posts::-webkit-scrollbar {

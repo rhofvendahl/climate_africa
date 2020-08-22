@@ -170,11 +170,3 @@ body {
     padding: 0px;
     /* margin: 0px; */
 }
-
-.container-fluid:first-child {
-    padding-top: 10rem;
-}
-
-.compose {
-    
-}
