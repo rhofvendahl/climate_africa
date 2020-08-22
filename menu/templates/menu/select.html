@@ -2,9 +2,16 @@
 
 {% block content_style %}
 {% load static %}
-<link rel='stylesheet' href='{% static 'menu/css/style.css' %}'>
+<link rel='stylesheet' href='{% static 'menu/css/select_style.css' %}'>
 {% endblock %}
 
 {% block content %}
-<div id='menu'></div>
+<div id='menu'>
+    <div class='row h-100'>
+    <div id='selection-wrapper' class='col my-auto'>
+        <div id='log-out' class='custom-shadow'>Log Out</div>
+        <div id='change-info' class='custom-shadow'>Change Information</div>
+    </div>
+    </div>
+</div>
 {% endblock %}
