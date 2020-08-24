@@ -5,7 +5,7 @@ def init(request):
     return redirect('map:map_test')
 
 def map_test(request):
-    map = folium.Map([36.9741, 122.0308])
+    map = folium.Map(location=[5.273, 16.821], zoom_start=3)
     # print(type(map.get_root().render()))
     print(map._repr_html_())
     context = {
