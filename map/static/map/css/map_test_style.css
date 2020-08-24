@@ -1,0 +1,61 @@
+#header-icon-map {
+    /* background-color: #D9EAD3; */
+    /* color: #38761D; */
+}
+
+#map {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: lightblue;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
+}
+
+#map::-webkit-scrollbar {
+    display: none;
+}
+
+#map{
+    height: 100%;
+}
+
+#map * {
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.folium-map {
+    position: absolute;
+    /* width: 100%; */
+    /* height: 100%; */
+    bottom: 0px;
+
+}
+
+iframe * {
+    /* overflow: hidden; */
+    /* overflow-x: hidden; */
+    /* overflow-y: hidden; */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 999;
+}
