@@ -10,3 +10,9 @@ from django.shortcuts import render, redirect
 
 def init(request):
     return redirect('browse:init')
+
+def login(request):
+    context = {
+    
+    }
+    return render(request, 'common/login.html', context=context)

@@ -1,3 +1,7 @@
+.container-fluid {
+    padding: 0px;
+}
+
 #compose {
     position: absolute;
     top: 0px;

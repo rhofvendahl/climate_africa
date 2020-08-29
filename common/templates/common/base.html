@@ -21,10 +21,7 @@
         <img id='phone-mockup-cutoff' src='{% static 'common/img/phone_mockup_cutoff.png' %}' alt='phone mockup cutoff'/>
         <img id='phone-background' src='{% static 'common/img/phone_background_grey_xtreme.png' %}' alt='phone background'/>
         <div id='phone-screen'>
-            {% include 'common/header.html' %}
-            <div class='container-fluid'>
                 {% block content %}{% endblock %}
-                <!-- <button id='toggle-frame' type="button" class="btn btn-secondary">Toggle Frame</button> -->
             </div>
         </div>
     </div>

@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'map',
     # 'story',
     'menu',
+    'public',
     # 'view_post',
     # 'view_profile',
 
     'bootstrap4',
+    # 'stronghold'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'stronghold.middleware.LoginRequiredMiddleware',
+    'climate_africa.middleware.RequireLoginMiddleware',
 ]
 
 ROOT_URLCONF = 'climate_africa.urls'
@@ -140,6 +145,12 @@ USE_TZ = True
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
+
+LOGIN_URL = '/login/'
+
+OPEN_URLS = [
+    # '/login/',
+]
 
 
 # Configure Django App for Heroku.

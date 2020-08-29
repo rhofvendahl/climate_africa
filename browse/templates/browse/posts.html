@@ -11,53 +11,57 @@
 {% endblock %}
 
 {% block content %}
-<div id='posts' >
-    {% if posts %}
-    {% for post in posts %}
-    <a href='{% url 'browse:post' post_id=post.id %}'>
-        <div class='post custom-shadow'>
-            <div class='post-header'>
-                <div class='post-header-left'>
-                    <div class='author-image'></div>
-                </div>
-                <div class='post-header-right'>
-                    <div class='author-name-country'>[Author], {{ post.created_at }}</div>
-                    <div class='title'>{{ post.title }}</div>
-                </div>
-            </div>
-            <div class='post-body'>
-                <!-- <div class='row'> -->
-                    <div class='post-body-left'>
-                        <p class=''>{{ post.text }}</p>
-                        <!-- <a href='#' class='btn'>View testimonial</a> -->
+{% include 'common/header.html' %}
+<div class='container-fluid'>
+
+    <div id='posts' >
+        {% if posts %}
+        {% for post in posts %}
+        <a href='{% url 'browse:post' post_id=post.id %}'>
+            <div class='post custom-shadow'>
+                <div class='post-header'>
+                    <div class='post-header-left'>
+                        <div class='author-image'></div>
                     </div>
-                    <div class='post-body-right'>
-                        <div class='post-image'></div>
+                    <div class='post-header-right'>
+                        <div class='author-name-country'>[Author], {{ post.created_at }}</div>
+                        <div class='title'>{{ post.title }}</div>
                     </div>
-                <!-- </div> -->
+                </div>
+                <div class='post-body'>
+                    <!-- <div class='row'> -->
+                        <div class='post-body-left'>
+                            <p class=''>{{ post.text }}</p>
+                            <!-- <a href='#' class='btn'>View testimonial</a> -->
+                        </div>
+                        <div class='post-body-right'>
+                            <div class='post-image'></div>
+                        </div>
+                    <!-- </div> -->
+                </div>
             </div>
-        </div>
-    </a>
-    {% endfor %}
-    {% endif %}
-</div>
-<div id='posts-footer' class='custom-shadow'>
-    <div id='footer-bars'>
-        <div id='search-bar'>
-            <div id='search-icon-wrapper'>
-                <img id='search-icon' src='{% static 'browse/img/search_icon_green.png' %}' alt='search icon'/>
-            </div>
-        </div>
-        <div id='location-bar'>
-            <div id='location-bar-dropdown'>Location &#9662;</div>
-        </div>
-        <div id='tags-bar'>
-        </div>
-        <div id='sort-bar'>
-            <div id='sort-bar-dropdown'>Sort by &#9662;</div>
-        </div>
+        </a>
+        {% endfor %}
+        {% endif %}
     </div>
-    <img id='search-expand-icon' src='{% static 'browse/img/upward_triangle_icon_yellow_circle.png' %}' alt='search expand icon'/>
-    <img id='search-collapse-icon' src='{% static 'browse/img/downward_triangle_icon_yellow_circle.png' %}' alt='search collapse icon'/>
+    <div id='posts-footer' class='custom-shadow'>
+        <div id='footer-bars'>
+            <div id='search-bar'>
+                <div id='search-icon-wrapper'>
+                    <img id='search-icon' src='{% static 'browse/img/search_icon_green.png' %}' alt='search icon'/>
+                </div>
+            </div>
+            <div id='location-bar'>
+                <div id='location-bar-dropdown'>Location &#9662;</div>
+            </div>
+            <div id='tags-bar'>
+            </div>
+            <div id='sort-bar'>
+                <div id='sort-bar-dropdown'>Sort by &#9662;</div>
+            </div>
+        </div>
+        <img id='search-expand-icon' src='{% static 'browse/img/upward_triangle_icon_yellow_circle.png' %}' alt='search expand icon'/>
+        <img id='search-collapse-icon' src='{% static 'browse/img/downward_triangle_icon_yellow_circle.png' %}' alt='search collapse icon'/>
+    </div>
 </div>
 {% endblock %}

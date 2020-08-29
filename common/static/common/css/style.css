@@ -156,17 +156,3 @@ body {
     /* font-weight: bold; */
     /* padding-top: 1.25rem; */
 }
-
-.container-fluid {
-    /* position: absolute; */
-    /* position: relative; */
-    /* Better solution than this would be good */
-    /* height: calc(100% - 68px); */
-    /* width: 100%; */
-    /* top: 4rem; */
-    /* left: 0px;
-    right: 0px; */
-    /* bottom: 0px; */
-    padding: 0px;
-    /* margin: 0px; */
-}

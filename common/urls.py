@@ -5,4 +5,5 @@ app_name = 'common'
 
 urlpatterns = [
     path('', views.init, name='init'),
+    path('login/', views.login, name='login')
 ]

@@ -1,3 +1,7 @@
+.container-fluid {
+    padding: 0px;
+}
+
 #post {
     position: absolute;
     top: 0;

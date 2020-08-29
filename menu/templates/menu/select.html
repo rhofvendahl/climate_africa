@@ -6,12 +6,15 @@
 {% endblock %}
 
 {% block content %}
-<div id='menu'>
-    <div class='row h-100'>
-    <div id='selection-wrapper' class='col my-auto'>
-        <div id='log-out' class='custom-shadow'>Log Out</div>
-        <div id='change-info' class='custom-shadow'>Change Information</div>
-    </div>
+{% include 'common/header.html' %}
+<div class='container-fluid'>
+    <div id='menu'>
+        <div class='row h-100'>
+        <div id='selection-wrapper' class='col my-auto'>
+            <div id='log-out' class='custom-shadow'>Log Out</div>
+            <div id='change-info' class='custom-shadow'>Change Information</div>
+        </div>
+        </div>
     </div>
 </div>
 {% endblock %}
