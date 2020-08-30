@@ -149,7 +149,9 @@ USE_TZ = True
 LOGIN_URL = '/login/'
 
 OPEN_URLS = [
-    # '/login/',
+    '/welcome/',
+    '/login/',
+    '/join/',
 ]
 
 

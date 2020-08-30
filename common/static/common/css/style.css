@@ -156,3 +156,13 @@ body {
     /* font-weight: bold; */
     /* padding-top: 1.25rem; */
 }
+
+#button-green {
+    background-color: #38761D;
+    color: #F3F3F3;
+}
+
+#submit-green:hover {
+    background-color: #274E13;
+    color: #D9D9D9;
+}
