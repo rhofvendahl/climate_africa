@@ -9,7 +9,8 @@ class RequireLoginMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        if False:#not request.user.is_authenticated and requires_authentication(request):
+        if not request.user.is_authenticated and requires_authentication(request):
+            print('Request not permitted.')
             return redirect(f'/login/?next={request.path}')
         else:
             return self.get_response(request)

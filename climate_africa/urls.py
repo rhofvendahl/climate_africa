@@ -18,7 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('common.urls', 'common')),
-    # path('story/', include('story.urls', 'story')),
     path('compose/', include('compose.urls', 'compose')),
     path('browse/', include('browse.urls', 'browse')),
     path('map/', include('map.urls', 'map')),

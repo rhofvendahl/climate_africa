@@ -26,7 +26,11 @@
     padding-right: 5rem;
 }
 
-#selection-wrapper > * {
+a, a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.option {
     background-color: #666666;
     font-size: 1.5rem;
     color: #F3F3F3;
@@ -34,9 +38,20 @@
     /* font-size: 1.5rem; */
     text-align: center;
     padding: 1rem;
-}
-
-#selection-wrapper > *:not(:first-child) {
-    /* margin-top: 1.5rem; */
     margin-top: 3rem;
 }
+
+.option:hover {
+    color: #D9D9D9;
+    background-color: #434343;
+}
+
+#log-out {
+    margin-top: 0;
+}
+
+
+/*
+#selection-wrapper > *:not(:first-child) {
+    margin-top: 3rem;
+} */

@@ -10,7 +10,6 @@
     <div id='join'>
         <form action='{% url 'common:join' %}?next={{ next }}' method='post'>
             {% csrf_token %}
-            <!-- <h5 class="card-title"></h5> -->
             {{ form.non_field_errors }}
             <div id='username-mat' class='custom-shadow'>
                 <div class="form-group">
@@ -30,7 +29,7 @@
             </div>
             <button id='submit-button' type='submit' class="custom-shadow">Join ClimateJustice4Africa</button>
         </form>
-        <a href='{% url 'common:login' %}'><div id='login-link'>I already have an account</div></a>
+        <a href='{% url 'common:login' %}?next={{ next }}'><div id='login-link'>I already have an account</div></a>
     </div>
 </div>
 {% endblock %}

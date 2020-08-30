@@ -9,13 +9,22 @@
 {% include 'common/header.html' %}
 <div class='container-fluid'>
     <div id='compose'>
+        <!-- Really shouldn't be necessary.. -->
         <div id='writing-mat' class='custom-shadow'>
-            <div id='title-input'>Title</div>
-            <div id='text-input'>Text</div>
+            <div class='form-group'>
+                <div id='title-input'>Title</div>
+            </div>
+            <div class='form-group'>
+                <div id='text-input'>Text</div>
+            </div>
         </div>
         <div id='meta-mat' class='custom-shadow'>
-            <div id='intentions-input'>Intentions</div>
-            <div id='location-input'>Location</div>
+            <div class='form-group'>
+                <div id='intentions-input'>Intentions</div>
+            </div>
+            <div class='form-group'>
+                <div id='location-input'>Location</div>
+            </div>
         </div>
         <div id='submit-button' class='custom-shadow'>Submit</div>
     </div>
