@@ -6,6 +6,7 @@
 - Install [Pipenv](https://pipenv.pypa.io/en/latest/)
 - `pipenv install`, then `pipenv shell`
 - DB Setup: follow [this guide](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/).
+- Django cities light setup: follow [this](https://github.com/jazzband/django-cities-light)
 - python manage.py migrate
 - python manage.py runserver
 

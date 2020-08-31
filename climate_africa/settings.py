@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # 'view_profile',
 
     'bootstrap4',
+    'cities_light'
     # 'stronghold'
 ]
 
