@@ -155,6 +155,7 @@ OPEN_URLS = [
     '/join/',
 ]
 
+# AUTH_USER_MODEL = 'common.CustomUser'
 
 # Configure Django App for Heroku.
 # Manages DATABASE_URL, ALLOWED_HOSTS, WhiteNoise (static assets), logging, Heroku CI
