@@ -26,20 +26,40 @@ body {
 .custom-shadow-lg {
     /* box-shadow: 0 3px 7px rgba(0,0,0,.8); */
     -webkit-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -moz-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -ms-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -o-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
     filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
 }
 
 .custom-shadow {
     /* box-shadow: 0 2px 5px rgba(0,0,0,.7); */
     -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
 }
 
 .custom-shadow-sm {
     /* box-shadow: 0 1px 3px rgba(0,0,0,.6); */
     -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -ms-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -o-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
 }
+
+/* Prevents shadow from affecting children (which can mess with some things) */
+.custom-shadow-specific:before {
+    /* box-shadow: 0 2px 5px rgba(0,0,0,.7); */
+    -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+}
+
 /*
 .no-shadow {
     -webkit-filter: none !important;

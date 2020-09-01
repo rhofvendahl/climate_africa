@@ -22,16 +22,13 @@
 #image {
     position: relative;
     background-color: #D1D6C4;
-    /* width: 100%; */
     height: 20rem;
     z-index: 1;
 }
 
 #info-section {
     position: absolute;
-    /* width: 100%; */
     height: 4rem;
-    /* background-color: red; */
 }
 
 #author-info {
@@ -48,14 +45,9 @@
 }
 
 #other-info {
-    /* position: absolute; */
-    /* right: 0px;
-    top: 0px; */
-    /* width: 2rem; */
     height: 4rem;
     color: #d9d9d9;
     float: right;
-    /* background-color: yellow; */
 }
 
 #title {
@@ -67,15 +59,21 @@
 }
 
 #tags {
-    background-color: orange;
-    /* width: 100%; */
-    height: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    outline: none; /* doesn't work when applied directly */
+    margin-left: .5rem;
+}
+
+.selectivity-multiple-input-container {
+    background-color: transparent;
+}
+
+.selectivity-multiple-selected-item {
+    /* background-color: #F1C231; */
+    background-color: #3C78D8;
+    color: #EFEFEF;
 }
 
 #text {
-    /* width: 100%; */
     height: 50rem;
     background-color: black;
     color: #F3F3F3;
@@ -83,10 +81,6 @@
     margin-right: 1rem;
     margin-top: .8rem;
     border-radius: .65rem;
-    /* padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .5rem;
-    padding-bottom: 1rem; */
     padding: 1rem;
 }
 
@@ -99,21 +93,12 @@
     background-color: #434343;
     display: flex;
     justify-content: space-between;
-    /* padding-left: 2.3%;
-    padding-right: 2.3%; */
 }
 
 #back-button, #support-button, #reply-button, #next-button {
-    /* position: absolute; */
-    /* margin-left: 1.6rem; */
-    /* top: .7rem; */
-    /* bottom: .7rem; */
     background-color: #686868;
-    /* width: 25%; */
     margin-top: .7rem;
     height: 2.6rem;
-    /* margin-left: .5rem; */
-    /* height: 100%; */
     border-radius: .5rem;
     float: left;
     padding-left: .2rem;
@@ -131,7 +116,6 @@
 
 #post-footer img {
     height: 3rem;
-    /* margin-top: .3rem; */ /* dependent on button height */
     height: 2.1rem;
     margin-top: -.2rem;
     margin-right: -.1rem;

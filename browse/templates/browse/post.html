@@ -2,11 +2,16 @@
 
 {% block content_style %}
 {% load static %}
+<link rel='stylesheet' href='{% static 'common/css/lib/selectivity-jquery.min.css' %}'>
 <link rel='stylesheet' href='{% static 'browse/css/post_style.css' %}'>
 {% endblock %}
 
 {% block content_script %}
 {% load static %}
+<script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
+<script type='text/javascript'>
+    var tagNames = {{ tag_names }};
+</script>
 <script type='text/javascript' src='{% static 'browse/js/post_main.js' %}'></script>
 {% endblock %}
 
@@ -27,7 +32,7 @@
             <div id='response'></div>
         </div>
         <div id='title'>{{ post.title }}</div>
-        <div id='tags'>Tags</div>
+        <div id='tags'></div>
         <div id='text' class='custom-shadow'>{{ post.text }}</div>
     </div>
     <div id='post-footer' class='custom-shadow'>

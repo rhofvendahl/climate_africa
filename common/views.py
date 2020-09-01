@@ -31,8 +31,6 @@ def join(request):
 
         if request.method == 'POST':
             form = CustomUserCreationForm(request.POST)
-            print('DATATATATATA')
-            print(form)
             if form.is_valid():
                 form.save()
                 username = form.cleaned_data.get('username')
@@ -59,10 +57,6 @@ def login(request):
 
         if request.method == 'POST':
             form = CustomAuthenticationForm(data=request.POST)
-            print('FOOOOOOOOOOOOOOORM')
-            print(form.data)
-            print('REQUEEEEEEEST')
-            print(request.POST)
             if form.is_valid():
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
@@ -70,21 +64,17 @@ def login(request):
                 if user is not None:
                     auth.login(request, user)
                     return redirect(next)
-                print('at least it got here')
-            print('issue', form.errors, 'ugh')
         else:
             form = CustomAuthenticationForm()
-            print('not post')
         context = {
             'form': form,
             'next': next,
         }
-        print('something odds going on')
         return render(request, 'common/login.html', context=context)
     else:
         print('user is authenticated')
-        return redirect('/')
+        return redirect('common:init') # used to be '/'
 
 def logout(request):
     auth.logout(request)
-    return redirect('/')
+    return redirect('common:init')

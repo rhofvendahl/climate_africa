@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/ (needed for css, js libs)
 lib64/
 parts/
 sdist/

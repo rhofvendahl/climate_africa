@@ -1,0 +1,83 @@
+.container-fluid {
+    padding: 0px;
+}
+
+#compose {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #262525;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
+}
+
+#compose::-webkit-scrollbar {
+    display: none;
+}
+
+#writing-mat, #meta-mat {
+    background-color: #434343;
+    border-radius: .65rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+#writing-mat > *, #meta-mat > * {
+    padding-bottom: 1rem;
+}
+
+.form-group {
+    margin: 0;
+}
+
+input, textarea {
+    background-color: #EFEFEF;
+    border-radius: .25rem;
+    color: black;
+    padding: .5rem;
+    font-size: 1.2rem;
+    width: 100%;
+    border: none;
+}
+
+#text-input {
+    /* margin-top: 1rem; */
+    height: 10rem;
+}
+
+#intentions-input, #location-input {
+    background-color: #EFEFEF;
+    border-radius: .25rem;
+    color: #666666;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+
+/* #location-input {
+    margin-top: 1rem;
+} */
+
+#submit-button {
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: .65rem;
+    background-color: #38761D;
+    color: #F3F3F3;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    border: none;
+}
+
+#submit-button:hover {
+    background-color: #274E13;
+    color: #D9D9D9;
+}
