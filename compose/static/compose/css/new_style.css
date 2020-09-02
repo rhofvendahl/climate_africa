@@ -39,26 +39,21 @@
     margin: 0;
 }
 
-input, textarea, .selectivity-multiple-input-container, #location-input {
+input, textarea, .selectivity-multiple-input-container, .selectivity-single-select {
     background-color: #EFEFEF;
     border-radius: .25rem;
     color: black;
     padding: .5rem;
     font-size: 1.2rem;
-    width: 100%;
     border: none;
+}
+
+input, textarea {
+    width: 100%;
 }
 
 #text-input {
     height: 10rem;
-}
-
-.selectivity-multiple-input-container {
-    background-color: #EFEFEF;
-    border-radius: .25rem;
-    color: #666666;
-    padding: .5rem;
-    font-size: 1.2rem;
 }
 
 #submit-button {

@@ -32,7 +32,9 @@
             <div id='response'></div>
         </div>
         <div id='title'>{{ post.title }}</div>
+        {% if tag_names != '[]' %}
         <div id='tags'></div>
+        {% endif %}
         <div id='text' class='custom-shadow'>{{ post.text }}</div>
     </div>
     <div id='post-footer' class='custom-shadow'>

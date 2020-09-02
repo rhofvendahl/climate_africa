@@ -111,7 +111,6 @@ $(document).ready(function() {
     // Kludgey; starts out with expanded, to get expanded height; replace when possible
     var initialFooterHeight = $('#posts-footer').height();
     // $('#browse-footer').css({height: '4rem'});
-    console.log(initialFooterHeight);
 
 
     $('#search-expand-icon').click(function() {

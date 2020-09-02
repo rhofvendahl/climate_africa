@@ -11,27 +11,20 @@ $(document).ready(function() {
             }
         }
     });
-    console.log(tagNames);
 
-    //
-    // $('#intentions-input').selectivity({
-    //     // allowClear: true,
-    //     items: ['Amsterdam', 'Antwerp'/*, ...*/],
-    //     placeholder: 'No city selected',
-    //     multiple: true,
-    //     inputType: 'Multiple',
-    //     placeholder: 'Intentions',
-    //     createTokenItem: function(val) {
-    //         return {
-    //             id: val,
-    //             text: val,
-    //         }
-    //     }
-    // });
+    $('#city').selectivity({
+        allowClear: true,
+        items: cityNames,
+        placeholder: 'Location',
+    });
 
     $('#new-form').submit(function() {
-        data = $('#tags').selectivity('data');
-        $('#tags-input-hidden').val(JSON.stringify(data));
+        console.log('hey')
+        tags_data = $('#tags').selectivity('data');
+        $('#tags-input-hidden').val(JSON.stringify(tags_data));
+        city_data = $('#city').selectivity('data');
+        console.log('city data', city_data)
+        $('#city-input-hidden').val(JSON.stringify(city_data));
         return true;
     });
 });

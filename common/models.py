@@ -6,10 +6,10 @@ from django.contrib.auth.models import User # unsure how to do this with string,
 
 class Post(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=160, null=True, blank=True)
-    text = models.TextField(null=True, blank=True)
+    title = models.CharField(max_length=160)
+    text = models.TextField()
     tags = models.ManyToManyField('common.Tag', related_name='users')
-    city = models.ForeignKey('cities_light.City', null=True, blank=True, on_delete=models.PROTECT)
+    city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 

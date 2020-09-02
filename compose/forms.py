@@ -5,3 +5,4 @@ class PostForm(forms.Form):
     title = forms.CharField(widget=TextInput(attrs={'placeholder': 'Title'}))
     text = forms.CharField(widget=Textarea(attrs={'placeholder': 'Text'}))
     tags = forms.CharField(max_length=800)
+    city = forms.CharField(max_length=80)
