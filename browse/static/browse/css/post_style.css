@@ -32,6 +32,7 @@
 }
 
 #author-info {
+    position: relative;
     width: 14rem;
     height: 100%;
     background-color: #383838;
@@ -39,9 +40,29 @@
 }
 
 #author-image {
+    position: absolute;
     background-color: #CDA990;
     height: 100%;
     width: 4rem;
+    /* float: left; */
+}
+
+#other-author-info {
+    position: absolute;
+    left: 4rem;
+    /* float: right; */
+}
+
+#author-name {
+    background-color: #F1C231;
+    border-radius: .5rem;
+    /* margin-left: 10rem; */
+    color: black;
+
+}
+
+#author-country {
+    color: #EFEFEF;
 }
 
 #other-info {

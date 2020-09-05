@@ -24,11 +24,15 @@
             <div id='info-section'>
                 <div id='author-info'>
                     <div id='author-image'></div>
+                    <div id='other-author-info'>
+                        <a href='{% url 'browse:profile' user_id=post.user.id %}' class='button'><div id='author-name'>{{ post.user.username }}</div></a>
+                        <div id='author-country'>{{ post.city.country.name }}</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div id='other-info'>
-            <div id='date'>{{ post.created_at }}</div>
+            <div id='date'>{{ formatted_timestamp }}</div>
             <div id='response'></div>
         </div>
         <div id='title'>{{ post.title }}</div>

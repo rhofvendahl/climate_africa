@@ -30,7 +30,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-    default_city = models.ForeignKey('cities_light.City', null=True, blank=True, on_delete=models.PROTECT)
+    default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     is_organization = models.BooleanField(default=False)
 
     def __str__(self):

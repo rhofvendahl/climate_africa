@@ -1,0 +1,67 @@
+{% extends 'common/base.html' %}
+
+{% block content_style %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'browse/css/profile_style.css' %}'>
+{% endblock %}
+
+{% block content %}
+{% include 'common/header.html' %}
+<div class='container-fluid'>
+    <div id='profile'>
+        <div id='profile-header' class='custom-shadow'>
+            <div id='profile-username'>{{ user.username }}</div>
+        </div>
+        <div id='posts-wrapper'>
+            {% if  posts %}
+            {% for post in posts %}
+            <a href='{% url 'browse:post' post_id=post.id %}'>
+                <div class='post custom-shadow'>
+                    <div class='post-header'>
+                        <div class='post-header-left'>
+                            <div class='author-image'></div>
+                        </div>
+                        <div class='post-header-right'>
+                            <div class='author-name-country'>{{ post.user.username }} · {{ post.user.profile.default_city.country.name }}</div>
+                            <div class='title'>{{ post.title }}</div>
+                        </div>
+                    </div>
+                    <div class='post-body'>
+                        <!-- <div class='row'> -->
+                            <div class='post-body-left'>
+                                <p class=''>{{ post.text }}</p>
+                                <!-- <a href='#' class='btn'>View testimonial</a> -->
+                            </div>
+                            <div class='post-body-right'>
+                                <div class='post-image'></div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div id='profile-footer' class='custom-shadow'>
+        <div id='footer-bookend-left'></div>
+        <div id='back-button'>
+            <img id='back-icon' src='{% static 'browse/img/back_icon_green.svg' %}' alt='back icon'/>
+            <span id='back-text'>Back</span>
+        </div>
+        <div id='support-button'>
+            <img id='support-icon' src='{% static 'browse/img/support_icon_green.svg' %}' alt='support icon'/>
+            <span id='support-text'>Support</span>
+        </div>
+        <div id='reply-button'>
+            <img id='reply-icon' src='{% static 'browse/img/reply_icon_green.svg' %}' alt='reply icon'/>
+            <span id='reply-text'>Reply</span>
+        </div>
+        <div id='next-button'>
+            <img id='next-icon' src='{% static 'browse/img/next_icon_green.svg' %}' alt='next icon'/>
+            <span id='next-text'>Next</span>
+        </div>
+        <div id='footer-bookend-right'></div>
+    </div>
+</div>
+{% endblock %}

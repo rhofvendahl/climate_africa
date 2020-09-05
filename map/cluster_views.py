@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
 import folium
-from folium.raster_layers import TileLayer
+# from folium.raster_layers import TileLayer
+from folium.plugins import MarkerCluster
 
 import os
 import json
@@ -49,13 +50,46 @@ def map_test(request):
     map._children['openstreetmap'].options['zoomOffset'] = -1
     # print('MAP DICT', map.__dict__)
     # print('DIGGING', map._children['openstreetmap'].show)
+    # icon_create_function =
+
+
+    # marker_cluster = MarkerCluster(icon_create_function = '''
+    #     function(cluster) {
+    #         return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>',
+    #         className: 'marker-cluster marker-cluster-small',
+    #         iconSize: new L.Point(128, 128)});
+    #     }
+    # ''')
+    # icon_create_function = '''
+    #     function(cluster) {
+    #         return L.divIcon({html: '<div><span>' + cluster.getChildCount() + '</span></div>',
+    #         className: 'marker-cluster marker-cluster-large',
+    #         iconSize: new L.Point(128, 128)});
+    #     }
+    # '''
+    # icon_create_function = '''
+    #     function(cluster) {
+    #         return L.DivIcon({ html: '<div><span>' + cluster.getChildCount + '</span></div>', className: 'marker-cluster marker-cluster-medium', iconSize: new L.Point(40, 40) });
+    #     }
+    # '''
+    # icon_create_function = '''
+    #     function(cluster) {
+    #         return L.divIcon({html: cluster.getChildCount(),
+    #         className: 'marker-cluster marker-cluster-small',
+    #         iconSize: new L.Point(128, 128)});
+    #     }
+    # '''
+    marker_cluster = MarkerCluster(icon_create_function = icon_create_function)
+
+    marker_cluster.add_to(map)
+    print('MARKER CLUSTER', marker_cluster.__dict__)
 
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
         icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
         marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
-        print('MARKER DICT', marker.__dict__)
-        marker.add_to(map)
+        # print('MARKER DICT', marker.__dict__)
+        marker.add_to(marker_cluster)
 
     # tile_layer = map._children['openstreetmap']
     # map.remove_layer(tile_layer)
