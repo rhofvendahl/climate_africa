@@ -11,6 +11,9 @@
 <script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
 <script type='text/javascript'>
     var tagNames = {{ tag_names }};
+    var supported = {{ supported }};
+    var supportUrl = {{ support_url }};
+    var unsupportUrl = {{ unsupport_url }};
 </script>
 <script type='text/javascript' src='{% static 'browse/js/post_main.js' %}'></script>
 {% endblock %}
@@ -33,7 +36,7 @@
         </div>
         <div id='other-info'>
             <div id='date'>{{ formatted_timestamp }}</div>
-            <div id='response'></div>
+            <div id='supports'>{{ post.n_supporters }}</div>
         </div>
         <div id='title'>{{ post.title }}</div>
         {% if tag_names != '[]' %}
@@ -50,6 +53,10 @@
         <div id='support-button'>
             <img id='support-icon' src='{% static 'browse/img/support_icon_green.svg' %}' alt='support icon'/>
             <span id='support-text'>Support</span>
+        </div>
+        <div id='unsupport-button'>
+            <img id='unsupport-icon' src='{% static 'common/img/heart_icon_red.png' %}' alt='unsupport icon'/>
+            <span id='unsupport-text'>Support</span>
         </div>
         <div id='reply-button'>
             <img id='reply-icon' src='{% static 'browse/img/reply_icon_green.svg' %}' alt='reply icon'/>

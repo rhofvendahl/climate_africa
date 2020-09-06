@@ -13,6 +13,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
+    @property
+    def n_supporters(self):
+        return self.supporters.count()
+
     def __str__(self):
         return f'ID: {self.id}, title: {self.title}'
 
@@ -33,6 +37,10 @@ class Profile(models.Model):
     default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     is_organization = models.BooleanField(default=False)
 
+    @property
+    def n_supporters(self):
+        return self.user.supporters.count()
+
     def __str__(self):
         return f'ID: {self.id}, username: {self.user.username}'
 
@@ -44,3 +52,26 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+class Support(models.Model):
+    supporter = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='supports_made')
+    supported_post = models.ForeignKey('common.Post', on_delete=models.CASCADE, null=True, blank=True, related_name='supporters')
+    supported_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True, related_name='supporters')
+
+    @property
+    def for_post(self):
+        return self.supported_post != None
+
+    @property
+    def for_user(self):
+        return self.supported_user != None
+
+    def __str__(self):
+        if self.for_post and self.for_user:
+            return f'ID: {self.id}, supporter: {self.supporter.username}, ERROR support has post AND user. Post: {self.supported_post.title}; user: {self.supported_user.username}'
+        elif self.for_post:
+            return f'ID: {self.id}, supporter: {self.supporter.username}, supported post title: {self.supported_post.title}'
+        elif self.for_user:
+            return f'ID: {self.id}, supporter: {self.supporter.username}, supported user username: {self.supported_user.username}'
+        else:
+            return f'ID: {self.id}, supporter: {self.supporter.username}, ERROR support has neither supported post nor supported user.'
