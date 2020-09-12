@@ -11,15 +11,18 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+import environ
+env = environ.Env(DEBUG=(bool, False))
+env_file = os.path.join(BASE_DIR, '.env')
+environ.Env.read_env(env_file=env_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Should really be in .env, but don't want to cause trouble for fellow devs
 SECRET_KEY = '^$2dz0kv+-c2^b+89p3fokhdzxkrbduc7_r5yj+xlkp6miex@2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -154,6 +157,15 @@ OPEN_URLS = [
     '/login/',
     '/join/',
 ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'climate-africa-media'
+# AWS_S3_REGION_NAME = 'us-west-002'
+# AWS_S3_ENDPOINT_URL = 'https://s3.us-west-002.backblazeb2.com/'
+# AWS_S3_SIGNATURE_VERSION='v4'
+# STATICFILES_STORAGE
 
 # AUTH_USER_MODEL = 'common.CustomUser'
 

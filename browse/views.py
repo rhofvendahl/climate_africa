@@ -16,10 +16,21 @@ def posts(request):
     context = {
         'posts': posts,
     }
+    # for post in posts:
+    #     print('IMAGE STUFF')
+    #     print('1', post.first_image)
+    #     if post.first_image:
+    #         print('2', post.first_image.image)
+    #         print('3', post.first_image.image.url)
     return render(request, 'browse/posts.html', context=context)
 
 def post(request, post_id):
     post = Post.objects.get(id=post_id)
+    if post.first_image:
+        f = open('testing.png', 'wb')
+        f.write(post.first_image.image.read())
+        f.close()
+
     tag_names = [tag.name for tag in post.tags.all()]
     tag_names_json = mark_safe(json.dumps(tag_names))
     print('TAG NAMES', tag_names_json)
