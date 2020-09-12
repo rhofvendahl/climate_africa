@@ -27,7 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=160)
     text = models.TextField()
     tags = models.ManyToManyField('common.Tag', related_name='users')
-    city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
+    # city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -59,7 +59,7 @@ class Tag(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-    default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
+    # default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     is_organization = models.BooleanField(default=False)
 
     @property
