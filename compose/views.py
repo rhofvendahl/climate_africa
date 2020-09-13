@@ -15,6 +15,7 @@ def new(request):
         if form.is_valid():
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
+            print('CITYYYYY', city_object.id)
 
             post = Post.objects.create(
                 user=request.user,
@@ -47,4 +48,5 @@ def new(request):
         'tag_names': tag_names_json,
         'city_names': country_city_names_json,
     }
+    print('COUNTRY CITY NAMES', country_city_names_json)
     return render(request, 'compose/new.html', context=context)
