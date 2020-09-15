@@ -29,18 +29,16 @@
                     </div>
                 </div>
                 <div class='post-body'>
-                    <!-- <div class='row'> -->
-                        <div class='post-body-left'>
-                            {{ post.first_image.image.url }}
-                            <p class=''>{{ post.text }}</p>
-                            <!-- <a href='#' class='btn'>View testimonial</a> -->
-                        </div>
-                        <div class='post-body-right'>
-                            <!-- <div class='post-image'></div> -->
-                            <!-- <img class='post-image' src='{ static post.first_image.image.url }' alt='post image'/> -->
-                            <img class='post-image' src='{{ post.first_image.image.url }}' alt='post image'/>
-                        </div>
-                    <!-- </div> -->
+                    <div class='post-body-left'>
+                        <p class=''>{{ post.text }}</p>
+                    </div>
+                    <div class='post-body-right'>
+                        {% if post.first_image.image %}
+                        <img class='post-image' src='{{ post.first_image.image.url }}' alt='post image'/>
+                        {% else %}
+                        [Error: image not found]
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </a>

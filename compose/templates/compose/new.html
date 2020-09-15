@@ -21,29 +21,35 @@
 {% include 'common/header.html' %}
 <div class='container-fluid'>
     <div id='compose'>
-        <form id='new-form' action='{% url 'compose:new' %}' method='post'>
+        <form id='new-form' action='{% url 'compose:new' %}' method='post' enctype='multipart/form-data'>
             {% csrf_token %}
             <input type='hidden' id='tags-input-hidden' name='tags'>
             <input type='hidden' id='city-input-hidden' name='city'>
             {{ form.non_field_errors }}
-            <div id='writing-mat' class='custom-shadow'>
-                <div class='form-group'>
+            <div id='content-mat' class='custom-shadow'>
+                <div id='image-wrapper' class='form-group'>
+                    {{ form.image }}
+                    {{ form.image.errors }}
+                </div>
+                <div id='title-wrapper' class='form-group'>
                     {{ form.title }}
                     {{ form.title.errors }}
                 </div>
-                <div class='form-group'>
+                <div id='text-wrapper' class='form-group'>
                     {{ form.text }}
                     {{ form.text.errors }}
                 </div>
             </div>
-                <div id='meta-mat' class='custom-shadow-specific'>
-                    <div class='form-group'>
-                        <div id='tags'></div>
-                    </div>
-                    <div class='form-group'>
-                        <div id='city'></div>
-                    </div>
+            <div id='meta-mat' class='custom-shadow-specific'>
+                <div id='tags-wrapper' class='form-group'>
+                    <div id='tags'></div>
+                    {{ form.tags.errors }}
                 </div>
+                <div id='city-wrapper' class='form-group'>
+                    <div id='city'></div>
+                    {{ form.city.errors }}
+                </div>
+            </div>
             <button id='submit-button' type='submit' class="custom-shadow">Submit</button>
         </form>
     </div>

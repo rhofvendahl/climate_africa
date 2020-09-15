@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from compose.forms import PostForm
-from common.models import Post, Tag
+from common.models import Post, Tag, Image
 from cities_light.models import City, Country
 
 from django.utils.safestring import mark_safe
@@ -11,18 +11,32 @@ def init(request):
 
 def new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
-            print('CITYYYYY', city_object.id)
+            # print('CITYYYYY', city_object.id)
+            print('CLEANED DATA', form.cleaned_data, form.cleaned_data.get('image'))
+            print('REQUEST STUFF', request.FILES.__dict__)
 
             post = Post.objects.create(
                 user=request.user,
                 title=form.cleaned_data.get('title'),
                 text=form.cleaned_data.get('text'),
+                # image=form.cleaned_data.get('image'),
                 city=city_object,
             )
+
+            print('IMAGE', type(form.cleaned_data.get('image')))
+            # print('MODEL IMAGE', post.image, type(post.image))
+            image = Image.objects.create(
+                post=post,
+                order_in_post=1,
+                image=form.cleaned_data.get('image'),
+            )
+
+            print('IMAGE OBJECT', image, image.image)
+
 
             tags = json.loads(form.cleaned_data['tags'])
             for tag in tags:
@@ -48,5 +62,5 @@ def new(request):
         'tag_names': tag_names_json,
         'city_names': country_city_names_json,
     }
-    print('COUNTRY CITY NAMES', country_city_names_json)
+    # print('COUNTRY CITY NAMES', country_city_names_json)
     return render(request, 'compose/new.html', context=context)

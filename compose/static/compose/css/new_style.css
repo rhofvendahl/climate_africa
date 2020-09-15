@@ -21,7 +21,7 @@
     display: none;
 }
 
-#writing-mat, #meta-mat {
+#content-mat, #meta-mat {
     position: relative;
     background-color: #434343;
     border-radius: .65rem;
@@ -31,7 +31,7 @@
     margin-top: 1.5rem;
 }
 
-#writing-mat > *, #meta-mat > * {
+#content-mat > *, #meta-mat > * {
     padding-bottom: 1rem;
 }
 
@@ -52,6 +52,8 @@ input, textarea {
     width: 100%;
 }
 
+/* Might be worth looking through this if you'd like to style the button https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ */
+
 #text-input {
     height: 10rem;
 }
@@ -71,4 +73,11 @@ input, textarea {
 #submit-button:hover {
     background-color: #274E13;
     color: #D9D9D9;
+}
+
+.errorlist {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+    color: #FA1001;
 }
