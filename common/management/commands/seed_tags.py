@@ -3,7 +3,7 @@ from common.models import Tag
 
 class Command(BaseCommand):
     help = 'Create start tags/intentions'
-    
+
     def handle(self, *args, **options):
         names = (
             'Extreme weather report',
