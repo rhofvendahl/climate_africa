@@ -13,6 +13,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print('Generating google credentials file')
         print(BASE_DIR + '/google-credentials.json')
+        print(env('HEY'))
         google_credentials_string = env('GOOGLE_CREDENTIALS')
         google_credentials_file = open(BASE_DIR + '/google-credentials.json', 'w')
         google_credentials_file.write(google_credentials_string)

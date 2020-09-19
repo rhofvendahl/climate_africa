@@ -1,2 +1,2 @@
-release: python manage.py migrate && python manage.py generate_google_credentials
+release: python manage.py migrate
 web: gunicorn climate_africa.wsgi

@@ -171,6 +171,15 @@ GS_BUCKET_NAME = 'climate-africa-media'
 
 # AUTH_USER_MODEL = 'common.CustomUser'
 
+try:
+    print('Generating google credentials file')
+    google_credentials_string = env('GOOGLE_CREDENTIALS')
+    google_credentials_file = open(BASE_DIR + '/google-credentials.json', 'w')
+    google_credentials_file.write(google_credentials_string)
+    google_credentials_file.close()
+except:
+    print('Error: GOOGLE_CREDENTIALS env variable not found.')
+
 # Configure Django App for Heroku.
 # Manages DATABASE_URL, ALLOWED_HOSTS, WhiteNoise (static assets), logging, Heroku CI
 # Should be at bottom, according to package readme
