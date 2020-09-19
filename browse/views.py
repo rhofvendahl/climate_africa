@@ -4,17 +4,35 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-
+from browse.forms import SearchForm
 from django.utils.safestring import mark_safe
+from django.contrib.postgres.search import SearchQuery, SearchVector
+
 import json
 
 def init(request):
     return redirect('browse:posts')
 
 def posts(request):
-    posts = Post.objects.all()
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            print('QUERY', type(form.cleaned_data['query']))
+            if form.cleaned_data['query']:
+                query = SearchQuery(form.cleaned_data['query'])
+                vector = SearchVector('title', 'text')
+                posts = Post.objects.annotate(search=vector).filter(search=query)
+            else:
+                posts = Post.objects.all()
+        else:
+            pass
+            # TODO: handle this
+    else:
+        form = SearchForm()
+        posts = Post.objects.all()
     context = {
         'posts': posts,
+        'form': form,
     }
     # for post in posts:
     #     print('IMAGE STUFF')

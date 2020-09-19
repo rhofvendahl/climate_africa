@@ -121,7 +121,7 @@ $(document).ready(function() {
         $('#tags-bar').show();
         $('#sort-bar').show();
 
-        $('#posts-footer').animate({height: '15.4rem'}, 250);
+        $('#posts-footer').animate({height: '19.2rem'}, 250); // previously 15.4. calculated from css.
     });
     $('#search-collapse-icon').click(function() {
         $('#search-collapse-icon').hide();

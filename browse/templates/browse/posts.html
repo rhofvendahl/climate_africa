@@ -46,21 +46,31 @@
         {% endif %}
     </div>
     <div id='posts-footer' class='custom-shadow'>
-        <div id='footer-bars'>
-            <div id='search-bar'>
-                <div id='search-icon-wrapper'>
-                    <img id='search-icon' src='{% static 'browse/img/search_icon_green.png' %}' alt='search icon'/>
+        <form id='search-form' action='{% url 'browse:posts' %}' method='post'>
+            {% csrf_token %}
+            <div id='footer-bars'>
+                <div id='search-bar'>
+                    <div id='search-icon-wrapper'>
+                        <img id='search-icon' src='{% static 'browse/img/search_icon_green.png' %}' alt='search icon'/>
+                    </div>
+                    <div id='search-input-wrapper'>
+                        {{ form.query }}
+                    </div>
+                </div>
+                <div id='location-bar'>
+                    <div id='location-bar-dropdown'>Location &#9662;</div>
+                </div>
+                <div id='tags-bar'>
+                </div>
+                <div id='sort-bar'>
+                    <div id='sort-bar-dropdown'>Sort by &#9662;</div>
+                </div>
+                <div id='button-bar'>
+                    <div id='clear-button'>Clear</div>
+                    <button id='search-button' type='submit'>Search</button>
                 </div>
             </div>
-            <div id='location-bar'>
-                <div id='location-bar-dropdown'>Location &#9662;</div>
-            </div>
-            <div id='tags-bar'>
-            </div>
-            <div id='sort-bar'>
-                <div id='sort-bar-dropdown'>Sort by &#9662;</div>
-            </div>
-        </div>
+        </form>
         <img id='search-expand-icon' src='{% static 'browse/img/upward_triangle_icon_yellow_circle.png' %}' alt='search expand icon'/>
         <img id='search-collapse-icon' src='{% static 'browse/img/downward_triangle_icon_yellow_circle.png' %}' alt='search collapse icon'/>
     </div>

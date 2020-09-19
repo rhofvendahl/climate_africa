@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     # 'view_profile',
 
     'bootstrap4',
-    'cities_light'
+    'cities_light',
+    'tz_detect',
     # 'stronghold'
 ]
 
@@ -68,6 +69,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'stronghold.middleware.LoginRequiredMiddleware',
     'climate_africa.middleware.RequireLoginMiddleware',
+    'tz_detect.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'climate_africa.urls'

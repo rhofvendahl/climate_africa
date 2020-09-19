@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 
 urlpatterns = [
     path('', include('common.urls', 'common')),
@@ -23,4 +24,5 @@ urlpatterns = [
     path('map/', include('map.urls', 'map')),
     path('menu/', include('menu.urls', 'menu')),
     path('admin/', admin.site.urls),
+    url(r'^tz_detect/', include('tz_detect.urls')),
 ]
