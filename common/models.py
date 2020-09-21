@@ -56,11 +56,15 @@ class Tag(models.Model):
     def __str__(self):
         return f'ID: {self.id}, name: {self.name}, is_starter: {str(self.is_starter)}'
 
-
+# would be better to have abstract w subclasses, but tricky with existing migrations
+# for now profile will have fields for organizations alongside fields for people profiles
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
     default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT, null=True, blank=True) # change to required later
     is_organization = models.BooleanField(default=False)
+    bio = models.TextField(null=True, blank=True) # suggested for orgs, maybe people too
+    website = models.CharField(max_length=160, null=True, blank=True) # suggested for organizations
+    # birthday, required for people
 
     @property
     def n_supporters(self):
@@ -79,6 +83,11 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+# class OrganizationInfo(models.Model):
+#     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+#     website = models.CharField(max_length=160, null=True, blank=True)
+
 
 class Support(models.Model):
     supporter = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='supports_made')

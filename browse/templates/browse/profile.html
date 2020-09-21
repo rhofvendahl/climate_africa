@@ -2,48 +2,49 @@
 
 {% block content_style %}
 {% load static %}
-<link rel='stylesheet' href='{% static 'browse/css/profile_style.css' %}'>
+<link rel='stylesheet' href='{% static 'common/css/lib/selectivity-jquery.min.css' %}'>
+<link rel='stylesheet' href='{% static 'browse/css/post_style.css' %}'>
+{% endblock %}
+
+{% block content_script %}
+{% load static %}
+<script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
+<script type='text/javascript'>
+    var tagNames = {{ tag_names }};
+    var supported = {{ supported }};
+    var supportUrl = {{ support_url }};
+    var unsupportUrl = {{ unsupport_url }};
+</script>
+<script type='text/javascript' src='{% static 'browse/js/post_main.js' %}'></script>
 {% endblock %}
 
 {% block content %}
 {% include 'common/header.html' %}
 <div class='container-fluid'>
-    <div id='profile'>
-        <div id='profile-header' class='custom-shadow'>
-            <div id='profile-username'>{{ user.username }}</div>
-        </div>
-        <div id='posts-wrapper'>
-            {% if  posts %}
-            {% for post in posts %}
-            <a href='{% url 'browse:post' post_id=post.id %}'>
-                <div class='post custom-shadow'>
-                    <div class='post-header'>
-                        <div class='post-header-left'>
-                            <div class='author-image'></div>
-                        </div>
-                        <div class='post-header-right'>
-                            <div class='author-name-country'>{{ post.user.username }} · {{ post.user.profile.default_city.country.name }}</div>
-                            <div class='title'>{{ post.title }}</div>
-                        </div>
-                    </div>
-                    <div class='post-body'>
-                        <!-- <div class='row'> -->
-                            <div class='post-body-left'>
-                                <p class=''>{{ post.text }}</p>
-                                <!-- <a href='#' class='btn'>View testimonial</a> -->
-                            </div>
-                            <div class='post-body-right'>
-                                <div class='post-image'></div>
-                            </div>
-                        <!-- </div> -->
+    <div id='post'>
+        <div class='custom-shadow'>
+            <div id='image'></div>
+            <div id='info-section'>
+                <div id='author-info'>
+                    <div id='author-image'></div>
+                    <div id='other-author-info'>
+                        <a href='{% url 'browse:profile' user_id=post.user.id %}' class='button'><div id='author-name'>{{ post.user.username }}</div></a>
+                        <div id='author-country'>{{ post.city.country.name }}</div>
                     </div>
                 </div>
-            </a>
-            {% endfor %}
-            {% endif %}
+            </div>
         </div>
+        <div id='other-info'>
+            <div id='date'>{{ formatted_timestamp }}</div>
+            <div id='supports'>{{ post.n_supporters }}</div>
+        </div>
+        <div id='title'>{{ post.title }}</div>
+        {% if tag_names != '[]' %}
+        <div id='tags'></div>
+        {% endif %}
+        <div id='text' class='custom-shadow'>{{ post.text }}</div>
     </div>
-    <div id='profile-footer' class='custom-shadow'>
+    <div id='post-footer' class='custom-shadow'>
         <div id='footer-bookend-left'></div>
         <div id='back-button'>
             <img id='back-icon' src='{% static 'browse/img/back_icon_green.svg' %}' alt='back icon'/>
@@ -52,6 +53,10 @@
         <div id='support-button'>
             <img id='support-icon' src='{% static 'browse/img/support_icon_green.svg' %}' alt='support icon'/>
             <span id='support-text'>Support</span>
+        </div>
+        <div id='unsupport-button'>
+            <img id='unsupport-icon' src='{% static 'common/img/heart_icon_red.png' %}' alt='unsupport icon'/>
+            <span id='unsupport-text'>Support</span>
         </div>
         <div id='reply-button'>
             <img id='reply-icon' src='{% static 'browse/img/reply_icon_green.svg' %}' alt='reply icon'/>
