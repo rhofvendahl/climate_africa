@@ -2,7 +2,17 @@
 
 {% block content_style %}
 {% load static %}
+<link rel='stylesheet' href='{% static 'common/css/lib/selectivity-jquery.min.css' %}'>
 <link rel='stylesheet' href='{% static 'common/css/join_style.css' %}'>
+{% endblock %}
+
+{% block content_script %}
+{% load static %}
+<script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
+<script type='text/javascript'>
+    var cityNames = {{ city_names }};
+</script>
+<script type='text/javascript' src='{% static 'common/js/join_main.js' %}'></script>
 {% endblock %}
 
 {% block content %}
@@ -11,23 +21,58 @@
         <form action='{% url 'common:join' %}?next={{ next }}' method='post'>
             {% csrf_token %}
             {{ form.non_field_errors }}
-            <div id='username-mat' class='custom-shadow'>
-                <div class="form-group">
-                    {{ form.username }}
-                    {{ form.username.errors }}
+            <div id='initial'>
+                <div id='username-mat' class='mat custom-shadow'>
+                    <div class="form-group">
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
                 </div>
+                <div id='password-mat' class='mat custom-shadow'>
+                    <div class="form-group">
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    </div>
+                </div>
+                <div id='is-organization-mat' class='mat custom-shadow'>
+                    <div id='is-organization-wrapper'>
+                        <label id='is-organization-label' for='id_is_organization'>This profile is for</label>
+                        {{ form.is_organization }}
+                        {{ form.is_organization.errors }}
+                    </div>
+                </div>
+                <div id='continue-button' class="button custom-shadow">Continue</div>
             </div>
-            <div id='password-mat'>
-                <div class="form-group">
-                    {{ form.password1 }}
-                    {{ form.password1.errors }}
+            <div id='continued'>
+                <div id='additional-info-mat' class='mat custom-shadow'>
+                    <div id='name-wrapper'>
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                    </div>
+                    <div id="bio-wrapper">
+                        {{ form.bio }}
+                        {{ form.bio.errors }}
+                    </div>
+                    <div id='website-wrapper'>
+                        {{ form.website }}
+                        {{ form.website.errors }}
+                    </div>
+                    <div id='default-city-wrapper'>
+                        <div id='default-city'></div>
+                        {{ form.default_city.errors }}
+                    </div>
+                    <div id='user-image-wrapper'>
+                        {{ form.user_image }}
+                        {{ form.user_image.errors }}
+                    </div>
                 </div>
-                <div class="form-group">
-                    {{ form.password2 }}
-                    {{ form.password2.errors }}
-                </div>
+                <div id='trigger-submission-button' class='button custom-shadow'>Join ClimateJustice4Africa</div>
+                <button id='submit-button-hidden' type='submit'></button>
             </div>
-            <button id='submit-button' type='submit' class="custom-shadow">Join ClimateJustice4Africa</button>
         </form>
         <a href='{% url 'common:login' %}?next={{ next }}'><div id='login-link'>I already have an account</div></a>
     </div>

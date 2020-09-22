@@ -4,6 +4,9 @@ from django.contrib import auth
 # from django.contrib.auth.forms import AuthenticationForm
 from common.forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.shortcuts import render, redirect
+from cities_light.models import City, Country
+from django.utils.safestring import mark_safe
+import json
 
 # from common.models import Post
 
@@ -41,9 +44,20 @@ def join(request):
                 return redirect(next)
         else:
             form = CustomUserCreationForm()
+
+        country_city_names = [{
+            'text': country.name,
+            'children': [{
+                'id': city.name + '; ' + country.name,
+                'text': city.name,
+            } for city in country.city_set.all()]
+        } for country in Country.objects.filter(continent='AF')]
+        country_city_names_json = mark_safe(json.dumps(country_city_names))
+
         context = {
             'form': form,
             'next': next,
+            'city_names': country_city_names_json,
         }
         return render(request, 'common/join.html', context=context)
     else:

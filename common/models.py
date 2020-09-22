@@ -10,10 +10,13 @@ def image_upload_path(instance, filename):
     # return f'post-images/{instance.post.id}/{filename}'
     return f'users/{instance.post.user.id}/posts/{instance.post.id}/images/{filename}'
 
+# Refactor idea: change to PostImage, to mesh with ProfileImage
 class Image(models.Model):
     post = models.ForeignKey('common.Post', on_delete=models.CASCADE)
     image = models.ImageField(upload_to=image_upload_path)
     order_in_post = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return f'ID: {self.id}, post title: {self.post.title}'
@@ -60,6 +63,7 @@ class Tag(models.Model):
 # for now profile will have fields for organizations alongside fields for people profiles
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    name = models.CharField(max_length=80, null=True, blank=True)
     default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT, null=True, blank=True) # change to required later
     is_organization = models.BooleanField(default=False)
     bio = models.TextField(null=True, blank=True) # suggested for orgs, maybe people too
@@ -88,11 +92,24 @@ class Profile(models.Model):
 #     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
 #     website = models.CharField(max_length=160, null=True, blank=True)
 
+def user_image_upload_path(instance, filename):
+    return f'users/{instance.post.user.id}/user_image/{filename}'
+
+class UserImage(models.Model):
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=user_image_upload_path)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
+
+    def __str__(self):
+        return f'ID: {self.id}, username: {self.user.username}'
 
 class Support(models.Model):
     supporter = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='supports_made')
     supported_post = models.ForeignKey('common.Post', on_delete=models.CASCADE, null=True, blank=True, related_name='supporters')
     supported_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True, related_name='supporters')
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     @property
     def for_post(self):

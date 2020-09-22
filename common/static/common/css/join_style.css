@@ -20,7 +20,7 @@
     display: none;
 }
 
-#username-mat, #password-mat {
+.mat {
     background-color: #434343;
     border-radius: .65rem;
     /* padding: 1rem; */
@@ -30,7 +30,7 @@
     margin-top: 1.5rem;
 }
 
-#username-mat > *, #password-mat > * {
+.mat > * {
     padding-bottom: 1rem;
 }
 
@@ -38,7 +38,7 @@
     margin: 0;
 }
 
-input {
+input, textarea {
     background-color: #EFEFEF;
     border-radius: .25rem;
     /* color: #666666; */
@@ -48,7 +48,7 @@ input {
     width: 100%;
 }
 
-#submit-button {
+.button {
     padding: 1rem;
     margin-top: 1.5rem;
     border-radius: .65rem;
@@ -60,7 +60,7 @@ input {
     width: 100%;
 }
 
-#submit-button:hover {
+.button:hover {
     background-color: #274E13;
     color: #D9D9D9;
 }
@@ -76,4 +76,24 @@ input {
     margin-bottom: .5rem;
     font-size: 1.2rem;
     color: #FA1001;
+}
+
+#submit-button-hidden {
+    display: none;
+}
+
+#is-organization-wrapper {
+    padding-bottom: .5rem;
+}
+
+#id_is_organization {
+    /* width: 1rem; */
+    /* height: 1rem; */
+    border-radius: .15rem;
+}
+
+#is-organization-label {
+    color: whitesmoke;
+    font-size: 1.25rem;
+    margin-right: .3rem;
 }
