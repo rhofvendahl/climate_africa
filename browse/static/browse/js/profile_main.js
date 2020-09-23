@@ -1,12 +1,4 @@
 $(document).ready(function() {
-    if (tagNames) {
-        $('#tags').selectivity({
-            value: tagNames,
-            multiple: true,
-            readOnly: true,
-        });
-    }
-
     // Would be good to turn all this junk into a simple "render" function, arguments for "supported", "n_supporters"
     var show_support_button = function() {
         $('#unsupport-button').hide() // red
@@ -17,6 +9,7 @@ $(document).ready(function() {
         $('#support-button').hide() // not red
         $('#unsupport-button').show() // red
     };
+    console.log(supported);
 
     if (supported) {
         show_unsupport_button();

@@ -42,7 +42,6 @@ class Post(models.Model):
     def first_image(self):
         return self.image_set.order_by('order_in_post').first()
 
-
     @property
     def n_supporters(self):
         return self.supporters.count()

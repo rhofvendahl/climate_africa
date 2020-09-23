@@ -86,35 +86,38 @@ def unsupport_post(request, post_id):
         return JsonResponse({'message': 'Support removed.', 'supported': 'false', 'n_supporters': post.n_supporters}, status=200)
 
 def profile(request, user_id):
+    # print('AAAAAAAAAAAAAAAAAAAAAAAAGGGGGGGGGG')
     user = User.objects.get(id=user_id)
     context = {
         'user': user,
         'posts': user.post_set.all(),
-        'supported': Support.objects.filter(supporter=request.user, supported_user=user).exists(),
-        'support_url': reverse('browse:support_user', kwargs={'user_id': user.id}),
-        'unsupport_url': reverse('browse:unsupport_user', kwargs={'user_id': user.id}),
+        'supported': mark_safe(json.dumps(Support.objects.filter(supporter=request.user, supported_user=user).exists())),
+        'support_url': mark_safe(json.dumps(reverse('browse:support_user', kwargs={'user_id': user.id}))),
+        'unsupport_url': mark_safe(json.dumps(reverse('browse:unsupport_user', kwargs={'user_id': user.id}))),
     }
-    print('USER STUFF', user.post_set.all())
+    print('CONTEXT', context['supported'])
+    # print('USER STUFF', user.post_set.all())
     return render(request, 'browse/profile.html', context=context)
+    # return None
 
 @csrf_exempt
 def support_user(request, user_id):
     user = User.objects.get(id=user_id)
     support, created = Support.objects.get_or_create(supporter=request.user, supported_user=user)
     if created:
-        return JsonResponse({'message': 'User supported.', 'supported': 'true', 'n_supporters': user.n_supporters}, status=200)
+        return JsonResponse({'message': 'User supported.', 'supported': 'true', 'n_supporters': user.profile.n_supporters}, status=200)
     else:
-        return JsonResponse({'message': 'Error: user already supported by current user.', 'n_supporters': user.n_supporters}, status=500)
+        return JsonResponse({'message': 'Error: user already supported by current user.', 'n_supporters': user.profile.n_supporters}, status=500)
 
 @csrf_exempt
 def unsupport_user(request, user_id):
     user = User.objects.get(id=user_id)
     supports = Support.objects.filter(supporter=request.user, supported_user=user)
     if supports.count() == 0:
-        return JsonResponse({'message': 'Error: user not supported.', 'supported': 'false', 'n_supporters': user.n_supporters}, status=500)
+        return JsonResponse({'message': 'Error: user not supported.', 'supported': 'false', 'n_supporters': user.profile.n_supporters}, status=500)
     elif supports.count() > 1:
         supports.delete()
         return JsonResponse({'message': 'Error: multiple supports exist for this current user and supported user (all supports removed).', 'supported': 'false', 'n_supporters': user.n_supporters}, status=500)
     else:
         supports.delete()
-        return JsonResponse({'message': 'Support removed.', 'supported': 'false', 'n_supporters': user.n_supporters}, status=200)
+        return JsonResponse({'message': 'Support removed.', 'supported': 'false', 'n_supporters': user.profile.n_supporters}, status=200)

@@ -2,7 +2,13 @@
     padding: 0px;
 }
 
-#post {
+#profile-header {
+    background-color: red;
+    width: 100%;
+    height: 2rem;
+}
+
+#profile {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -15,108 +21,21 @@
     /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
 }
 
-#post::-webkit-scrollbar {
+#profile::-webkit-scrollbar {
     display: none;
 }
 
-#image {
-    position: relative;
-    background-color: #D1D6C4;
-    height: 20rem;
-    z-index: 1;
-}
-
-#info-section {
-    position: absolute;
-    height: 4rem;
-}
-
-#author-info {
-    position: relative;
-    width: 14rem;
-    height: 100%;
-    background-color: #383838;
-    border-bottom-right-radius: .65rem;
-}
-
-#author-image {
-    position: absolute;
-    background-color: #CDA990;
-    height: 100%;
-    width: 4rem;
-    /* float: left; */
-}
-
-#other-author-info {
-    position: absolute;
-    left: 4rem;
-    /* float: right; */
-}
-
-#author-name {
-    background-color: #F1C231;
-    border-radius: .5rem;
-    /* margin-left: 10rem; */
-    color: black;
-
-}
-
-#author-country {
-    color: #EFEFEF;
-}
-
-#other-info {
-    height: 4rem;
-    color: #d9d9d9;
-    float: right;
-}
-
-#title {
-    margin-top: 4rem; /* height of info-section */
-    color: #6AA850;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-#tags {
-    outline: none; /* doesn't work when applied directly */
-    margin-left: .5rem;
-}
-
-.selectivity-multiple-input-container {
-    background-color: transparent;
-}
-
-.selectivity-multiple-selected-item {
-    /* background-color: #F1C231; */
-    background-color: #3C78D8;
-    color: #EFEFEF;
-}
-
-#text {
-    height: 50rem;
-    background-color: black;
-    color: #F3F3F3;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: .8rem;
-    border-radius: .65rem;
-    padding: 1rem;
-}
-
-
-#post-footer {
+#profile-footer {
     position: absolute;
     width: 100%;
     height: 4rem;
     bottom: 0px;
     background-color: #434343;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
 }
 
-#back-button, #support-button, #reply-button, #next-button {
+#back-button, #support-button, #unsupport-button {
     background-color: #686868;
     margin-top: .7rem;
     height: 2.6rem;
@@ -125,17 +44,10 @@
     padding-left: .2rem;
     padding-right: .5rem;
     padding-top: .4rem;
+    margin-left: 1.2rem;
 }
 
-#footer-bookend-left, #footer-bookend-right {
-    background-color: transparent;
-}
-
-#back-button {
-
-}
-
-#post-footer img {
+#profile-footer img {
     height: 3rem;
     height: 2.1rem;
     margin-top: -.2rem;
@@ -145,7 +57,7 @@
 #back-icon {
 }
 
-#post-footer span {
+#profile-footer span {
     color: #D9D9D9;
     font-weight: 500;
     font-size: 1.25rem;
