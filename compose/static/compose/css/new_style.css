@@ -81,3 +81,18 @@ input, textarea {
     font-size: 1.2rem;
     color: #FA1001;
 }
+
+#image-label {
+    float: left;
+    width: 4.5rem;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    margin-top: .45rem;
+    /* position: absolute; */
+}
+
+#id_image {
+    width: calc(100% - 4.5rem);
+    /* float: right; */
+    /* padding-top: 3rem; */
+}

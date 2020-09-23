@@ -93,7 +93,7 @@ class Profile(models.Model):
 #     website = models.CharField(max_length=160, null=True, blank=True)
 
 def user_image_upload_path(instance, filename):
-    return f'users/{instance.post.user.id}/user_image/{filename}'
+    return f'users/{instance.user.id}/user_image/{filename}'
 
 class UserImage(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)

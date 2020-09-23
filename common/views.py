@@ -1,6 +1,7 @@
 # from django.contrib.auth import authenticate
 # from django.contrib.auth import login as auth_login
 from django.contrib import auth
+from django.contrib.auth.models import User
 # from django.contrib.auth.forms import AuthenticationForm
 from common.forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.shortcuts import render, redirect
@@ -8,7 +9,7 @@ from cities_light.models import City, Country
 from django.utils.safestring import mark_safe
 import json
 
-# from common.models import Post
+from common.models import Profile, UserImage
 
 # def test(request):
 #     posts = Post.objects.all()
@@ -33,14 +34,31 @@ def join(request):
             next = '/'
 
         if request.method == 'POST':
-            form = CustomUserCreationForm(request.POST)
+            form = CustomUserCreationForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password1')
+                user = User.objects.create_user(
+                    username=username,
+                    password=password,
+                )
+
+                city_name = json.loads(form.cleaned_data['default_city'])['text']
+                city_object = City.objects.get(name=city_name)
+                profile = user.profile
+                profile.default_city = city_object
+                profile.is_organization = form.cleaned_data.get('is_organization')
+                profile.bio = form.cleaned_data.get('bio'),
+                profile.website = form.cleaned_data.get('website'),
+                profile.save()
+
+                image = UserImage.objects.create(
+                    user=user,
+                    image=form.cleaned_data.get('user_image')
+                )
+
                 user = auth.authenticate(username=username, password=password)
                 auth.login(request, user)
-
                 return redirect(next)
         else:
             form = CustomUserCreationForm()

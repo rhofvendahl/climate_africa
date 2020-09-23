@@ -18,10 +18,11 @@
 {% block content %}
 <div class='container-fluid'>
     <div id='join'>
-        <form action='{% url 'common:join' %}?next={{ next }}' method='post'>
+        <form id='join-form' action='{% url 'common:join' %}?next={{ next }}' method='post' enctype='multipart/form-data'>
             {% csrf_token %}
+            <input type='hidden' id='default-city-input-hidden' name='default_city'>
             {{ form.non_field_errors }}
-            <div id='initial'>
+            <!-- <div id='initial'> -->
                 <div id='username-mat' class='mat custom-shadow'>
                     <div class="form-group">
                         {{ form.username }}
@@ -45,13 +46,21 @@
                         {{ form.is_organization.errors }}
                     </div>
                 </div>
-                <div id='continue-button' class="button custom-shadow">Continue</div>
-            </div>
-            <div id='continued'>
+                <!-- <div id='continue-button' class="button custom-shadow">Continue</div> -->
+            <!-- </div> -->
+            <!-- <div id='continued'> -->
                 <div id='additional-info-mat' class='mat custom-shadow'>
                     <div id='name-wrapper'>
                         {{ form.name }}
                         {{ form.name.errors }}
+                    </div>
+                    <div id='default-city-wrapper'>
+                        <div id='default-city'></div>
+                        {{ form.default_city.errors }}
+                    </div>
+                    <div id='email-wrapper'>
+                        {{ form.email }}
+                        {{ form.email.errors }}
                     </div>
                     <div id="bio-wrapper">
                         {{ form.bio }}
@@ -61,18 +70,15 @@
                         {{ form.website }}
                         {{ form.website.errors }}
                     </div>
-                    <div id='default-city-wrapper'>
-                        <div id='default-city'></div>
-                        {{ form.default_city.errors }}
-                    </div>
                     <div id='user-image-wrapper'>
+                        <label id='user-image-label' for='id_user_image'>Image:</label>
                         {{ form.user_image }}
                         {{ form.user_image.errors }}
                     </div>
                 </div>
-                <div id='trigger-submission-button' class='button custom-shadow'>Join ClimateJustice4Africa</div>
-                <button id='submit-button-hidden' type='submit'></button>
-            </div>
+                <!-- <div id='trigger-submission-button' class='button custom-shadow'>Join ClimateJustice4Africa</div> -->
+                <button id='submit-button' type='submit' class='button custom-shadow'>Join ClimateJustice4Africa</button>
+            <!-- </div> -->
         </form>
         <a href='{% url 'common:login' %}?next={{ next }}'><div id='login-link'>I already have an account</div></a>
     </div>

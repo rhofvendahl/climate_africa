@@ -78,10 +78,6 @@ input, textarea {
     color: #FA1001;
 }
 
-#submit-button-hidden {
-    display: none;
-}
-
 #is-organization-wrapper {
     padding-bottom: .5rem;
 }
@@ -90,10 +86,26 @@ input, textarea {
     /* width: 1rem; */
     /* height: 1rem; */
     border-radius: .15rem;
+    font-size: 1.1rem;
 }
 
 #is-organization-label {
     color: whitesmoke;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     margin-right: .3rem;
+}
+
+#user-image-label {
+    float: left;
+    width: 4.5rem;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    margin-top: .45rem;
+    /* position: absolute; */
+}
+
+#id_user_image {
+    width: calc(100% - 4.5rem);
+    /* float: right; */
+    /* padding-top: 3rem; */
 }

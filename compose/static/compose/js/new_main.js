@@ -19,12 +19,10 @@ $(document).ready(function() {
     });
 
     $('#new-form').submit(function() {
-        console.log('hey')
-        tags_data = $('#tags').selectivity('data');
-        $('#tags-input-hidden').val(JSON.stringify(tags_data));
-        city_data = $('#city').selectivity('data');
-        console.log('city data', city_data)
-        $('#city-input-hidden').val(JSON.stringify(city_data));
+        var tagsData = $('#tags').selectivity('data');
+        $('#tags-input-hidden').val(JSON.stringify(tagsData));
+        var cityData = $('#city').selectivity('data');
+        $('#city-input-hidden').val(JSON.stringify(cityData));
         return true;
     });
 });
