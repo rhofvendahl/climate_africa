@@ -22,8 +22,8 @@
     <div id='profile-wrapper'>
         <div id='profile-header' class='custom-shadow'>
             <div id='profile-header-left'>
-                {% if user.user_image.image %}
-                <img id='user-image' src='{{ user.user_image.image.url }}' alt='user image'/>
+                {% if user.profile.user_image_or_none %}
+                <img id='user-image' src='{{ user.profile.user_image_or_none.image.url }}' alt='user image'/>
                 {% else %}
                 <div id='no-user-image'>[No image provided]</div>
                 {% endif %}

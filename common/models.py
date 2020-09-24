@@ -67,7 +67,15 @@ class Profile(models.Model):
     is_organization = models.BooleanField(default=False)
     bio = models.TextField(null=True, blank=True) # suggested for orgs, maybe people too
     website = models.CharField(max_length=160, null=True, blank=True) # suggested for organizations
-    # birthday, required for people
+    email = models.EmailField(null=True, blank=True)
+    # birthday, required for people?
+
+    @property
+    def user_image_or_none(self):
+        if hasattr(self.user, 'user_image'):
+            return self.user.user_image
+        else:
+            return None
 
     @property
     def n_supporters(self):

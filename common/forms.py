@@ -44,6 +44,21 @@ class CustomUserCreationForm(UserCreationForm):
         print('Error: unexpected is_organization value')
         return is_organization
 
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if name == '':
+            self.add_error('name', ValidationError('Please enter a name'))#, code='none_selected')
+            return None
+        else:
+            return name
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if email == '':
+            return None
+        else:
+            return email
+
     def clean_bio(self):
         bio = self.cleaned_data['bio']
         if bio == '':
@@ -53,7 +68,6 @@ class CustomUserCreationForm(UserCreationForm):
 
     def clean_default_city(self):
         default_city = self.cleaned_data['default_city']
-        print('PRE DEFAULT CITY', default_city)
         if default_city == '' or default_city == 'null':
             self.add_error('default_city', ValidationError('Please select a default city from the dropdown'))#, code='none_selected')
             return None

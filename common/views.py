@@ -48,8 +48,10 @@ def join(request):
                 profile = user.profile
                 profile.default_city = city_object
                 profile.is_organization = form.cleaned_data.get('is_organization')
-                profile.bio = form.cleaned_data.get('bio'),
-                profile.website = form.cleaned_data.get('website'),
+                profile.bio = form.cleaned_data.get('bio')
+                profile.website = form.cleaned_data.get('website')
+                profile.email = form.cleaned_data.get('email')
+                profile.name = form.cleaned_data.get('name')
                 profile.save()
 
                 image = UserImage.objects.create(
