@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from menu.forms import ChangeInfoForm
-from django.contrib.auth.forms import SetPasswordForm
+from menu.forms import ChangeInfoForm, CustomSetPasswordForm
+# from django.contrib.auth.forms import SetPasswordForm, PasswordChangeForm
 from django.contrib import auth
 from django.contrib.auth.models import User
 from cities_light.models import City, Country
@@ -17,7 +17,6 @@ def select(request):
     return render(request, 'menu/select.html', context=context)
 
 def change_info(request):
-    print('SITEEEE', request.user.profile.website, type(request.user.profile.website))
     if request.method == 'POST':
         form = ChangeInfoForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
@@ -81,12 +80,13 @@ def change_info(request):
 
 def change_password(request):
     if request.method == 'POST':
-        form = SetPasswordForm(request.POST, user=request.user)
+        form = CustomSetPasswordForm(request.user, request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            auth.update_session_auth_hash(request, user)
             return redirect('menu:select')
     else:
-        form = SetPasswordForm(user=request.user)
+        form = CustomSetPasswordForm(request.user)
     context = {
         'form': form,
     }

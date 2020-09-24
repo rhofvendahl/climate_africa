@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.forms.widgets import PasswordInput, TextInput, Textarea, CheckboxInput, NullBooleanSelect, RadioSelect, EmailInput, ClearableFileInput
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import SetPasswordForm
 
 class ChangeInfoForm(forms.Form):
     new_username = forms.CharField(widget=TextInput(attrs={'placeholder': 'New username'}))
@@ -59,9 +60,11 @@ class ChangeInfoForm(forms.Form):
 
     def clean_new_website(self):
         new_website = self.cleaned_data['new_website']
-        print('NEW SITE IN FORM', new_website, type(new_website))
         if new_website == '':
-            print('ABOUT TO RETURN NONE IN FORM')
             return None
         else:
             return new_website
+
+class CustomSetPasswordForm(SetPasswordForm):
+    new_password1 = forms.CharField(widget=PasswordInput(attrs={'placeholder':'New password'}))
+    new_password2 = forms.CharField(widget=PasswordInput(attrs={'placeholder':'Confirm new password'}))
