@@ -12,95 +12,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 5rem;
-    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
 }
 
 #posts::-webkit-scrollbar {
     display: none;
-}
-
-.post {
-    margin-top: 1.5rem;
-    margin-left: .75rem;
-    margin-right: .75rem;
-    border-radius: .65rem;
-}
-
-.post-header {
-    position: relative;
-    height: 3.8rem;
-}
-
-.post-header-left {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 3.8rem;
-}
-
-.post-header-right {
-    position: absolute;
-    padding-left: .8rem;
-    padding-right: 1rem;
-    padding-top: .4rem;
-    background-color: #383838;
-    border-top-right-radius: .65rem;
-    height: 100%;
-    right: 0;
-    left: 3.5rem;
-}
-
-.author-image {
-    width: 100%;
-    height: 100%;
-    background-color: #CDA990;
-    border-top-left-radius: .65rem;
-}
-
-.author-name-country {
-    color: #d9d9d9;
-}
-
-.title {
-    font-weight: bold;
-    color: #6AA84F;
-    font-size: 1.25rem;
-}
-
-.post-body {
-    position: relative;
-    height: 11rem;
-}
-
-
-.post-body-left {
-    position: absolute;
-    padding-left: 1rem;
-    padding-right: .65rem;
-    padding-top: .65rem;
-    padding-bottom: .65rem;
-    background-color: black;
-    color: #f3f3f3;
-    border-bottom-left-radius: .65rem;
-    border-bottom-right-radius: .65rem;
-    left: 0;
-    /* right: 10rem; */
-    right: 0;
-    height: 100%;
-}
-
-.post-body-right {
-    position: absolute;
-    height: 100%;
-    width: 11rem;
-    right: 0;
-}
-
-.post-image {
-    /* background-color: #D1D6C4; */
-    border-bottom-right-radius: .65rem;
-    width: 100%;
-    height: 100%;
 }
 
 #posts-footer {

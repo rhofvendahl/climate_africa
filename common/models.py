@@ -62,7 +62,7 @@ class Tag(models.Model):
 # for now profile will have fields for organizations alongside fields for people profiles
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-    name = models.CharField(max_length=80, null=True, blank=True)
+    name = models.CharField(max_length=80)
     default_city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT, null=True, blank=True) # change to required later
     is_organization = models.BooleanField(default=False)
     bio = models.TextField(null=True, blank=True) # suggested for orgs, maybe people too

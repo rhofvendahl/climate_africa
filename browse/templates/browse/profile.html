@@ -3,6 +3,7 @@
 {% block content_style %}
 {% load static %}
 <link rel='stylesheet' href='{% static 'browse/css/profile_style.css' %}'>
+<link rel='stylesheet' href='{% static 'browse/css/post_preview_style.css' %}'>
 {% endblock %}
 
 {% block content_script %}
@@ -18,8 +19,33 @@
 {% block content %}
 {% include 'common/header.html' %}
 <div class='container-fluid'>
-    <div id='profile'>
-        <div id='profile-header'>
+    <div id='profile-wrapper'>
+        <div id='profile-header' class='custom-shadow'>
+            <div id='profile-header-left'>
+                {% if user.user_image.image %}
+                <img id='user-image' src='{{ user.user_image.image.url }}' alt='user image'/>
+                {% else %}
+                <div id='no-user-image'>[No image provided]</div>
+                {% endif %}
+            </div>
+            <div id='profile-header-right'>
+                <div id='name'>{{ user.profile.name }}</div>
+                {% if user.website %}
+                <div id='website'>{{ user.website }}</div>
+                {% else %}
+                <div id='no-website'>[No website provided]</div>
+                {% endif %}
+            </div>
+        </div>
+        <div id='profile-posts'>
+            <div id='user-posts-title'>Posts</div>
+            {% if posts %}
+            {% for post in posts %}
+            {% include 'browse/post_preview.html' with post=post %}
+            {% endfor %}
+            {% else %}
+            <div id='no-posts'>[No posts by this user]</div>
+            {% endif %}
         </div>
     </div>
     <div id='profile-footer' class='custom-shadow'>

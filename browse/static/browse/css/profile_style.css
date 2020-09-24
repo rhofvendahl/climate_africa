@@ -2,15 +2,37 @@
     padding: 0px;
 }
 
-#profile-header {
-    background-color: red;
+#profile-wrapper {
+    position: absolute;
     width: 100%;
-    height: 2rem;
+    height: 100%;
 }
 
-#profile {
+#profile-header {
     position: absolute;
-    top: 0;
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 8rem;
+}
+
+#profile-header-left {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 8rem;
+    background-color: lightblue;
+}
+
+#profile-header-right {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 8rem;
+}
+
+#profile-posts {
+    position: absolute;
+    top: 8rem;
     bottom: 0;
     width: 100%;
     background-color: #262525;
@@ -18,11 +40,14 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 5rem;
-    /* LEAVE PADDING-TOP CLEAR; this is manipulated in common/main.js */
 }
 
-#profile::-webkit-scrollbar {
+#profile-posts::-webkit-scrollbar {
     display: none;
+}
+
+#user-posts-title {
+    color: whitesmoke;
 }
 
 #profile-footer {
