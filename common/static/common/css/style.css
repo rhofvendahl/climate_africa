@@ -34,7 +34,6 @@ body {
 }
 
 .custom-shadow {
-    /* box-shadow: 0 2px 5px rgba(0,0,0,.7); */
     -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
@@ -116,67 +115,7 @@ body {
     left: -210.5px;
     top: -360px;
 }
-#return-header-wrapper {
-    position: absolute;
-    width: 100%;
-    padding-left: 50%;
-    z-index: 1;
-}
 
-#return-header {
-    height: 1.4rem;
-    width: 2.8rem;
-    margin-left: -2rem;
-    margin-top: .7rem;
-    display: none;
-    /* position: absolute; */
-
-}
-
-#header {
-    position: absolute; /* necessary to place header shadow over container, for some bizarre reason. also for z-index to work. */
-    width: 100%;
-    /* height: 4rem; */
-    /* background-color: #134E23; */
-    z-index: 2;
-    top: 3rem;
-}
-
-.header-show {
-    top: 3rem;
-}
-
-.header-hide {
-    top: -2.5rem;
-}
-
-#header .row {
-    height: 100%;
-    margin: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.header-icon-wrapper {
-    position: relative;
-    padding: 0px;
-}
-
-.header-icon {
-    position: absolute;
-    width: 4rem;
-    height: 4rem;
-    margin-left: -2rem;
-    margin-top: -2rem;
-    left: 50%;
-    top: 50%;
-    /* background-color: #EFEFEF; */
-    /* color: #191919; */
-    /* border-radius: 2rem; */
-    /* text-align: center; */
-    /* font-weight: bold; */
-    /* padding-top: 1.25rem; */
-}
 /*
 #button-green {
     background-color: #38761D;

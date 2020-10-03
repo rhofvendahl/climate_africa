@@ -5,27 +5,25 @@ $(document).ready(function() {
         if (!animating) {
             animating = true;
             // THESE REM VALUES ARE DEPENDENT ON STYLESHEET - not ideal.
-            $('#header').animate({top: '-2.5rem'}, 400, function() {
+            $('.container-fluid > div:first-child').animate({top: '0'}, 400, function() {
                 $('#header').hide();
                 animating = false;
             });
-            $('.container-fluid > div:first-child').animate({paddingTop: '0'}, 400);
             $('#return-header').fadeIn(400);
             // $('#return-header').animate({marginTop: ".7rem"}, 400);
             // headerHidden = true;
         }
     }
 
-    $('.container-fluid > div:first-child').css({paddingTop: '6rem'});
+    $('.container-fluid > div:first-child').css({top: '6rem'});
     var showHeader = function() {
         if (!animating) {
             $('#header').show();
             animating = true;
             // THESE REM VALUES ARE DEPENDENT ON STYLESHEET - not ideal.
-            $('#header').animate({top: '3rem'}, 400, function() {
+            $('.container-fluid > div:first-child').animate({top: '6rem'}, 400, function() {
                 animating = false;
             });
-            $('.container-fluid > div:first-child').animate({paddingTop: '6rem'}, 400);
             $('#return-header').fadeOut(400);
 
             // $('#return-header').animate({marginTop: "-2.5rem"}, 400, function() {

@@ -5,7 +5,7 @@ $(document).ready(function() {
         if (!animating) {
             animating = true;
             // THESE REM VALUES ARE DEPENDENT ON STYLESHEET - not ideal.
-            $('#header').animate({top: '-2.5rem'}, 400, function() {
+            $('#header').animate({top: '-6rem'}, 400, function() {
                 $('#header').hide();
                 animating = false;
             });
@@ -22,7 +22,7 @@ $(document).ready(function() {
             $('#header').show();
             animating = true;
             // THESE REM VALUES ARE DEPENDENT ON STYLESHEET - not ideal.
-            $('#header').animate({top: '3rem'}, 400, function() {
+            $('#header').animate({top: '0'}, 400, function() {
                 animating = false;
             });
             $('.container-fluid > div:first-child').animate({top: '6rem'}, 400);
