@@ -14,7 +14,7 @@
 {% block content %}
 {% include 'common/header.html' %}
 <div class='container-fluid'>
-    <div id='posts' >
+    <div id='posts'>
         {% if posts %}
         {% for post in posts %}
         {% include 'browse/post_preview.html' with post=post %}

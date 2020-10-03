@@ -23,10 +23,7 @@
     top: 0;
     background-color: #434343;
     z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
+
 }
 
 .header-show {

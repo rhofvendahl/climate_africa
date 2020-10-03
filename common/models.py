@@ -25,6 +25,14 @@ class Image(models.Model):
 def remove_file_from_cloud(sender, instance, using, **kwargs):
     instance.image.delete(save=False)
 
+# might have to add "none selected"
+POST_TYPE_CHOICES = [
+    ('extreme_weather_report', 'Extreme weather report'),
+    ('resilience_project', 'Resilience project'),
+    ('climate_justice_event', 'Climate justice event'),
+    ('well_needed', 'Well needed'),
+]
+
 class Post(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=160)
@@ -33,6 +41,11 @@ class Post(models.Model):
     city = models.ForeignKey('cities_light.City', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
+    type = models.CharField(max_length=40, choices=POST_TYPE_CHOICES)
+    event_date = models.DateField(null=True, blank=True)
+    well_amount = models.IntegerField(null=True, blank=True)
+    well_population = models.IntegerField(null=True, blank=True)
+
 
     @property
     def all_images(self):
@@ -49,11 +62,18 @@ class Post(models.Model):
     def __str__(self):
         return f'ID: {self.id}, title: {self.title}'
 
+TAG_TYPE_CHOICES = [
+    ('report_type', 'Extreme weather report type'),
+    ('report_impacts', 'Extreme weather report impacts'),
+    ('other', 'Other'),
+]
+
 class Tag(models.Model):
     name = models.CharField(max_length=40)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
     is_starter = models.BooleanField(default=False, blank=True)
+    type = models.CharField(max_length=40, choices=TAG_TYPE_CHOICES)
 
     def __str__(self):
         return f'ID: {self.id}, name: {self.name}, is_starter: {str(self.is_starter)}'

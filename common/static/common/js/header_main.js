@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var animating = false;
-    $('.container-fluid > div:first-child').css({top: '6rem'});
+    $('.container-fluid > div:first-child').css({top: '5.99rem'});
 
     var hideHeader = function() {
         if (!animating) {
@@ -23,7 +23,7 @@ $(document).ready(function() {
             $('#header').animate({top: '0'}, 400, function() {
                 animating = false;
             });
-            $('.container-fluid > div:first-child').animate({top: '6rem'}, 400);
+            $('.container-fluid > div:first-child').animate({top: '5.99rem'}, 400);
             $('#return-header').fadeOut(400);
 
             // if (hideHeaderTimeout) {
