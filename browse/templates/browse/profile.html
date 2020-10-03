@@ -30,22 +30,30 @@
             </div>
             <div id='profile-header-right'>
                 <div id='name'>{{ user.profile.name }}</div>
-                {% if user.website %}
-                <div id='website'>{{ user.website }}</div>
+                {% if user.profile.website %}
+                <div id='website'>{{ user.profile.website }}</div>
                 {% else %}
                 <div id='no-website'>[No website provided]</div>
                 {% endif %}
             </div>
         </div>
-        <div id='profile-posts'>
-            <div id='user-posts-title'>Posts</div>
-            {% if posts %}
-            {% for post in posts %}
-            {% include 'browse/post_preview.html' with post=post %}
-            {% endfor %}
-            {% else %}
-            <div id='no-posts'>[No posts by this user]</div>
+        <div id='profile-content'>
+            {% if user.profile.bio %}
+            <div id='profile-bio'>
+                <div id='bio-title'>Bio</div>
+                <div id='bio-text'>{{ user.profile.bio }}</div>
+            </div>
             {% endif %}
+            <div id='profile-posts'>
+                <div id='user-posts-title'>Posts</div>
+                {% if posts %}
+                {% for post in posts %}
+                {% include 'browse/post_preview.html' with post=post %}
+                {% endfor %}
+                {% else %}
+                <div id='no-posts'>[No posts by this user]</div>
+                {% endif %}
+            </div>
         </div>
     </div>
     <div id='profile-footer' class='custom-shadow'>

@@ -30,20 +30,35 @@
     left: 8rem;
 }
 
-#profile-posts {
+#profile-content {
+    background-color: #262525;
     position: absolute;
     top: 8rem;
     bottom: 0;
     width: 100%;
-    background-color: #262525;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 5rem;
 }
 
-#profile-posts::-webkit-scrollbar {
+#profile-content::-webkit-scrollbar {
     display: none;
+}
+
+#bio-title {
+    color: #F3F3F3;
+}
+
+#bio-text {
+    /* height: 50rem; */
+    background-color: black;
+    color: #F3F3F3;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .8rem;
+    border-radius: .65rem;
+    padding: 1rem;
 }
 
 #user-posts-title {

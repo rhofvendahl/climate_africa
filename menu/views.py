@@ -38,7 +38,7 @@ def change_info(request):
             # TODO allow an option to remove image entirely
             new_image = form.cleaned_data.get('new_user_image')
             if new_image:
-                image_object = UserImage.objects.get_or_create(user=user)
+                image_object, created = UserImage.objects.get_or_create(user=user)
                 image_object.image = form.cleaned_data.get('new_user_image')
                 image_object.save()
 
