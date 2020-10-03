@@ -43,7 +43,8 @@
 
 .title {
     font-weight: bold;
-    color: #6AA84F;
+    /* color: #6AA84F; */
+    color: #F3F3F3;
     font-size: 1.25rem;
 }
 

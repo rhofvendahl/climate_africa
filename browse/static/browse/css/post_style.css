@@ -71,8 +71,8 @@
 }
 
 #title {
-    margin-top: 4rem; /* height of info-section */
-    color: #6AA850;
+    margin-top: 4.5rem; /* height of info-section */
+    color: #F3F3F3;
     font-size: 1.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -116,7 +116,7 @@
 }
 
 #back-button, #support-button, #unsupport-button, #reply-button, #next-button {
-    background-color: #686868;
+    background-color: #111111;
     margin-top: .7rem;
     height: 2.6rem;
     border-radius: .5rem;
