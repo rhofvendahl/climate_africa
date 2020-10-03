@@ -4,7 +4,7 @@ from django.forms.widgets import PasswordInput, TextInput, Textarea, CheckboxInp
 # from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 
-is_organization_choices = [
+IS_ORGANIZATION_CHOICES = [
     (None, '(select one)'),
     (False, 'myself'),
     (True, 'my organization'),
@@ -24,7 +24,7 @@ class CustomUserCreationForm(UserCreationForm):
     password1 = forms.CharField(widget=PasswordInput(attrs={'placeholder':'Password'}))
     password2 = forms.CharField(widget=PasswordInput(attrs={'placeholder':'Confirm password'}))
 
-    is_organization = forms.ChoiceField(choices=is_organization_choices)#widget=CustomNullBooleanSelect())#(choices=is_organization_choices))#widget=CheckboxInput(attrs={'class': 'form-check-input'}))
+    is_organization = forms.ChoiceField(choices=IS_ORGANIZATION_CHOICES)#widget=CustomNullBooleanSelect())#(choices=is_organization_choices))#widget=CheckboxInput(attrs={'class': 'form-check-input'}))
     name = forms.CharField(max_length=90, widget=TextInput(attrs={'placeholder': 'Name'}))
     email = forms.EmailField(required=False, widget=EmailInput(attrs={'placeholder': 'Email (optional)'}))
     bio = forms.CharField(required=False, widget=Textarea(attrs={'placeholder': 'Bio (optional)'}))
@@ -35,7 +35,7 @@ class CustomUserCreationForm(UserCreationForm):
     def clean_is_organization(self):
         is_organization = self.cleaned_data['is_organization']
         if is_organization == 'None':
-            self.add_error('is_organization', ValidationError('Please select who this profile is for'))#, code='none_selected')
+            self.add_error('is_organization', ValidationError('Please select who this profile is for'))
             return None
         elif is_organization == 'True':
             return True

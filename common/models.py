@@ -25,7 +25,6 @@ class Image(models.Model):
 def remove_file_from_cloud(sender, instance, using, **kwargs):
     instance.image.delete(save=False)
 
-# might have to add "none selected"
 POST_TYPE_CHOICES = [
     ('extreme_weather_report', 'Extreme weather report'),
     ('resilience_project', 'Resilience project'),
