@@ -10,8 +10,10 @@
 {% load static %}
 <script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
 <script type='text/javascript'>
-    var tagNames = {{ tag_names }};
     var cityNames = {{ city_names }};
+    var reportTypeNames = {{ report_type_names }};
+    var reportImpactNames = {{ report_impact_names }};
+    var projectIntentionNames = {{ project_intention_names }};
 </script>
 <script type='text/javascript' src='{% static 'compose/js/new_main.js' %}'></script>
 {% endblock %}
@@ -26,29 +28,68 @@
             <input type='hidden' id='tags-input-hidden' name='tags'>
             <input type='hidden' id='city-input-hidden' name='city'>
             {{ form.non_field_errors }}
-            <div id='content-mat' class='custom-shadow'>
-                <div id='image-wrapper' class='form-group'>
+            <div id='content-mat' class='custom-shadow mat'>
+                <div id='image-wrapper'>
                     <label id='image-label' for='id_image'>Image:</label>
                     {{ form.image }}
                     {{ form.image.errors }}
                 </div>
-                <div id='title-wrapper' class='form-group'>
+                <div id='title-wrapper'>
                     {{ form.title }}
                     {{ form.title.errors }}
                 </div>
-                <div id='text-wrapper' class='form-group'>
+                <div id='text-wrapper'>
                     {{ form.text }}
                     {{ form.text.errors }}
                 </div>
             </div>
-            <div id='meta-mat' class='custom-shadow-specific'>
-                <div id='tags-wrapper' class='form-group'>
-                    <div id='tags'></div>
-                    {{ form.tags.errors }}
-                </div>
-                <div id='city-wrapper' class='form-group'>
-                    <div id='city'></div>
+            <div id='general-meta-mat' class='mat'>
+                <div id='city-wrapper'>
+                    <div id='city' class='selectivity-target'></div>
                     {{ form.city.errors }}
+                </div>
+                <div id='type-wrapper'>
+                    {{ form.type }}
+                    {{ form.type.errors }}
+                </div>
+                <!-- <div id='tags-wrapper'>
+                    <div id='tags'></div>
+                    { form.tags.errors }
+                </div> -->
+            </div>
+            <!-- can probably remove -->
+            <div id='report-meta-mat' class='mat'>
+                <div id='report-type-wrapper'>
+                    <div id='report-type' class='selectivity-target'></div>
+                    {{ form.report_type.errors }}
+                </div>
+                <div id='report-impacts-wrapper'>
+                    <div id='report-impacts'></div>
+                    {{ form.report_impacts.errors }}
+                </div>
+            </div>
+            <div id='project-meta-mat' class='mat'>
+                <div id='project-intentions-wrapper'>
+                    <div id='project-intentions' class='selectivity-target'></div>
+                    {{ form.project_intentions.errors }}
+                </div>
+            </div>
+            <div id='event-meta-mat' class='mat'>
+                <div id='event-date-wrapper'>
+                    {{ form.event_date }}
+                    {{ form.event_date.errors }}
+                </div>
+            </div>
+            <div id='well-meta-mat' class='mat'>
+                <div id='well-amount-wrapper'>
+                    <label id='well-amount-label' for='id_well_amount'>Amount needed (USD): $</label>
+                    {{ form.well_amount }}
+                    {{ form.well_amount.errors }}
+                </div>
+                <div id='well-population-wrapper'>
+                    <label id='well-population-label' for='id_well_population'>Population served:</label>
+                    {{ form.well_population }}
+                    {{ form.well_population.errors }}
                 </div>
             </div>
             <button id='submit-button' type='submit' class="custom-shadow">Submit</button>

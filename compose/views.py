@@ -45,8 +45,8 @@ def new(request):
             return redirect('common:init') # replace with animation page
     else:
         form = PostForm()
-    tag_names = [tag.name for tag in Tag.objects.all()]
-    tag_names_json = mark_safe(json.dumps(tag_names))
+    # tag_names = [tag.name for tag in Tag.objects.all()]
+    # tag_names_json = mark_safe(json.dumps(tag_names))
 
     country_city_names = [{
         'text': country.name,
@@ -57,10 +57,20 @@ def new(request):
     } for country in Country.objects.filter(continent='AF')]
     country_city_names_json = mark_safe(json.dumps(country_city_names))
 
+    report_type_names = [tag.name for tag in Tag.objects.filter(type='report_type', is_starter=True)]
+    report_type_names_json = mark_safe(json.dumps(report_type_names))
+    report_impact_names = [tag.name for tag in Tag.objects.filter(type='report_impact', is_starter=True)]
+    report_impact_names_json = mark_safe(json.dumps(report_impact_names))
+    project_intention_names = [tag.name for tag in Tag.objects.filter(type='project_intention', is_starter=True)]
+    project_intention_names_json = mark_safe(json.dumps(project_intention_names))
+
     context = {
         'form': form,
-        'tag_names': tag_names_json,
+        # 'tag_names': tag_names_json,
         'city_names': country_city_names_json,
+        'report_type_names': report_type_names_json,
+        'report_impact_names': report_impact_names_json,
+        'project_intention_names': project_intention_names_json,
     }
     # print('COUNTRY CITY NAMES', country_city_names_json)
     return render(request, 'compose/new.html', context=context)

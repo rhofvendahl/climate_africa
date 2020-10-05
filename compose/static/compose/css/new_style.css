@@ -20,8 +20,7 @@
     display: none;
 }
 
-#content-mat, #meta-mat {
-    position: relative;
+.mat {
     background-color: #434343;
     border-radius: .65rem;
     padding-left: 1rem;
@@ -30,7 +29,16 @@
     margin-top: 1.5rem;
 }
 
-#content-mat > *, #meta-mat > * {
+/* Prevents shadow from affecting children (which can mess with some things) */
+.mat:before {
+    -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+}
+
+.mat > * {
     padding-bottom: 1rem;
 }
 
@@ -38,7 +46,7 @@
     margin: 0;
 }
 
-input, textarea, .selectivity-multiple-input-container, .selectivity-single-select {
+input, textarea, .selectivity-multiple-input-container, .selectivity-single-select, select {
     background-color: #EFEFEF;
     border-radius: .25rem;
     color: black;
@@ -55,6 +63,10 @@ input, textarea {
 
 #text-input {
     height: 10rem;
+}
+
+#event-date-wrapper > select {
+    margin-right: 1rem;
 }
 
 #submit-button {
@@ -81,17 +93,40 @@ input, textarea {
     color: #FA1001;
 }
 
+label {
+
+}
+
 #image-label {
     float: left;
     width: 4.5rem;
     color: whitesmoke;
     font-size: 1.3rem;
     margin-top: .45rem;
-    /* position: absolute; */
+}
+
+#well-amount-label {
+    float: left;
+    /* width: 4.5rem; */
+    color: whitesmoke;
+    font-size: 1.3rem;
+    /* margin-top: .45rem; */
+}
+
+#well-population-label {
+    float: left;
+    /* width: 4.5rem; */
+    color: whitesmoke;
+    font-size: 1.3rem;
+    /* margin-top: .45rem; */
+}
+
+#id_well_population, #id_well_amount {
+    width: 8rem;
+    height: 2rem;
+    margin-left: .7rem;
 }
 
 #id_image {
     width: calc(100% - 4.5rem);
-    /* float: right; */
-    /* padding-top: 3rem; */
 }

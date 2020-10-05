@@ -42,8 +42,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True)
     type = models.CharField(max_length=40, choices=POST_TYPE_CHOICES)
     event_date = models.DateField(null=True, blank=True)
-    well_amount = models.IntegerField(null=True, blank=True)
-    well_population = models.IntegerField(null=True, blank=True)
+    well_amount = models.PositiveIntegerField(null=True, blank=True)
+    well_population = models.PositiveIntegerField(null=True, blank=True)
 
 
     @property
@@ -63,7 +63,8 @@ class Post(models.Model):
 
 TAG_TYPE_CHOICES = [
     ('report_type', 'Extreme weather report type'),
-    ('report_impacts', 'Extreme weather report impacts'),
+    ('report_impact', 'Extreme weather report impact'),
+    ('project_intention', 'Resilience project intention'),
     ('other', 'Other'),
 ]
 

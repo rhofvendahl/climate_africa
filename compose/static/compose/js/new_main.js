@@ -1,9 +1,21 @@
 $(document).ready(function() {
-    $('#tags').selectivity({
-        items: tagNames,
+    $('#city').selectivity({
+        allowClear: true,
+        items: cityNames,
+        placeholder: 'Location',
+    });
+
+    $('#report-type').selectivity({
+        allowClear: true,
+        items: reportTypeNames,
+        placeholder: 'Report type',
+    });
+
+    $('#report-impacts').selectivity({
+        items: reportImpactNames,
         multiple: true,
         inputType: 'Multiple',
-        placeholder: 'Intentions ("Enter" to create)',
+        placeholder: 'Report impacts ("Enter" to create)',
         createTokenItem: function(val) {
             return {
                 id: val,
@@ -12,10 +24,17 @@ $(document).ready(function() {
         }
     });
 
-    $('#city').selectivity({
-        allowClear: true,
-        items: cityNames,
-        placeholder: 'Location',
+    $('#project-intentions').selectivity({
+        items: projectIntentionNames,
+        multiple: true,
+        inputType: 'Multiple',
+        placeholder: 'Project intentions ("Enter" to create)',
+        createTokenItem: function(val) {
+            return {
+                id: val,
+                text: val,
+            }
+        }
     });
 
     $('#new-form').submit(function() {
@@ -25,4 +44,30 @@ $(document).ready(function() {
         $('#city-input-hidden').val(JSON.stringify(cityData));
         return true;
     });
+
+    var hideAll = function() {
+        $('#report-meta-mat').hide();
+        $('#project-meta-mat').hide();
+        $('#event-meta-mat').hide();
+        $('#well-meta-mat').hide();
+    }
+    hideAll();
+
+    var render = function() {
+        hideAll();
+        var val = $('#id_type').val();
+        if (val == 'extreme_weather_report') {
+            $('#report-meta-mat').show();
+        } else if (val == 'resilience_project') {
+            $('#project-meta-mat').show();
+        } else if (val == 'climate_justice_event') {
+            $('#event-meta-mat').show();
+        } else if (val == 'well_needed') {
+            $('#well-meta-mat').show();
+        }
+    }
+
+    $('#id_type').change(function() {
+        render();
+    })
 });

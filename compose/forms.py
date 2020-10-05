@@ -1,11 +1,11 @@
 from django import forms
-from django.forms.widgets import TextInput, Textarea, ClearableFileInput
+from django.forms.widgets import TextInput, Textarea, ClearableFileInput, SelectDateWidget
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 import datetime
 
 POST_TYPE_CHOICES = [
-    (None, '(select one)'),
+    (None, 'Post type (select one)'),
     ('extreme_weather_report', 'Extreme weather report'),
     ('resilience_project', 'Resilience project'),
     ('climate_justice_event', 'Climate justice event'),
@@ -18,13 +18,15 @@ class PostForm(forms.Form):
     city = forms.CharField(max_length=80)
     # image = forms.ImageField(widget=ClearableFileInput(attrs={'class': 'form-control-file'}))
     image = forms.ImageField(required=False)
-    type = forms.ChoiceField(max_length=40, choices=POST_TYPE_CHOICES)
+    type = forms.ChoiceField(choices=POST_TYPE_CHOICES)
 
-    report_type = forms.CharField(max_length=40, required=False)
-    report_impacts = forms.CharField(max_length=800, required=False)
-    event_date = forms.DateField(required=False, initial=datetime.date.today)
-    well_amount = forms.IntegerField(required=False)
-    well_population = forms.IntegerField(required=False)
+    report_type = forms.CharField(max_length=40, required=False) # selectivity single -> tag
+    report_impacts = forms.CharField(max_length=800, required=False) # selectivity multiple -> tags
+    project_intentions = forms.CharField(max_length=800, required=False) # selectivity multiple -> tags
+    # event_date = forms.DateField(required=False, initial=datetime.date.today)
+    event_date = forms.DateField(required=False, widget=SelectDateWidget())
+    well_amount = forms.IntegerField(required=False, min_value=0)
+    well_population = forms.IntegerField(required=False, min_value=0)
 
     def clean_event_date(self):
         type = self.cleaned_data['type']
@@ -50,7 +52,7 @@ class PostForm(forms.Form):
                 self.add_error('well_population', ValidationError('Please enter how many people the well will serve'))
         return well_population
 
-    def clean_report_types(self):
+    def clean_report_type(self):
         type = self.cleaned_data['type']
         report_type = self.cleaned_data['report_type']
         if type == 'extreme_weather_report':
@@ -67,5 +69,5 @@ class PostForm(forms.Form):
     def clean_type(self):
         type = self.cleaned_data['type']
         if not type:
-            self.add_error('type', ValidationError('Please select a post type dropdown'))
+            self.add_error('type', ValidationError('Please select a post type from the dropdown'))
         return type
