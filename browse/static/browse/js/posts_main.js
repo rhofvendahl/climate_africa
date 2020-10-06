@@ -133,4 +133,24 @@ $(document).ready(function() {
             $('#sort-bar').hide();
         });
     });
+
+    $('#city').selectivity({
+        allowClear: true,
+        items: availableCityNames,
+        placeholder: 'Location',
+    });
+
+    $('#id_type').change(function() {
+        $('#id_type').css({'color': '#EEEEEE'});
+    });
+
+    $('#id_sort_by').change(function() {
+        $('#id_sort_by').css({'color': '#EEEEEE'});
+    });
+
+    $('#new-form').submit(function() {
+        var cityData = $('#city').selectivity('data');
+        $('#city-input-hidden').val(JSON.stringify(cityData));
+        return true;
+    });
 });

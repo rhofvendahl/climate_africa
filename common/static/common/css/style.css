@@ -11,21 +11,9 @@ body {
     height: 100%;
     overflow-y: hidden;
 }
+
 /*
-.custom-shadow-sm {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.custom-shadow {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
 .custom-shadow-lg {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-} */
-
-.custom-shadow-lg {
-    /* box-shadow: 0 3px 7px rgba(0,0,0,.8); */
     -webkit-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
     -moz-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
     -ms-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
@@ -42,22 +30,41 @@ body {
 }
 
 .custom-shadow-sm {
-    /* box-shadow: 0 1px 3px rgba(0,0,0,.6); */
     -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     -moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     -ms-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     -o-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+} */
+
+.custom-shadow-lg {
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,.7);
+    /* box-shadow: 0 .3rem .7rem rgba(0,0,0,.8); */
+    /* -webkit-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -moz-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -ms-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    -o-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
+    filter: drop-shadow(0 3px 7px rgba(0,0,0,.8)); */
 }
 
-/* Prevents shadow from affecting children (which can mess with some things) */
-.custom-shadow-specific:before {
-    /* box-shadow: 0 2px 5px rgba(0,0,0,.7); */
-    -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+.custom-shadow {
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.6);
+    /* box-shadow: 0 .2rem .5rem rgba(0,0,0,.7); */
+    /* -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7)); */
+}
+
+.custom-shadow-sm {
+    box-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+    /* box-shadow: 0 .1rem .3rem rgba(0,0,0,.6); */
+    /* -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -ms-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    -o-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.6)); */
 }
 
 /*

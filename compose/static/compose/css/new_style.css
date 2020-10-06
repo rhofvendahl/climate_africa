@@ -30,13 +30,22 @@
 }
 
 /* Prevents shadow from affecting children (which can mess with some things) */
-.mat:before {
+/* .mat {
     -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
     filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-}
+} */
+
+/*
+.mat * {
+    -webkit-filter: none !important;
+    -moz-filter: none !important;
+    -ms-filter: none !important;
+    -o-filter: none !important;
+    filter: none !important;
+} */
 
 .mat > * {
     padding-bottom: 1rem;

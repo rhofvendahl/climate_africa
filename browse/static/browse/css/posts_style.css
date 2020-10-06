@@ -38,26 +38,15 @@
     margin-right: 5.8rem; /* margin-left + width of expand + margin-left */
 }
 
-#footer-bars > * {
+.bar {
     position: relative;
     width: 100%;
     height: 2.6rem;
-    border-radius: .5rem;
     margin-bottom: 1.2rem;
-    background-color: #666666;
-    /* display: none; */
 }
 
-/* ??? */
-#location-bar, #tags-bar, #sort-bar {
-    display: none;
-}
 
-#tags-bar {
-    border: .1rem solid #111111;
-}
-
-#search-icon-wrapper, #location-bar-dropdown, #sort-bar-dropdown {
+#search-icon-wrapper {
     position: absolute;
     left: 0;
     height: 100%;
@@ -67,6 +56,17 @@
     font-size: 1.25rem;
     font-weight: 500;
     color: #888888;
+}
+
+#id_type, #id_sort_by {
+    background-color: #111111;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #888888;
+    height: 100%;
+    border-radius: .5rem;
+    padding-left: .5rem;
+    border: none;
 }
 
 #search-icon-wrapper {
@@ -85,12 +85,36 @@
     position: absolute;
     left: 3.2rem;
     right: 0;
-    /* top: 0;
-    bottom: 0; */
     height: 100%;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    background-color: #666666;
 }
 
-#search-input-wrapper input {
+#city .selectivity-single-select {
+    border: .1rem solid #111111;
+    height: 100%;
+    border-radius: .5rem;
+    background-color: #666666;
+}
+
+#city .selectivity-single-result-container {
+    margin-top: -.5rem;
+    margin-left: .2rem;
+}
+
+#city .selectivity-single-selected-item {
+    color: white;
+    font-size: 1.25rem;
+    margin-left: .2rem;
+}
+
+#city .selectivity-placeholder {
+    color: #CFCFCF;
+    font-size: 1.25rem;
+}
+
+#id_query {
     width: 100%;
     height: 100%;
     border: .1rem solid #111111;
@@ -101,7 +125,7 @@
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
 }
-
+/*
 #location-bar-dropdown {
     padding-left: .5rem;
     padding-right: .5rem;
@@ -112,7 +136,7 @@
     padding-left: .5rem;
     padding-right: .5rem;
     padding-top: .3rem;
-}
+} */
 
 #search-expand-icon, #search-collapse-icon {
     position: absolute;

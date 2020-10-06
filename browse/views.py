@@ -17,29 +17,43 @@ def posts(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            print('QUERY', type(form.cleaned_data['query']))
             if form.cleaned_data['query']:
                 query = SearchQuery(form.cleaned_data['query'])
                 vector = SearchVector('title', 'text', 'user__profile__name')
                 posts = Post.objects.annotate(search=vector).filter(search=query)
             else:
                 posts = Post.objects.all()
-        else:
-            pass
-            # TODO: handle this
     else:
         form = SearchForm()
         posts = Post.objects.all()
+
+    # won't stand up to huge datasets; should eventually be done with fancy query
+    available_country_city_names_dict = {}
+    for post in posts:
+        city_name = post.city.name
+        country_name = post.city.country.name
+        if country_name in available_country_city_names_dict:
+            if not city_name in available_country_city_names_dict[country_name]:
+                available_country_city_names_dict[country_name].append(city_name)
+        else:
+            available_country_city_names_dict[country_name] = [city_name]
+
+    available_country_city_names_list = [{
+        'text': country_name,
+        'children': [{
+            'id': city_name + '; ' + country_name,
+            'text': city_name,
+        } for city_name in available_country_city_names_dict[country_name]]
+    } for country_name in available_country_city_names_dict]
+    available_country_city_names_json = mark_safe(json.dumps(available_country_city_names_list))
+
+    print('AVAIL CITY JSON', available_country_city_names_json)
+
     context = {
         'posts': posts,
         'form': form,
+        'available_city_names': available_country_city_names_json,
     }
-    # for post in posts:
-    #     print('IMAGE STUFF')
-    #     print('1', post.first_image)
-    #     if post.first_image:
-    #         print('2', post.first_image.image)
-    #         print('3', post.first_image.image.url)
     return render(request, 'browse/posts.html', context=context)
 
 def post(request, post_id):

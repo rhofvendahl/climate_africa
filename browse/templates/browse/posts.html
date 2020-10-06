@@ -2,13 +2,18 @@
 
 {% block content_style %}
 {% load static %}
+<link rel='stylesheet' href='{% static 'common/css/lib/selectivity-jquery.min.css' %}'>
 <link rel='stylesheet' href='{% static 'browse/css/posts_style.css' %}'>
 <link rel='stylesheet' href='{% static 'browse/css/post_preview_style.css' %}'>
 {% endblock %}
 
 {% block content_script %}
 {% load static %}
+<script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
 <script type='text/javascript' src='{% static 'browse/js/posts_main.js' %}'></script>
+<script type='text/javascript'>
+    var availableCityNames = {{ available_city_names }};
+</script>
 {% endblock %}
 
 {% block content %}
@@ -24,25 +29,33 @@
     <div id='posts-footer' class='custom-shadow'>
         <form id='search-form' action='{% url 'browse:posts' %}' method='post'>
             {% csrf_token %}
+            <input type='hidden' id='city-input-hidden' name='city'>
             <div id='footer-bars'>
-                <div id='search-bar'>
+                <div id='search-bar' class='bar'>
                     <div id='search-icon-wrapper'>
                         <img id='search-icon' src='{% static 'browse/img/search_icon_grey.png' %}' alt='search icon'/>
                     </div>
                     <div id='search-input-wrapper'>
                         {{ form.query }}
                     </div>
+                    {{ form.query.errors }}
                 </div>
-                <div id='location-bar'>
-                    <div id='location-bar-dropdown'>Location &#9662;</div>
+                <div id='city-bar' class='bar'>
+                    <!-- <div id='location-bar-dropdown'>Location &#9662;</div> -->
+                    <div id='city'></div>
+                    {{ form.city.errors }}
                 </div>
-                <div id='tags-bar'>
+                <div id='type-bar' class='bar'>
+                    {{ form.type }}
+                    {{ form.type.errors }}
                 </div>
-                <div id='sort-bar'>
-                    <div id='sort-bar-dropdown'>Sort by &#9662;</div>
+                <div id='sort-bar' class='bar'>
+                    <!-- <div id='sort-bar-dropdown'>Sort by &#9662;</div> -->
+                    {{ form.sort_by }}
+                    {{ form.sort_by.errors }}
                 </div>
-                <div id='button-bar'>
-                    <div id='clear-button'>Clear</div>
+                <div id='button-bar' class='bar'>
+                    <a href='{% url 'browse:posts' %}'><div id='clear-button'>Clear</div></a>
                     <button id='search-button' type='submit'>Search</button>
                 </div>
             </div>

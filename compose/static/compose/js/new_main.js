@@ -83,5 +83,4 @@ $(document).ready(function() {
         $('#project-intentions-input-hidden').val(JSON.stringify(projectIntentionsData));
         return true;
     });
-
 });

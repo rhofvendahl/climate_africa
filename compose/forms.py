@@ -34,6 +34,7 @@ class PostForm(forms.Form):
             self.add_error('city', ValidationError('Please select a city from the dropdown'))
         return city
 
+    # necessary?
     def clean_type(self):
         type = self.cleaned_data['type']
         if not type:
