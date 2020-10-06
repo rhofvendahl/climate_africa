@@ -51,7 +51,6 @@ $(document).ready(function() {
         $('#event-meta-mat').hide();
         $('#well-meta-mat').hide();
     }
-    hideAll();
 
     var render = function() {
         hideAll();
@@ -66,8 +65,23 @@ $(document).ready(function() {
             $('#well-meta-mat').show();
         }
     }
+    render();
 
     $('#id_type').change(function() {
         render();
-    })
+        console.log($('#report-type').selectivity('data'))
+    });
+
+    $('#new-form').submit(function() {
+        var cityData = $('#city').selectivity('data');
+        $('#city-input-hidden').val(JSON.stringify(cityData));
+        var reportTypeData = $('#report-type').selectivity('data');
+        $('#report-type-input-hidden').val(JSON.stringify(reportTypeData));
+        var reportImpactsData = $('#report-impacts').selectivity('data');
+        $('#report-impacts-input-hidden').val(JSON.stringify(reportImpactsData));
+        var projectIntentionsData = $('#project-intentions').selectivity('data');
+        $('#project-intentions-input-hidden').val(JSON.stringify(projectIntentionsData));
+        return true;
+    });
+
 });

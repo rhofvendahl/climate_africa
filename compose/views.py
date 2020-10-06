@@ -13,11 +13,10 @@ def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            print(form.cleaned_data)
+
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
-            # print('CITYYYYY', city_object.id)
-            print('CLEANED DATA', form.cleaned_data, form.cleaned_data.get('image'))
-            print('REQUEST STUFF', request.FILES.__dict__)
 
             post = Post.objects.create(
                 user=request.user,
@@ -25,23 +24,70 @@ def new(request):
                 text=form.cleaned_data.get('text'),
                 # image=form.cleaned_data.get('image'),
                 city=city_object,
+                type=form.cleaned_data.get('type'),
+                event_date = form.cleaned_data.get('event_date'),
+                well_amount = form.cleaned_data.get('well_amount'),
+                well_population = form.cleaned_data.get('well_population')
             )
 
-            print('IMAGE', type(form.cleaned_data.get('image')))
-            # print('MODEL IMAGE', post.image, type(post.image))
             image = Image.objects.create(
                 post=post,
                 order_in_post=1,
                 image=form.cleaned_data.get('image'),
             )
 
-            print('IMAGE OBJECT', image, image.image)
+            # tags = json.loads(form.cleaned_data['tags'])
+            # for tag in tags:
+            #     tag_object, created = Tag.objects.get_or_create(name=tag['text'])
+            #     post.tags.add(tag_object)
 
+            print('REPORT TYPE', form.cleaned_data['report_type'])
+            report_type_dict = json.loads(form.cleaned_data['report_type'])
+            if report_type_dict:
+                report_type_filter = Tag.objects.filter(
+                    name=report_type_dict['text'],
+                    type='report_type',
+                )
+                if report_type_filter.exists():
+                    report_type_tag = report_type_filter.first()
+                else:
+                    report_type_tag = Tag.objects.create(
+                        name=report_type_dict['text'],
+                        type='report_type',
+                        is_starter=False,
+                    )
+                post.tags.add(report_type_tag)
 
-            tags = json.loads(form.cleaned_data['tags'])
-            for tag in tags:
-                tag_object, created = Tag.objects.get_or_create(name=tag['text'])
-                post.tags.add(tag_object)
+            for report_impact_dict in json.loads(form.cleaned_data['report_impacts']):
+                report_impact_filter = Tag.objects.filter(
+                    name=report_impact_dict['text'],
+                    type='report_impact',
+                )
+                if report_impact_filter.exists():
+                    report_impact_tag = report_impact_filter.first()
+                else:
+                    report_impact_tag = Tag.objects.create(
+                        name=report_impact_dict['text'],
+                        type='report_impact',
+                        is_starter=False,
+                    )
+                post.tags.add(report_impact_tag)
+
+            for project_intention_dict in json.loads(form.cleaned_data['project_intentions']):
+                project_intention_filter = Tag.objects.filter(
+                    name=project_intention_dict['text'],
+                    type='project_intention',
+                )
+                if project_intention_filter.exists():
+                    project_intention_tag = project_intention_filter.first()
+                else:
+                    project_intention_tag = Tag.objects.create(
+                        name=project_intention_dict['text'],
+                        type='project_intention',
+                        is_starter=False,
+                    )
+                post.tags.add(project_intention_tag)
+
             return redirect('common:init') # replace with animation page
     else:
         form = PostForm()

@@ -20,7 +20,7 @@ def posts(request):
             print('QUERY', type(form.cleaned_data['query']))
             if form.cleaned_data['query']:
                 query = SearchQuery(form.cleaned_data['query'])
-                vector = SearchVector('title', 'text')
+                vector = SearchVector('title', 'text', 'user__profile__name')
                 posts = Post.objects.annotate(search=vector).filter(search=query)
             else:
                 posts = Post.objects.all()

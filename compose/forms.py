@@ -28,6 +28,44 @@ class PostForm(forms.Form):
     well_amount = forms.IntegerField(required=False, min_value=0)
     well_population = forms.IntegerField(required=False, min_value=0)
 
+    def clean_city(self):
+        city = self.cleaned_data['city']
+        if (not city) or (city == 'null'):
+            self.add_error('city', ValidationError('Please select a city from the dropdown'))
+        return city
+
+    def clean_type(self):
+        type = self.cleaned_data['type']
+        if not type:
+            self.add_error('type', ValidationError('Please select a post type from the dropdown'))
+        return type
+
+    def clean_report_type(self):
+        type = self.cleaned_data['type']
+        report_type = self.cleaned_data['report_type']
+        # print('CLEANED DATA IN FORM', self.cleaned_data)
+        # print('REPORT_TYPE', report_type)
+        if (not report_type) or (report_type == 'null'):
+            if type == 'extreme_weather_report':
+                self.add_error('report_type', ValidationError('Please select an extreme weather type from the dropdown'))
+            else:
+                return None
+        return report_type
+
+    def clean_report_impacts(self):
+        type = self.cleaned_data['type']
+        report_impacts = self.cleaned_data['report_impacts']
+        if (not report_impacts) or (report_impacts == 'null'):
+            return None
+        return report_impacts
+
+    def clean_project_intentions(self):
+        type = self.cleaned_data['type']
+        project_intentions = self.cleaned_data['project_intentions']
+        if (not project_intentions) or (project_intentions == 'null'):
+            return None
+        return project_intentions
+
     def clean_event_date(self):
         type = self.cleaned_data['type']
         event_date = self.cleaned_data['event_date']
@@ -51,23 +89,3 @@ class PostForm(forms.Form):
             if not well_population:
                 self.add_error('well_population', ValidationError('Please enter how many people the well will serve'))
         return well_population
-
-    def clean_report_type(self):
-        type = self.cleaned_data['type']
-        report_type = self.cleaned_data['report_type']
-        if type == 'extreme_weather_report':
-            if (not report_type) or (report_type == 'null'):
-                self.add_error('report_type', ValidationError('Please select an extreme weather type from the dropdown'))
-        return city
-
-    def clean_city(self):
-        city = self.cleaned_data['city']
-        if (not city) or (city == 'null'):
-            self.add_error('city', ValidationError('Please select a city from the dropdown'))
-        return city
-
-    def clean_type(self):
-        type = self.cleaned_data['type']
-        if not type:
-            self.add_error('type', ValidationError('Please select a post type from the dropdown'))
-        return type

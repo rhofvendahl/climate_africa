@@ -25,8 +25,10 @@
     <div id='compose'>
         <form id='new-form' action='{% url 'compose:new' %}' method='post' enctype='multipart/form-data'>
             {% csrf_token %}
-            <input type='hidden' id='tags-input-hidden' name='tags'>
             <input type='hidden' id='city-input-hidden' name='city'>
+            <input type='hidden' id='report-type-input-hidden' name='report_type'>
+            <input type='hidden' id='report-impacts-input-hidden' name='report_impacts'>
+            <input type='hidden' id='project-intentions-input-hidden' name='project_intentions'>
             {{ form.non_field_errors }}
             <div id='content-mat' class='custom-shadow mat'>
                 <div id='image-wrapper'>
