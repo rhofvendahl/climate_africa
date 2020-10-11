@@ -7,7 +7,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    background-color: #262525;
+    background-color: #202020;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -26,7 +26,7 @@
     /* kludgey, but can't animate to auto. so, = .7rem*2 + 2.6rem*4 + 1.2rem*3 */
     /* height: 15.4;  */
 
-    background-color: #383838;
+    background-color: #2C2C2C;
     bottom: 0px;
 }
 
@@ -52,17 +52,17 @@
     height: 100%;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    background-color: #111111;
+    background-color: #1B1B1B;
     font-size: 1.25rem;
     font-weight: 500;
-    color: #888888;
+    color: #D8B369;
 }
 
 #id_type, #id_sort_by {
-    background-color: #111111;
+    background-color: #1B1B1B;
     font-size: 1.25rem;
     font-weight: 500;
-    color: #888888;
+    color: #D8B369;
     height: 100%;
     border-radius: .5rem;
     padding-left: .5rem;
@@ -88,14 +88,14 @@
     height: 100%;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    background-color: #666666;
+    background-color: #1B1B1B;
 }
 
 #city .selectivity-single-select {
-    border: .1rem solid #111111;
+    /* border: .1rem solid #111111; */
     height: 100%;
     border-radius: .5rem;
-    background-color: #666666;
+    background-color: #1B1B1B;
 }
 
 #city .selectivity-single-result-container {
@@ -104,22 +104,23 @@
 }
 
 #city .selectivity-single-selected-item {
-    color: white;
+    color: #D8B369;
     font-size: 1.25rem;
     margin-left: .2rem;
 }
 
 #city .selectivity-placeholder {
-    color: #CFCFCF;
+    color: #D8B369;
     font-size: 1.25rem;
 }
 
 #id_query {
     width: 100%;
     height: 100%;
-    border: .1rem solid #111111;
+    /* border: .1rem solid #111111; */
     background-color: transparent;
-    color: white;
+    border: none;
+    color: #D8B369;
     font-size: 1.25rem;
     padding-left: .5rem;
     border-top-right-radius: .5rem;
@@ -176,13 +177,13 @@
     width: 45%;
     height: 100%;
     border-radius: .5rem;
-    background-color: #111111;
+    background-color: #1B1B1B;
     font-size: 1.25rem;
     font-weight: 500;
     /* padding-left: 1rem;
     padding-right: 1rem; */
     text-align: center;
-    color: #888888;
+    color: #D8B369;
 }
 
 #clear-button {
@@ -204,4 +205,8 @@
     font-size: 2rem;
     text-align: center;
     padding-top: .3rem;
+}
+
+input:focus {
+    outline: none;
 }

@@ -1,8 +1,10 @@
-
-.post {
+.post-wrapper {
     margin-top: 1.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.post {
     border-radius: .65rem;
 }
 
@@ -23,12 +25,14 @@
     padding-left: .8rem;
     padding-right: 1rem;
     padding-top: .4rem;
-    background-color: #383838;
+    background-color: #1D4334;
     border-top-right-radius: .65rem;
     height: 100%;
-    right: 0;
     left: 3.5rem;
+    right: 0;
 }
+
+
 
 .author-image {
     width: 100%;
@@ -38,7 +42,7 @@
 }
 
 .author-name-country {
-    color: #d9d9d9;
+    color: #D0AE68;
 }
 
 .title {
@@ -51,30 +55,15 @@
 .post-body {
     position: relative;
     height: 11rem;
+    background-color: #000000;
 }
-
 
 .post-body-left {
     position: absolute;
-    padding-left: 1rem;
-    padding-right: .65rem;
-    padding-top: .65rem;
-    padding-bottom: .65rem;
-    background-color: black;
-    color: #f3f3f3;
-    border-bottom-left-radius: .65rem;
-    border-bottom-right-radius: .65rem;
-    left: 0;
-    /* right: 10rem; */
-    right: 0;
-    height: 100%;
-}
-
-.post-body-right {
-    position: absolute;
     height: 100%;
     width: 11rem;
-    right: 0;
+    /* left: 0; */
+    /* z-index: 1; */
 }
 
 .post-image {
@@ -82,4 +71,27 @@
     border-bottom-right-radius: .65rem;
     width: 100%;
     height: 100%;
+}
+
+.post-body-right {
+    position: absolute;
+    padding-left: 1rem;
+    padding-right: .65rem;
+    padding-top: .65rem;
+    padding-bottom: .65rem;
+    color: #f3f3f3;
+    border-bottom-left-radius: .65rem;
+    border-bottom-right-radius: .65rem;
+    /* left: 11rem; */
+    /* right: 10rem; */
+    /* right: 0; */
+    left: 11rem;
+    height: 100%;
+    right: 0;
+    /* width: 100%; */
+}
+
+.post-timestamp {
+    color: #999999;
+    margin-bottom: 0;
 }

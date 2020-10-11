@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log('HEADER MAIN EXECUTING')
     var animating = false;
-    $('.container-fluid > div:first-child').css({top: '5.99rem'});
+    $('.container-fluid > div:first-child').css({top: '5.98rem'});
 
     var hideHeader = function() {
         console.log('HIDEHEADER')
@@ -27,7 +27,7 @@ $(document).ready(function() {
                 animating = false;
             });
             // $('.container-fluid > div:first-child').animate({top: '5.99rem'}, 400);
-            $('.main').animate({top: '5.99rem'}, 400);
+            $('.main').animate({top: '5.98rem'}, 400);
             $('#return-header').fadeOut(400);
 
             // if (hideHeaderTimeout) {
