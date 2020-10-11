@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from browse.forms import SearchForm
 from django.utils.safestring import mark_safe
 from django.contrib.postgres.search import SearchQuery, SearchVector
+from cities_light.models import City, Country
 
 import json
 
@@ -14,22 +15,39 @@ def init(request):
     return redirect('browse:posts')
 
 def posts(request):
+    showing_results = False
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
+            showing_results = True
             if form.cleaned_data['query']:
                 query = SearchQuery(form.cleaned_data['query'])
                 vector = SearchVector('title', 'text', 'user__profile__name')
+                # this is where we'd adjust sort order, if that was supported
                 posts = Post.objects.annotate(search=vector).filter(search=query)
             else:
                 posts = Post.objects.all()
+
+            if form.cleaned_data['type']:
+                posts = posts.filter(type=form.cleaned_data['type'])
+
+            print('PRE CITY POSTS COUNT', posts.count())
+            if form.cleaned_data['city']:
+                print('YES CITY')
+                city_name = json.loads(form.cleaned_data['city'])['text']
+                city_object = City.objects.get(name=city_name)
+                posts = posts.filter(city=city_object)
+            print('POST CITY POSTS COUNT', posts.count())
+
+            posts = posts.order_by('-created_at')
+
     else:
         form = SearchForm()
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-created_at')
 
     # won't stand up to huge datasets; should eventually be done with fancy query
     available_country_city_names_dict = {}
-    for post in posts:
+    for post in Post.objects.all():
         city_name = post.city.name
         country_name = post.city.country.name
         if country_name in available_country_city_names_dict:
@@ -47,10 +65,9 @@ def posts(request):
     } for country_name in available_country_city_names_dict]
     available_country_city_names_json = mark_safe(json.dumps(available_country_city_names_list))
 
-    print('AVAIL CITY JSON', available_country_city_names_json)
-
     context = {
         'posts': posts,
+        'showing_results': showing_results,
         'form': form,
         'available_city_names': available_country_city_names_json,
     }

@@ -195,3 +195,13 @@
     right: 0px;
     border: none;
 }
+
+#showing-results-banner {
+    background-color: #FCDB73;
+    /* background-color: #FDEBAF; */
+    color: #B88F0D;
+    height: 3.5rem;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: .3rem;
+}

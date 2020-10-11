@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class='container-fluid'>
-    <div id='join'>
+    <div id='join' class='main'>
         <form id='join-form' action='{% url 'common:join' %}?next={{ next }}' method='post' enctype='multipart/form-data'>
             {% csrf_token %}
             <input type='hidden' id='default-city-input-hidden' name='default_city'>

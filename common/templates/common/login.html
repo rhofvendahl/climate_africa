@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class='container-fluid'>
-    <div id='login'>
+    <div id='login' class='main'>
         <form action='{% url 'common:login' %}?next={{ next }}' method='post'>
             {% csrf_token %}
             {{ form.non_field_errors }}

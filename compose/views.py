@@ -13,8 +13,6 @@ def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            print(form.cleaned_data)
-
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
 
@@ -41,9 +39,8 @@ def new(request):
             #     tag_object, created = Tag.objects.get_or_create(name=tag['text'])
             #     post.tags.add(tag_object)
 
-            print('REPORT TYPE', form.cleaned_data['report_type'])
-            report_type_dict = json.loads(form.cleaned_data['report_type'])
-            if report_type_dict:
+            if form.cleaned_data['report_type']:
+                report_type_dict = json.loads(form.cleaned_data['report_type'])
                 report_type_filter = Tag.objects.filter(
                     name=report_type_dict['text'],
                     type='report_type',

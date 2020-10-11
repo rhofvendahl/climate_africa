@@ -21,7 +21,7 @@
 {% block content %}
 {% include 'common/header.html' %}
 <div class='container-fluid'>
-    <div id='post'>
+    <div id='post' class='main'>
         <div class='custom-shadow'>
             <div id='image'></div>
             <div id='info-section'>
@@ -44,29 +44,29 @@
         {% endif %}
         <div id='text' class='custom-shadow'>{{ post.text }}</div>
     </div>
-    <div id='post-footer' class='custom-shadow'>
+    <!-- <div id='post-footer' class='custom-shadow'>
         <div id='footer-bookend-left'></div>
-        <div id='back-button'>
+        <a href='{% url 'browse:posts' %}'><div id='back-button'>
             <img id='back-icon' src='{% static 'browse/img/back_icon_grey.png' %}' alt='back icon'/>
             <span id='back-text'>Back</span>
-        </div>
+        </div></a>
         <div id='support-button'>
-            <img id='support-icon' src='{% static 'browse/img/support_icon_grey.png' %}' alt='support icon'/>
+            <img id='support-icon' src='{ static 'browse/img/support_icon_grey.png' }' alt='support icon'/>
             <span id='support-text'>Support</span>
         </div>
         <div id='unsupport-button'>
-            <img id='unsupport-icon' src='{% static 'common/img/heart_icon_red.png' %}' alt='unsupport icon'/>
+            <img id='unsupport-icon' src='{ static 'common/img/heart_icon_red.png' }' alt='unsupport icon'/>
             <span id='unsupport-text'>Unsupport</span>
         </div>
         <div id='reply-button'>
-            <img id='reply-icon' src='{% static 'browse/img/reply_icon_grey.png' %}' alt='reply icon'/>
+            <img id='reply-icon' src='{ static 'browse/img/reply_icon_grey.png' }' alt='reply icon'/>
             <span id='reply-text'>Reply</span>
         </div>
         <div id='next-button'>
-            <img id='next-icon' src='{% static 'browse/img/next_icon_grey.png' %}' alt='next icon'/>
+            <img id='next-icon' src='{ static 'browse/img/next_icon_grey.png' }' alt='next icon'/>
             <span id='next-text'>Next</span>
         </div>
         <div id='footer-bookend-right'></div>
-    </div>
+    </div> -->
 </div>
 {% endblock %}

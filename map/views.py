@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from common.models import Post
+from django.urls import reverse
 
 import folium
 from folium.raster_layers import TileLayer
@@ -41,7 +43,7 @@ def get_feature_dicts():
     return [{'latitude': feature_tuple[0], 'longitude': feature_tuple[1], 'alertlevel': feature_tuple[2], 'type': feature_tuple[3], 'icon_link': feature_tuple[4]} for feature_tuple in feature_tuples]
 
 def init(request):
-    return redirect('map:map_test')
+    return redirect('map:alerts')
 
 def map_test(request):
     map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=3, tileSize=32)
@@ -67,3 +69,62 @@ def map_test(request):
         'map_html': map.get_root().render(),
     }
     return render(request, 'map/map_test.html', context=context)
+
+def alerts(request):
+    map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=3, tileSize=32)
+    map._children['openstreetmap'].options['tileSize'] = 512
+    map._children['openstreetmap'].options['zoomOffset'] = -1
+    # print('MAP DICT', map.__dict__)
+    # print('DIGGING', map._children['openstreetmap'].show)
+
+    feature_dicts = get_feature_dicts()
+    for feature_dict in feature_dicts:
+        icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
+        marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
+        print('MARKER DICT', marker.__dict__)
+        marker.add_to(map)
+
+    # tile_layer = map._children['openstreetmap']
+    # map.remove_layer(tile_layer)
+    # print('AGAIN', map._children['openstreetmap'].options)
+    # tile_layer = folium.raster_layers.TileLayer(tileSize=32).add_to(map)
+
+    context = {
+        'map_iframe': map._repr_html_(),
+        'map_html': map.get_root().render(),
+    }
+    return render(request, 'map/alerts.html', context=context)
+
+def posts(request):
+    map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=4, tileSize=32)
+    map._children['openstreetmap'].options['tileSize'] = 512
+    map._children['openstreetmap'].options['zoomOffset'] = -1
+    # print('MAP DICT', map.__dict__)
+    # print('DIGGING', map._children['openstreetmap'].show)
+
+    # feature_dicts = get_feature_dicts()
+    # for feature_dict in feature_dicts:
+    #     icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
+    #     marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
+    #     print('MARKER DICT', marker.__dict__)
+    #     marker.add_to(map)
+
+    posts = Post.objects.all()
+    for post in posts:
+        # print(reverse('browse:post', kwargs={'post_id': post.id}))
+        popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': post.id}) + '" target="_top">View post</a></div>'
+        # popup = folium.Popup(html=popup_html, max_width=300)
+        marker = folium.Marker([post.city.latitude, post.city.longitude], popup=popup_html)
+        marker.add_to(map)
+        print('OK')
+
+    # tile_layer = map._children['openstreetmap']
+    # map.remove_layer(tile_layer)
+    # print('AGAIN', map._children['openstreetmap'].options)
+    # tile_layer = folium.raster_layers.TileLayer(tileSize=32).add_to(map)
+
+    context = {
+        'map_iframe': map._repr_html_(),
+        'map_html': map.get_root().render(),
+    }
+    return render(request, 'map/posts.html', context=context)

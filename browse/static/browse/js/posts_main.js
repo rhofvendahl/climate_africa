@@ -148,7 +148,7 @@ $(document).ready(function() {
         $('#id_sort_by').css({'color': '#EEEEEE'});
     });
 
-    $('#new-form').submit(function() {
+    $('#search-form').submit(function() {
         var cityData = $('#city').selectivity('data');
         $('#city-input-hidden').val(JSON.stringify(cityData));
         return true;

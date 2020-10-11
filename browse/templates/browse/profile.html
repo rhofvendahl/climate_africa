@@ -19,7 +19,7 @@
 {% block content %}
 {% include 'common/header.html' %}
 <div class='container-fluid'>
-    <div id='profile-wrapper'>
+    <div id='profile-wrapper' class='main'>
         <div id='profile-header' class='custom-shadow'>
             <div id='profile-header-left'>
                 {% if user.profile.user_image_or_none %}
@@ -56,19 +56,19 @@
             </div>
         </div>
     </div>
-    <div id='profile-footer' class='custom-shadow'>
+    <!-- <div id='profile-footer' class='custom-shadow'>
         <div id='back-button'>
-            <img id='back-icon' src='{% static 'browse/img/back_icon_green.svg' %}' alt='back icon'/>
+            <img id='back-icon' src='{ static 'browse/img/back_icon_green.svg' }' alt='back icon'/>
             <span id='back-text'>Back</span>
         </div>
         <div id='support-button'>
-            <img id='support-icon' src='{% static 'browse/img/support_icon_green.svg' %}' alt='support icon'/>
+            <img id='support-icon' src='{ static 'browse/img/support_icon_green.svg' }' alt='support icon'/>
             <span id='support-text'>Support</span>
         </div>
         <div id='unsupport-button'>
-            <img id='unsupport-icon' src='{% static 'common/img/heart_icon_red.png' %}' alt='unsupport icon'/>
+            <img id='unsupport-icon' src='{ static 'common/img/heart_icon_red.png' }' alt='unsupport icon'/>
             <span id='unsupport-text'>Unsupport</span>
         </div>
-    </div>
+    </div> -->
 </div>
 {% endblock %}

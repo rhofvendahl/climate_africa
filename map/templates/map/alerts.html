@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+
+{% block content_style %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'map/css/alerts_style.css' %}'>
+{% endblock %}
+
+{% block content_script %}
+{% load static %}
+<script type='text/javascript' src='{% static 'map/js/alerts_main.js' %}'></script>
+{% endblock %}
+
+{% block content %}
+{% include 'common/header.html' %}
+<div class='container-fluid'>
+    <div id='alerts' class='main'>
+        {{ map_iframe | safe }}
+    </div>
+    <div id='alerts-footer' class='custom-shadow'>
+        <div id='footer-bookend-left'></div>
+        <a href='{% url 'map:alerts' %}' class='button'><div id='alerts-button'>See alerts</div></a>
+        <a href='{% url 'map:posts' %}' class='button'><div id='posts-button'>See posts</div></a>
+        <div id='footer-bookend-right'></div>
+    </div>
+</div>
+{% endblock %}
