@@ -1,14 +1,12 @@
 $(document).ready(function() {
-    console.log('HEADER MAIN EXECUTING')
     var animating = false;
-    $('.container-fluid > div:first-child').css({top: '5.98rem'});
+    $('.container-fluid > div:first-child').css({top: '4.78rem'});
 
     var hideHeader = function() {
-        console.log('HIDEHEADER')
         if (!animating) {
             animating = true;
             // THESE REM VALUES ARE DEPENDENT ON STYLESHEET - not ideal.
-            $('#header').animate({top: '-6rem'}, 400, function() {
+            $('#header').animate({top: '-4.8rem'}, 400, function() {
                 $('#header').hide();
                 animating = false;
             });
@@ -18,7 +16,6 @@ $(document).ready(function() {
     }
 
     var showHeader = function() {
-        console.log('SHOWHEADER')
         if (!animating) {
             $('#header').show();
             animating = true;
@@ -27,7 +24,7 @@ $(document).ready(function() {
                 animating = false;
             });
             // $('.container-fluid > div:first-child').animate({top: '5.99rem'}, 400);
-            $('.main').animate({top: '5.98rem'}, 400);
+            $('.main').animate({top: '4.78rem'}, 400);
             $('#return-header').fadeOut(400);
 
             // if (hideHeaderTimeout) {
@@ -42,7 +39,6 @@ $(document).ready(function() {
 
     // Firefox
     $('html').on('DOMMouseScroll', function(event) {
-        console.log('MOUSESCROLL')
         var delta = event.originalEvent.detail;
 
         if (delta > 0) {
@@ -54,7 +50,6 @@ $(document).ready(function() {
 
     // Chrome, IE, Opera, Safari (& hopefully others)
     $('html').on('mousewheel', function(event) {
-        console.log('MOUSEWHEEL')
         var delta = event.originalEvent.wheelDelta;
 
         if (delta > 0) {
@@ -65,7 +60,6 @@ $(document).ready(function() {
     });
 
     $('#return-header').click(function() {
-        console.log('RETURN HEADER CLICKED')
         showHeader();
     });
 });

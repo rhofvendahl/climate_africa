@@ -112,26 +112,31 @@ $(document).ready(function() {
     var initialFooterHeight = $('#posts-footer').height();
     // $('#browse-footer').css({height: '4rem'});
 
+    var expand = function() {
+        $('#search-expand-icon-wrapper').hide();
+        $('#search-collapse-icon-wrapper').show();
 
-    $('#search-expand-icon').click(function() {
-        $('#search-expand-icon').hide();
-        $('#search-collapse-icon').show();
-
-        $('#location-bar').show();
-        $('#tags-bar').show();
-        $('#sort-bar').show();
+        $('.bar-extra').show();
 
         $('#posts-footer').animate({height: '19.2rem'}, 250); // previously 15.4. calculated from css.
-    });
-    $('#search-collapse-icon').click(function() {
-        $('#search-collapse-icon').hide();
-        $('#search-expand-icon').show();
+    }
+
+    var collapse = function() {
+        $('#search-collapse-icon-wrapper').hide();
+        $('#search-expand-icon-wrapper').show();
 
         $('#posts-footer').animate({height: '4rem'}, 250, function() {
-            $('#location-bar').hide();
-            $('#tags-bar').hide();
-            $('#sort-bar').hide();
+            $('.bar-extra').hide();
         });
+    }
+    collapse();
+
+    $('#search-expand-icon-wrapper').click(function() {
+        expand();
+    });
+
+    $('#search-collapse-icon-wrapper').click(function() {
+        collapse();
     });
 
     $('#city').selectivity({

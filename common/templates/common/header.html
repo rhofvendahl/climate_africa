@@ -3,52 +3,64 @@
 <link rel='stylesheet' href='{% static 'common/css/header_style.css' %}'>
 <script type='text/javascript' src='{% static 'common/js/header_main.js' %}'></script>
 
-<div id='return-header-wrapper'>
-    <img id='return-header' class='custom-shadow' src='{% static 'common/img/downward_triangle_grey.png' %}' alt='return triangle menu'/>
+<div id='return-wrapper'>
+    <img id='return-icon' class='custom-shadow' src='{% static 'common/img/downward_triangle_grey.png' %}' alt='return triangle menu'/>
 </div>
 
 <div id='header' class='custom-shadow-lg'>
-    <div class='header-icon-wrapper col'>
+    <!-- <div class='header-bookend-left'> -->
+    <div class='icon-placement-wrapper'>
         <a href='{% url 'compose:init' %}'>
             {% if request.resolver_match.app_name == 'compose' %}
-            <div class='header-icon-background-gold'></div>
-            <img id='header-icon-compose' class='header-icon' src='{% static 'common/img/compose_icon_darkgold.png' %}' alt='compose icon selected'/>
+            <!-- <div class='header-icon-background-gold'></div> -->
+            <div class='icon-wrapper-selected'><img id='icon-compose' class='icon' src='{% static 'common/img/compose_gold.png' %}' alt='compose icon selected'/></div>
             {% else %}
-            <div class='header-icon-background-grey'></div>
-            <img id='header-icon-compose' class='header-icon' src='{% static 'common/img/compose_icon_darkgrey.png' %}' alt='compose icon unselected'/>
+            <!-- <div class='header-icon-background-grey'></div> -->
+            <div class='icon-wrapper-unselected'><img id='icon-compose' class='icon' src='{% static 'common/img/compose_grey.png' %}' alt='compose icon unselected'/></div>
             {% endif %}
         </a>
     </div>
-    <div class='header-icon-wrapper col'>
+    <div class='icon-placement-wrapper'>
         <a href='{% url 'browse:init' %}'>
             {% if request.resolver_match.app_name == 'browse' %}
-            <div class='header-icon-background-gold'></div>
-            <img id='header-icon-browse' class='header-icon' src='{% static 'common/img/browse_icon_darkgold_clearcenter.png' %}' alt='browse icon selected'/>
+            <!-- <div class='header-icon-background-gold'></div> -->
+            <div class='icon-wrapper-selected'><img id='icon-browse' class='icon' src='{% static 'common/img/browse_gold.png' %}' alt='browse icon selected'/></div>
             {% else %}
-            <div class='header-icon-background-grey'></div>
-            <img id='header-icon-browse' class='header-icon' src='{% static 'common/img/browse_icon_darkgrey_clearcenter.png' %}' alt='browse icon unselected'/>
+            <!-- <div class='header-icon-background-grey'></div> -->
+            <div class='icon-wrapper-unselected'><img id='icon-browse' class='icon' src='{% static 'common/img/browse_grey.png' %}' alt='browse icon unselected'/></div>
             {% endif %}
         </a>
     </div>
-    <div class='header-icon-wrapper col'>
+    <div class='icon-placement-wrapper'>
         <a href='{% url 'map:init' %}'>
             {% if request.resolver_match.app_name == 'map' %}
-            <div class='header-icon-background-gold'></div>
-            <img id='header-icon-map' class='header-icon' src='{% static 'common/img/map_icon_darkgold.png' %}' alt='map icon selected'/>
+            <!-- <div class='header-icon-background-gold'></div> -->
+            <div class='icon-wrapper-selected'><img id='icon-map' class='icon' src='{% static 'common/img/map_gold.png' %}' alt='map icon selected'/></div>
             {% else %}
-            <div class='header-icon-background-grey'></div>
-            <img id='header-icon-map' class='header-icon' src='{% static 'common/img/map_icon_darkgrey.png' %}' alt='map icon unselected'/>
+            <!-- <div class='header-icon-background-grey'></div> -->
+            <div class='icon-wrapper-unselected'><img id='icon-map' class='icon' src='{% static 'common/img/map_grey.png' %}' alt='map icon unselected'/></div>
             {% endif %}
         </a>
     </div>
-    <div class='header-icon-wrapper col'>
+    <div class='icon-placement-wrapper'>
+        <a href='{% url 'help:init' %}'>
+            {% if request.resolver_match.app_name == 'help' %}
+            <!-- <div class='header-icon-background-gold'></div> -->
+            <div class='icon-wrapper-selected'><img id='icon-map' class='icon' src='{% static 'common/img/help_gold.png' %}' alt='help icon selected'/></div>
+            {% else %}
+            <!-- <div class='header-icon-background-grey'></div> -->
+            <div class='icon-wrapper-unselected'><img id='icon-map' class='icon' src='{% static 'common/img/help_grey.png' %}' alt='help icon unselected'/></div>
+            {% endif %}
+        </a>
+    </div>
+    <div class='icon-placement-wrapper'>
         <a href='{% url 'menu:init' %}'>
             {% if request.resolver_match.app_name == 'menu' %}
-            <div class='header-icon-background-gold'></div>
-            <img id='header-icon-menu' class='header-icon' src='{% static 'common/img/menu_icon_darkgold_clearcenter.png' %}' alt='menu icon selected'/>
+            <!-- <div class='header-icon-background-gold'></div> -->
+            <div class='icon-wrapper-selected'><img id='icon-menu' class='icon' src='{% static 'common/img/menu_gold.png' %}' alt='menu icon selected'/></div>
             {% else %}
-            <div class='header-icon-background-grey'></div>
-            <img id='header-icon-menu' class='header-icon' src='{% static 'common/img/menu_icon_darkgrey_clearcenter.png' %}' alt='menu icon unselected'/>
+            <!-- <div class='header-icon-background-grey'></div> -->
+            <div class='icon-wrapper-unselected'><img id='icon-menu' class='icon' src='{% static 'common/img/menu_grey.png' %}' alt='menu icon unselected'/></div>
             {% endif %}
         </a>
     </div>

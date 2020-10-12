@@ -78,6 +78,19 @@ class Tag(models.Model):
     def __str__(self):
         return f'ID: {self.id}, name: {self.name}, is_starter: {str(self.is_starter)}'
 
+def user_image_upload_path(instance, filename):
+    return f'users/{instance.user.id}/user_image/{filename}'
+
+
+class UserImage(models.Model):
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=user_image_upload_path)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True)
+
+    def __str__(self):
+        return f'ID: {self.id}, username: {self.user.username}'
+
 # would be better to have abstract w subclasses, but tricky with existing migrations
 # for now profile will have fields for organizations alongside fields for people profiles
 class Profile(models.Model):
@@ -92,8 +105,9 @@ class Profile(models.Model):
 
     @property
     def user_image_or_none(self):
-        if hasattr(self.user, 'user_image'):
-            return self.user.user_image
+        user_image = UserImage.objects.filter(user=self.user)
+        if user_image.exists():
+            return user_image.latest('created_at')
         else:
             return None
 
@@ -118,18 +132,6 @@ class Profile(models.Model):
 # class OrganizationInfo(models.Model):
 #     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
 #     website = models.CharField(max_length=160, null=True, blank=True)
-
-def user_image_upload_path(instance, filename):
-    return f'users/{instance.user.id}/user_image/{filename}'
-
-class UserImage(models.Model):
-    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=user_image_upload_path)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
-
-    def __str__(self):
-        return f'ID: {self.id}, username: {self.user.username}'
 
 class Support(models.Model):
     supporter = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='supports_made')

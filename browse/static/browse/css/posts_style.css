@@ -7,7 +7,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    background-color: #202020;
+    background-color: #1E1E1E;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -26,23 +26,23 @@
     /* kludgey, but can't animate to auto. so, = .7rem*2 + 2.6rem*4 + 1.2rem*3 */
     /* height: 15.4;  */
 
-    background-color: #2C2C2C;
-    bottom: 0px;
+    background-color: #174839;
+    bottom: 0;
 }
 
 #footer-bars {
     position: relative;
     margin-left: 1.6rem;
-    margin-top: .7rem;
-    margin-bottom: -.5rem; /* margin-top - margin-bottom of footer bar children */
+    margin-top: .5rem;
+    /*margin-bottom: -.5rem;*/ /* margin-top - margin-bottom of footer bar children */
     margin-right: 5.8rem; /* margin-left + width of expand + margin-left */
 }
 
 .bar {
     position: relative;
     width: 100%;
-    height: 2.6rem;
-    margin-bottom: 1.2rem;
+    height: 3rem;
+    margin-bottom: .8rem;
 }
 
 
@@ -52,17 +52,17 @@
     height: 100%;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    background-color: #1B1B1B;
-    font-size: 1.25rem;
+    background-color: #000000;
+    font-size: 1.3rem;
     font-weight: 500;
-    color: #D8B369;
+    color: #F1B773;
 }
 
 #id_type, #id_sort_by {
-    background-color: #1B1B1B;
-    font-size: 1.25rem;
+    background-color: #000000;
+    font-size: 1.3rem;
     font-weight: 500;
-    color: #D8B369;
+    color: #F1B773;
     height: 100%;
     border-radius: .5rem;
     padding-left: .5rem;
@@ -70,11 +70,11 @@
 }
 
 #search-icon-wrapper {
-    padding-left: .5rem;
+    padding-left: .6rem;
     /* padding-right: .5rem; */
     width: 3.2rem;
-    padding-top: .2rem;
-    padding-bottom: .2rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
 }
 
 #search-icon {
@@ -88,30 +88,34 @@
     height: 100%;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    background-color: #1B1B1B;
+    background-color: #000000;
+}
+
+#city {
+    height: 2.7rem;
 }
 
 #city .selectivity-single-select {
     /* border: .1rem solid #111111; */
     height: 100%;
     border-radius: .5rem;
-    background-color: #1B1B1B;
+    background-color: #000000;
 }
 
 #city .selectivity-single-result-container {
-    margin-top: -.5rem;
+    margin-top: -.2rem;
     margin-left: .2rem;
 }
 
 #city .selectivity-single-selected-item {
-    color: #D8B369;
-    font-size: 1.25rem;
+    color: #F1B773;
+    font-size: 1.3rem;
     margin-left: .2rem;
 }
 
 #city .selectivity-placeholder {
-    color: #D8B369;
-    font-size: 1.25rem;
+    color: #F1B773;
+    font-size: 1.3rem;
 }
 
 #id_query {
@@ -120,8 +124,8 @@
     /* border: .1rem solid #111111; */
     background-color: transparent;
     border: none;
-    color: #D8B369;
-    font-size: 1.25rem;
+    color: #F1B773;
+    font-size: 1.3rem;
     padding-left: .5rem;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
@@ -139,18 +143,29 @@
     padding-top: .3rem;
 } */
 
-#search-expand-icon, #search-collapse-icon {
+#search-expand-icon-wrapper, #search-collapse-icon-wrapper {
     position: absolute;
     top: .7rem;
-    height: 2.6rem; /* Height of footer - .6 from top/bottom; kludgey */
     right: 1.6rem;
+    background-color: #000000;
+    width: 2.6rem; /* Height of footer - .6 from top/bottom; kludgey */
+    height: 2.6rem; /* Height of footer - .6 from top/bottom; kludgey */
+    border-radius: 1.3rem;
+    padding-left: .35rem;
+    padding-right: .35rem;
 }
 
-#search-expand-icon {
+#search-expand-icon-wrapper {
+    padding-top: .15rem;
 }
 
-#search-collapse-icon {
+#search-collapse-icon-wrapper {
     display: none;
+    padding-top: .55rem;
+}
+
+#search-expand-icon, #search-collapse-icon {
+    width: 100%;
 }
 /*
 #location-bar {
@@ -177,13 +192,13 @@
     width: 45%;
     height: 100%;
     border-radius: .5rem;
-    background-color: #1B1B1B;
-    font-size: 1.25rem;
+    background-color: #000000;
+    font-size: 1.3rem;
     font-weight: 500;
     /* padding-left: 1rem;
     padding-right: 1rem; */
     text-align: center;
-    color: #D8B369;
+    color: #F1B773;
 }
 
 #clear-button {
@@ -207,6 +222,10 @@
     padding-top: .3rem;
 }
 
-input:focus {
+*:focus {
     outline: none;
+}
+
+.bar-extra {
+    display: none;
 }
