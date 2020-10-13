@@ -20,7 +20,10 @@
     left: 0;
     height: 100%;
     width: 8rem;
-    background-color: lightblue;
+}
+
+#user-image {
+    width: 100%;
 }
 
 #profile-header-right {

@@ -4,7 +4,6 @@ html {
     font-size: 32px;
 }
 
-
 body {
     position: absolute;
     width: 100%;
@@ -138,4 +137,11 @@ body {
 .button, .button:hover, .button:visited, .button:link, .button:active {
     text-decoration: none;
     color: initial;
+}
+
+#content-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 4.8rem; /* to accomodate for header */
+    bottom: 0;
 }

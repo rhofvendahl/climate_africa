@@ -134,11 +134,10 @@ def profile(request, user_id):
     context = {
         'user': user,
         'posts': user.post_set.all(),
-        'supported': mark_safe(json.dumps(Support.objects.filter(supporter=request.user, supported_user=user).exists())),
-        'support_url': mark_safe(json.dumps(reverse('browse:support_user', kwargs={'user_id': user.id}))),
-        'unsupport_url': mark_safe(json.dumps(reverse('browse:unsupport_user', kwargs={'user_id': user.id}))),
+        # 'supported': mark_safe(json.dumps(Support.objects.filter(supporter=request.user, supported_user=user).exists())),
+        # 'support_url': mark_safe(json.dumps(reverse('browse:support_user', kwargs={'user_id': user.id}))),
+        # 'unsupport_url': mark_safe(json.dumps(reverse('browse:unsupport_user', kwargs={'user_id': user.id}))),
     }
-    print('CONTEXT', context['supported'])
     # print('USER STUFF', user.post_set.all())
     return render(request, 'browse/profile.html', context=context)
     # return None
