@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'compose',
     'map',
     # 'story',
+    'help',
     'menu',
     'public',
     # 'view_post',

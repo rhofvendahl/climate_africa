@@ -1,0 +1,18 @@
+{% extends 'common/base.html' %}
+
+{% block content_style %}
+{% load static %}
+<link rel='stylesheet' href='{% static 'help/css/select_style.css' %}'>
+{% endblock %}
+
+{% block content_script %}
+{% load static %}
+<script type='text/javascript' src='{% static 'help/js/select_main.js' %}'></script>
+{% endblock %}
+
+{% block content %}
+<div class='container-fluid'>
+    <div id='select' class='main'>
+    </div>
+</div>
+{% endblock %}

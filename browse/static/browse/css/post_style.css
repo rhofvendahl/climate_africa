@@ -21,8 +21,6 @@
 
 #image {
     position: relative;
-    background-color: #D1D6C4;
-    /* height: 20rem; */
     width: 100%;
     z-index: 1;
 }
@@ -207,3 +205,11 @@
     color: #CCCCCC;
     margin-right: 1rem;
 } */
+
+#author-no-image {
+    position: absolute;
+    width: 4.5rem;
+    word-wrap: break-word;
+    color: whitesmoke;
+    font-size: 1rem;
+}
