@@ -96,8 +96,8 @@
 
 #title {
     font-size: 1.7rem;
-    color: #F3F3F3; /* gold instead? */
-    color: #1A8B74; /* gold instead? */
+    /* color: #F3F3F3; */
+    color: #1A8B74;
     font-weight: bold;
 }
 

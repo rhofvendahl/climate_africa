@@ -101,6 +101,8 @@
     right: 0;
     /* width: 100%; */
     font-size: 1.2rem;
+    word-wrap: break-word;
+    overflow-y: hidden;
 }
 
 .post-timestamp {

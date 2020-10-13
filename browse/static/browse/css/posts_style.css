@@ -213,9 +213,12 @@
 }
 
 #showing-results-banner {
-    background-color: #FCDB73;
+    background-color: #444444;
     /* background-color: #FDEBAF; */
-    color: #B88F0D;
+    /* background-color: #555555; */
+    /* color: #F1B773; */
+    /* color: #1A8B74; */
+    color: #DDDDDD;
     height: 3.5rem;
     font-size: 2rem;
     text-align: center;
