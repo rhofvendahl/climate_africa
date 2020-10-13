@@ -3,9 +3,15 @@
 import os
 import sys
 
+import environ
+env = environ.Env(
+    DEBUG=(bool, False)
+) # should maybe change this when debugging
+environ.Env.read_env()
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'climate_africa.settings')
+    django_settings_module = env('DJANGO_SETTINGS_MODULE')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', django_settings_module)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
