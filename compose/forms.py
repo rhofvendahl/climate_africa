@@ -25,8 +25,8 @@ class PostForm(forms.Form):
     project_intentions = forms.CharField(max_length=800, required=False) # selectivity multiple -> tags
     # event_date = forms.DateField(required=False, initial=datetime.date.today)
     event_date = forms.DateField(required=False, widget=SelectDateWidget())
-    well_amount = forms.IntegerField(required=False, min_value=0)
-    well_population = forms.IntegerField(required=False, min_value=0)
+    well_amount = forms.IntegerField(required=False, min_value=0, max_value=999999999)
+    well_population = forms.IntegerField(required=False, min_value=0, max_value=999999999)
 
     def clean_city(self):
         city = self.cleaned_data['city']
@@ -86,7 +86,7 @@ class PostForm(forms.Form):
     def clean_well_population(self):
         type = self.cleaned_data['type']
         well_population = self.cleaned_data['well_population']
-        if type == 'climate_justice_event':
+        if type == 'well_needed':
             if not well_population:
                 self.add_error('well_population', ValidationError('Please enter how many people the well will serve'))
         return well_population

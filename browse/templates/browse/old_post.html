@@ -10,11 +10,10 @@
 {% load static %}
 <script type='text/javascript' src='{% static 'common/js/lib/selectivity-jquery.min.js' %}'></script>
 <script type='text/javascript'>
-    var reportImpactTagNames = {{ report_impact_tag_names }};
-    var projectIntentionTagNames = {{ project_intention_tag_names }};
-    // var supported = {{ supported }};
-    // var supportUrl = {{ support_url }};
-    // var unsupportUrl = {{ unsupport_url }};
+    var tagNames = {{ tag_names }};
+    var supported = {{ supported }};
+    var supportUrl = {{ support_url }};
+    var unsupportUrl = {{ unsupport_url }};
 </script>
 <script type='text/javascript' src='{% static 'browse/js/post_main.js' %}'></script>
 {% endblock %}
@@ -42,38 +41,19 @@
         <!-- <div id='timestamp-wrapper'> -->
         <div id='timestamp'>{{ formatted_timestamp }}</div>
             <!-- <div id='supports'>{ post.n_supporters }</div> -->
+    <!-- <div id='title'>{ post.title }</div> -->
         <!-- { if tag_names != '[]' }
         <div id='tags'></div>
         { endif } -->
         <div id='other-info'>
-            <div id='title'>{{ post.title }}</div>
             {% if post.type == 'extreme_weather_report' %}
-            <div id='main-type'>Extreme weather report</div>
-            <ul id='type-info-list'>
-                <li>Event type: <span id='report-type'>{{ report_type }}</span></li>
-                {% if report_impact_tag_names != '[]' %}
-                <li><div id='report-impacts-text'>Event impacts: </div><div id='report-impacts'></div></li>
-                {% endif %}
-            </ul>
+            <div id='type-title'><span id='type'>Extreme weather report: </span><span id='title'>{{ post.title }}</span></div>
             {% elif post.type == 'resilience_project' %}
-            <div id='main-type'>Resilience project</div>
-            <ul id='type-info-list'>
-                {% if project_intention_tag_names != '[]' %}
-                <li><div id='project-intentions-text'>Project intentions: </div><div id='project-intentions'></div></li>
-                {% endif %}
-            </ul>
-            <div id='project-intentions'></div>
+            <div id='type-title'><span id='type'>Resilience project: </span><span id='title'>{{ post.title }}</span></div>
             {% elif post.type == 'climate_justice_event' %}
-            <div id='main-type'>Climate justice event</div>
-            <ul id='type-info-list'>
-                <li>Event date: <span id='event-date'>{{ post.event_date }}</span></li>
-            </ul>
+            <div id='type-title'><span id='type'>Climate justice event: </span><span id='title'>{{ post.title }}</span></div>
             {% elif post.type == 'well_needed' %}
-            <div id='main-type'>Well needed</div>
-            <ul id='type-info-list'>
-                <li>Population served: <span id='well-population'>{{ post.well_population }}</span></li>
-                <li>Amount needed (USD): <span id='well-amount'>${{ post.well_amount }}</span></li>
-            </ul>
+            <div id='type-title'><span id='type'>Well needed: </span><span id='title'>{{ post.title }}</span></div>
             {% endif %}
         </div>
         <div id='text' class='custom-shadow'>{{ post.text }}</div>

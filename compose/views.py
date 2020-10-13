@@ -12,7 +12,9 @@ def init(request):
 def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
+        # print('ABT TO TEST VALID', form, form.data)
         if form.is_valid():
+            print('VALID FORM')
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
 
@@ -28,11 +30,12 @@ def new(request):
                 well_population = form.cleaned_data.get('well_population')
             )
 
-            image = Image.objects.create(
-                post=post,
-                order_in_post=1,
-                image=form.cleaned_data.get('image'),
-            )
+            if form.cleaned_data.get('image'):
+                image = Image.objects.create(
+                    post=post,
+                    order_in_post=1,
+                    image=form.cleaned_data.get('image'),
+                )
 
             # tags = json.loads(form.cleaned_data['tags'])
             # for tag in tags:
@@ -86,6 +89,7 @@ def new(request):
                 post.tags.add(project_intention_tag)
 
             return redirect('common:init') # replace with animation page
+        print('FORM STUFFSSSS', form.cleaned_data)
     else:
         form = PostForm()
     # tag_names = [tag.name for tag in Tag.objects.all()]

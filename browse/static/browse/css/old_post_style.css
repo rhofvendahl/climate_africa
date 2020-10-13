@@ -27,10 +27,6 @@
     z-index: 1;
 }
 
-#no-image {
-    height: 0;
-}
-
 #author-info {
     position: absolute;
     height: 4.5rem;
@@ -91,41 +87,27 @@
 #other-info {
     margin-top: 5.5rem; /* height of info-section */
     margin-left: 1rem;
+    margin-left: 1rem;
     margin-right: 1rem;
 }
 
-#title {
-    font-size: 1.7rem;
-    color: #F3F3F3; /* gold instead? */
+#type-title {
     color: #1A8B74; /* gold instead? */
-    font-weight: bold;
+    color: #F3F3F3; /* gold instead? */
+    font-size: 1.7rem;
 }
 
-#main-type {
-    font-size: 1.4rem;
+#type {
     font-style: italic;
-    color: #F3F3F3;
+}
+
+#title {
+    font-weight: bold;
 }
 
 #tags {
     outline: none; /* doesn't work when applied directly */
     margin-left: .5rem;
-}
-
-#type-info-list {
-    color: #F3F3F3;
-}
-
-#type-info-list li {
-    margin-top: .3rem;
-}
-
-#report-type, #event-date, #well-population, #well-amount {
-    font-weight: bold;
-}
-
-#report-impacts-text, #project-intentions-text {
-    float: left;
 }
 
 .selectivity-multiple-input-container {
@@ -136,13 +118,6 @@
     /* background-color: #F1C231; */
     background-color: #3C78D8;
     color: #EFEFEF;
-    /* padding-top: 0; */
-    /* padding-bottom: 0; */
-    height: 2rem;
-    line-height: 2rem;
-    border-radius: .2rem;
-    margin-left: .3rem;
-    margin-top: -.2rem;
 }
 
 #text {
@@ -154,7 +129,6 @@
     margin-top: .8rem;
     border-radius: .65rem;
     padding: 1rem;
-    word-wrap: break-word;
 }
 
 
