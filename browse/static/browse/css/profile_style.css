@@ -54,6 +54,12 @@
     border-radius: .5rem;
 }
 
+#no-website {
+    margin-top: .5rem;
+    color: #DDDDDD;
+    font-size: 1.2rem;
+}
+
 #profile-content {
     background-color: #1E1E1E;
     position: absolute;

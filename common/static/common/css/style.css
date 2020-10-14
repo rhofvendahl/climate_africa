@@ -136,7 +136,6 @@ body {
 
 .button, .button:hover, .button:visited, .button:link, .button:active {
     text-decoration: none;
-    color: initial;
 }
 
 #content-wrapper {

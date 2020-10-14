@@ -30,9 +30,9 @@
             <div id='profile-header-right'>
                 <div id='name'>{{ user.profile.name }}</div>
                 {% if user.profile.website %}
-                <div id='website'>{{ user.profile.website }}</div>
-                {% else %}
-                <div id='no-website'>[No website provided]</div>
+                <div id='website' class='custom-shadow'>{{ user.profile.website }}</div>
+                <!-- { else }
+                <div id='no-website'>[No website provided]</div> -->
                 {% endif %}
             </div>
         </div>

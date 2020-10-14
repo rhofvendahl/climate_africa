@@ -22,7 +22,7 @@
 }
 
 .mat {
-    background-color: #434343;
+    background-color: #174839;
     border-radius: .65rem;
     /* padding: 1rem; */
     padding-left: 1rem;
@@ -39,35 +39,63 @@
     margin: 0;
 }
 
-input, textarea {
-    background-color: #EFEFEF;
+input, textarea, select, .selectivity-single-select {
+    background-color: #000000;
     border-radius: .25rem;
-    /* color: #666666; */
+    color: #F1B773;
     padding: .5rem;
     font-size: 1.2rem;
     border: none;
+}
+
+input, textarea {
     width: 100%;
 }
 
-.button {
+.selectivity-single-selected-item {
+    color: #F1B773;
+    margin-left: .4rem;
+}
+
+button {
     padding: 1rem;
     margin-top: 1.5rem;
     border-radius: .65rem;
-    background-color: #38761D;
-    color: #F3F3F3;
+    background-color: #174839;
+    color: #F1B773;
     font-size: 1.5rem;
     text-align: center;
     border: none;
     width: 100%;
 }
 
-.button:hover {
-    background-color: #274E13;
-    color: #D9D9D9;
+::placeholder {
+    color: #CCCCCC;
+}
+
+:-ms-input-placeholder {
+    color: #CCCCCC;
+}
+
+::-ms-input-placeholder {
+    color: #CCCCCC;
+}
+
+:-ms-textarea-placeholder {
+    color: #CCCCCC;
+}
+
+::-ms-textarea-placeholder {
+    color: #CCCCCC;
+}
+
+button:hover {
+    background-color: #1A8B74;
+    color: #F1B773;
 }
 
 #login-link {
-    color: whitesmoke;
+    color: #EFEFEF;
     padding-top: 1.5rem;
     font-size: 1.2rem;
 }
@@ -76,7 +104,7 @@ input, textarea {
     margin-top: .5rem;
     margin-bottom: .5rem;
     font-size: 1.2rem;
-    color: #FA1001;
+    color: #FFFFFF;
 }
 
 #is-organization-wrapper {
@@ -91,7 +119,7 @@ input, textarea {
 }
 
 #is-organization-label {
-    color: whitesmoke;
+    color: #F1B773;
     font-size: 1.3rem;
     margin-right: .3rem;
 }
@@ -99,7 +127,7 @@ input, textarea {
 #user-image-label {
     float: left;
     width: 4.5rem;
-    color: whitesmoke;
+    color: #F1B773;
     font-size: 1.3rem;
     margin-top: .45rem;
     /* position: absolute; */
@@ -109,4 +137,21 @@ input, textarea {
     width: calc(100% - 4.5rem);
     /* float: right; */
     /* padding-top: 3rem; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill::first-line,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill::first-line {
+  border: none;
+  -webkit-text-fill-color: #F1B773;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+  font-size: 1.2rem;
 }

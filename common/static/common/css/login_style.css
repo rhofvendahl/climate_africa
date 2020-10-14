@@ -20,7 +20,7 @@
 }
 
 #username-password-mat {
-    background-color: #434343;
+    background-color: #174839;
     border-radius: .65rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -37,9 +37,9 @@
 }
 
 input {
-    background-color: #EFEFEF;
+    background-color: #000000;
     border-radius: .25rem;
-    /* color: #666666; */
+    color: #F1B773;
     padding: .5rem;
     font-size: 1.2rem;
     border: none;
@@ -50,8 +50,8 @@ input {
     padding: 1rem;
     margin-top: 1.5rem;
     border-radius: .65rem;
-    background-color: #38761D;
-    color: #F3F3F3;
+    background-color: #174839;
+    color: #F1B773;
     font-size: 1.5rem;
     text-align: center;
     border: none;
@@ -59,12 +59,12 @@ input {
 }
 
 #submit-button:hover {
-    background-color: #274E13;
-    color: #D9D9D9;
+    background-color: #1A8B74;
+    color: #F1B773;
 }
 
 #join-link {
-    color: whitesmoke;
+    color: #EFEFEF;
     padding-top: 1.5rem;
     font-size: 1.2rem;
 }
@@ -73,5 +73,22 @@ input {
     margin-top: .5rem;
     margin-bottom: .5rem;
     font-size: 1.2rem;
-    color: #FA1001;
+    color: #FFFFFF;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill::first-line,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill::first-line {
+  border: none;
+  -webkit-text-fill-color: #F1B773;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+  font-size: 1.2rem;
 }

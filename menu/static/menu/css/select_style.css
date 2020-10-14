@@ -30,9 +30,9 @@
 } */
 
 .option {
-    background-color: #666666;
+    background-color: #174839;
+    color: #F1B773;
     font-size: 1.5rem;
-    color: #F3F3F3;
     border-radius: .65rem;
     /* font-size: 1.5rem; */
     text-align: center;
@@ -41,8 +41,11 @@
 }
 
 .option:hover {
-    color: #D9D9D9;
+    /* color: #D9D9D9;
     background-color: #434343;
+    background-color: #666666;
+    color: #F3F3F3; */
+    background-color: #1A8B74;
 }
 
 #log-out {
