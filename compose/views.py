@@ -14,7 +14,6 @@ def new(request):
         form = PostForm(request.POST, request.FILES)
         # print('ABT TO TEST VALID', form, form.data)
         if form.is_valid():
-            print('VALID FORM')
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
 
@@ -89,7 +88,6 @@ def new(request):
                 post.tags.add(project_intention_tag)
 
             return redirect('common:init') # replace with animation page
-        print('FORM STUFFSSSS', form.cleaned_data)
     else:
         form = PostForm()
     # tag_names = [tag.name for tag in Tag.objects.all()]
@@ -104,11 +102,14 @@ def new(request):
     } for country in Country.objects.filter(continent='AF')]
     country_city_names_json = mark_safe(json.dumps(country_city_names))
 
-    default_city = request.user.profile.default_city
-    default_city_object = {
-        'id': default_city.name + '; ' + default_city.country.name,
-        'text': default_city.name,
-    }
+    if request.user.profile.default_city:
+        default_city = request.user.profile.default_city
+        default_city_object = {
+            'id': default_city.name + '; ' + default_city.country.name,
+            'text': default_city.name,
+        }
+    else:
+        default_city_object = None
     default_city_object_json = mark_safe(json.dumps(default_city_object))
 
     report_type_names = [tag.name for tag in Tag.objects.filter(type='report_type', is_starter=True)]

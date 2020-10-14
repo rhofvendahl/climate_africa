@@ -1,10 +1,18 @@
 $(document).ready(function() {
-    $('#city').selectivity({
-        allowClear: true,
-        items: cityNames,
-        placeholder: 'Location',
-        data: defaultCityObject,
-    });
+    if (defaultCityObject) {
+        $('#city').selectivity({
+            allowClear: true,
+            items: cityNames,
+            placeholder: 'Location',
+            data: defaultCityObject,
+        });
+    } else {
+        $('#city').selectivity({
+            allowClear: true,
+            items: cityNames,
+            placeholder: 'Location',
+        });
+    }
 
     $('#report-type').selectivity({
         allowClear: true,
