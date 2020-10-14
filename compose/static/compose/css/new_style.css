@@ -21,7 +21,7 @@
 }
 
 .mat {
-    background-color: #434343;
+    background-color: #174839;
     border-radius: .65rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -56,9 +56,9 @@
 }
 
 input, textarea, .selectivity-multiple-input-container, .selectivity-single-select, select {
-    background-color: #EFEFEF;
+    background-color: #000000;
     border-radius: .25rem;
-    color: black;
+    color: #F1B773;
     padding: .5rem;
     font-size: 1.2rem;
     border: none;
@@ -66,6 +66,19 @@ input, textarea, .selectivity-multiple-input-container, .selectivity-single-sele
 
 input, textarea {
     width: 100%;
+}
+
+.selectivity-single-selected-item {
+    color: #F1B773;
+    margin-left: .4rem;
+}
+
+.selectivity-multiple-selected-item {
+    background-color: #444444;
+    /* color: #1A8B74; */
+    color: #F1B773;
+    background-color: #CCCCCC;
+    color: #000000;
 }
 
 /* Might be worth looking through this if you'd like to style the button https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ */
@@ -82,8 +95,8 @@ input, textarea {
     padding: 1rem;
     margin-top: 1.5rem;
     border-radius: .65rem;
-    background-color: #38761D;
-    color: #F3F3F3;
+    background-color: #174839;
+    color: #F1B773;
     font-size: 1.5rem;
     text-align: center;
     width: 100%;
@@ -91,15 +104,15 @@ input, textarea {
 }
 
 #submit-button:hover {
-    background-color: #274E13;
-    color: #D9D9D9;
+    background-color: #1A8B74;
+    color: #F1B773;
 }
 
 .errorlist {
     margin-top: .5rem;
     margin-bottom: .5rem;
     font-size: 1.2rem;
-    color: #FA1001;
+    color: #FFFFFF;
 }
 
 label {
@@ -109,7 +122,7 @@ label {
 #image-label {
     float: left;
     width: 4.5rem;
-    color: whitesmoke;
+    color: #F1B773;
     font-size: 1.3rem;
     margin-top: .45rem;
 }
@@ -117,7 +130,7 @@ label {
 #well-amount-label {
     float: left;
     /* width: 4.5rem; */
-    color: whitesmoke;
+    color: #F1B773;
     font-size: 1.3rem;
     /* margin-top: .45rem; */
 }
@@ -125,7 +138,7 @@ label {
 #well-population-label {
     float: left;
     /* width: 4.5rem; */
-    color: whitesmoke;
+    color: #F1B773;
     font-size: 1.3rem;
     /* margin-top: .45rem; */
 }
