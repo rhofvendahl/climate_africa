@@ -1,0 +1,134 @@
+.container-fluid {
+    padding: 0;
+}
+
+#change-info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1E1E1E;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* color: white; */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+#change-info::-webkit-scrollbar {
+    display: none;
+}
+
+.mat {
+    background-color: #174839;
+    border-radius: .65rem;
+    /* padding: 1rem; */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+.mat > * {
+    padding-bottom: 1rem;
+}
+
+.form-group {
+    margin: 0;
+}
+
+input, textarea, .selectivity-single-select {
+    background-color: #000000;
+    border-radius: .25rem;
+    color: #F1B773;
+    padding: .5rem;
+    font-size: 1.2rem;
+    border: none;
+}
+
+input, textarea {
+    width: 100%;
+}
+
+.selectivity-single-selected-item {
+    color: #F1B773;
+    margin-left: .4rem;
+}
+
+::placeholder {
+    color: #CCCCCC;
+}
+
+:-ms-input-placeholder {
+    color: #CCCCCC;
+}
+
+::-ms-input-placeholder {
+    color: #CCCCCC;
+}
+
+:-ms-textarea-placeholder {
+    color: #CCCCCC;
+}
+
+::-ms-textarea-placeholder {
+    color: #CCCCCC;
+}
+
+button {
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: .65rem;
+    background-color: #174839;
+    color: #F1B773;
+    font-size: 1.5rem;
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #1A8B74;
+    color: #F1B773;
+}
+
+.errorlist {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}
+
+#new-user-image-label {
+    float: left;
+    width: 7.5rem;
+    color: #F1B773;
+    font-size: 1.3rem;
+    margin-top: .45rem;
+    /* position: absolute; */
+}
+
+#id_new_user_image {
+    width: calc(100% - 7.5rem);
+    /* float: right; */
+    /* padding-top: 3rem; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill::first-line,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill::first-line {
+  border: none;
+  -webkit-text-fill-color: #F1B773;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+  font-size: 1.2rem;
+}

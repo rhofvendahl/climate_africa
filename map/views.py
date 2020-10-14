@@ -40,7 +40,13 @@ def get_feature_tuples():
 
 def get_feature_dicts():
     feature_tuples = get_feature_tuples()
-    return [{'latitude': feature_tuple[0], 'longitude': feature_tuple[1], 'alertlevel': feature_tuple[2], 'type': feature_tuple[3], 'icon_link': feature_tuple[4]} for feature_tuple in feature_tuples]
+    return [{
+        'latitude': feature_tuple[0],
+        'longitude': feature_tuple[1],
+        'alertlevel': feature_tuple[2],
+        'type': feature_tuple[3],
+        'icon_link': feature_tuple[4]
+    } for feature_tuple in feature_tuples]
 
 def init(request):
     return redirect('map:alerts')
@@ -88,7 +94,10 @@ def alerts(request):
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
         icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
-        marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
+        marker = folium.Marker(
+            [feature_dict['latitude'], feature_dict['longitude']],
+            icon=icon
+        )
         print('MARKER DICT', marker.__dict__)
         marker.add_to(map)
 
@@ -135,11 +144,17 @@ def posts(request):
     #     marker.add_to(map)
 
     posts = Post.objects.all()
+    print(static('map/img/gdacs_icon_drought_green.png'))
     for post in posts:
         # print(reverse('browse:post', kwargs={'post_id': post.id}))
+        icon = folium.features.CustomIcon('staticfiles/map/img/gdacs_icon_drought_green.png', icon_size=(64,64,))
         popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': post.id}) + '" target="_top">View post</a></div>'
         # popup = folium.Popup(html=popup_html, max_width=300)
-        marker = folium.Marker([post.city.latitude, post.city.longitude], popup=popup_html)
+        marker = folium.Marker(
+            [post.city.latitude, post.city.longitude],
+            icon=icon,
+            popup=popup_html
+        )
         marker.add_to(map)
 
     # tile_layer = map._children['openstreetmap']
