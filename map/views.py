@@ -130,7 +130,6 @@ def posts(request):
         tiles='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png',
         attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
     )
-    print('MAP CHILDREN', map._children)
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
     # print('MAP DICT', map.__dict__)
@@ -144,7 +143,6 @@ def posts(request):
     #     marker.add_to(map)
 
     posts = Post.objects.all()
-    print(static('map/img/gdacs_icon_drought_green.png'))
     for post in posts:
         # print(reverse('browse:post', kwargs={'post_id': post.id}))
         icon = folium.features.CustomIcon('staticfiles/map/img/gdacs_icon_drought_green.png', icon_size=(64,64,))
