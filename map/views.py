@@ -71,9 +71,17 @@ def map_test(request):
     return render(request, 'map/map_test.html', context=context)
 
 def alerts(request):
-    map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=3, tileSize=32)
-    map._children['openstreetmap'].options['tileSize'] = 512
-    map._children['openstreetmap'].options['zoomOffset'] = -1
+    map = folium.Map(
+        location=[5.273, 16.821],
+        min_zoom=3,
+        max_zoom=12,
+        zoom_start=3,
+        tileSize=32,
+        tiles='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png',
+        attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    )
+    map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
+    map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
     # print('MAP DICT', map.__dict__)
     # print('DIGGING', map._children['openstreetmap'].show)
 
@@ -94,11 +102,28 @@ def alerts(request):
         'map_html': map.get_root().render(),
     }
     return render(request, 'map/alerts.html', context=context)
+ #
+ # Stadia.AlidadeSmoothDark
+ # Thunderforest.MobileAtlas
+ # Jawg.Dark
+
+ # cartodbpositron
 
 def posts(request):
-    map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=4, tileSize=32)
-    map._children['openstreetmap'].options['tileSize'] = 512
-    map._children['openstreetmap'].options['zoomOffset'] = -1
+    map = folium.Map(
+        location=[5.273, 16.821],
+        min_zoom=3,
+        max_zoom=12,
+        zoom_start=4,
+        tileSize=32,
+        # tiles='alidade_smooth_dark',
+        # custom='https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png'
+        tiles='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png',
+        attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    )
+    print('MAP CHILDREN', map._children)
+    map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
+    map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
     # print('MAP DICT', map.__dict__)
     # print('DIGGING', map._children['openstreetmap'].show)
 
@@ -116,7 +141,6 @@ def posts(request):
         # popup = folium.Popup(html=popup_html, max_width=300)
         marker = folium.Marker([post.city.latitude, post.city.longitude], popup=popup_html)
         marker.add_to(map)
-        print('OK')
 
     # tile_layer = map._children['openstreetmap']
     # map.remove_layer(tile_layer)
