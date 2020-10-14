@@ -3,6 +3,7 @@ $(document).ready(function() {
         allowClear: true,
         items: cityNames,
         placeholder: 'Location',
+        data: defaultCityObject,
     });
 
     $('#report-type').selectivity({

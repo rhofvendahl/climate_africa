@@ -104,6 +104,13 @@ def new(request):
     } for country in Country.objects.filter(continent='AF')]
     country_city_names_json = mark_safe(json.dumps(country_city_names))
 
+    default_city = request.user.profile.default_city
+    default_city_object = {
+        'id': default_city.name + '; ' + default_city.country.name,
+        'text': default_city.name,
+    }
+    default_city_object_json = mark_safe(json.dumps(default_city_object))
+
     report_type_names = [tag.name for tag in Tag.objects.filter(type='report_type', is_starter=True)]
     report_type_names_json = mark_safe(json.dumps(report_type_names))
     report_impact_names = [tag.name for tag in Tag.objects.filter(type='report_impact', is_starter=True)]
@@ -115,6 +122,7 @@ def new(request):
         'form': form,
         # 'tag_names': tag_names_json,
         'city_names': country_city_names_json,
+        'default_city_object': default_city_object_json,
         'report_type_names': report_type_names_json,
         'report_impact_names': report_impact_names_json,
         'project_intention_names': project_intention_names_json,
