@@ -66,7 +66,7 @@ def change_info(request):
         'name': profile.name,
         'email': profile.email if profile.email else '',
         'bio': profile.bio if profile.bio else '',
-        'default_city_id': profile.default_city.name + '; ' + profile.default_city.country.name,
+        'default_city_id': profile.default_city.name + '; ' + profile.default_city.country.name if profile.default_city else None,
         'user_image_url': profile.user_image_or_none.image.url if profile.user_image_or_none else '',
         'website': profile.website if profile.website else '',
     }
