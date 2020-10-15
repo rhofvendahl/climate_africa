@@ -141,6 +141,6 @@ body {
 #content-wrapper {
     position: absolute;
     width: 100%;
-    top: 4.79rem; /* to accomodate for header, & eliminate 1px gap */
+    top: 4.78rem; /* to accomodate for header, & eliminate 1px gap */
     bottom: 0;
 }
