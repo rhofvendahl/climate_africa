@@ -67,6 +67,7 @@
     position: relative;
     height: 14rem;
     background-color: #000000;
+    border-radius: .65rem;
 }
 
 .post-body-left {
@@ -109,4 +110,19 @@
     color: #E9E9E9;
     margin-bottom: 0;
     font-size: 1.2rem;
+}
+
+.post-body-spanning {
+    position: relative;
+    height: 7rem;
+    background-color: #000000;
+}
+
+.post-text-spanning {
+    padding: 1rem;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    overflow-y: hidden;
+    color: #f3f3f3;
+    height: 100%;
 }

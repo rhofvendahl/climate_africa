@@ -24,7 +24,8 @@
                 {% if user.profile.user_image_or_none %}
                 <img id='user-image' src='{{ user.profile.user_image_or_none.image.url }}' alt='user image'/>
                 {% else %}
-                <div id='no-user-image'>[No image provided]</div>
+                <img id='user-image' src='{% static 'browse/img/default_profile_greengold.png' %}' alt='author image'/>
+                <!-- <div id='no-user-image'>[No image provided]</div> -->
                 {% endif %}
             </div>
             <div id='profile-header-right'>

@@ -94,6 +94,8 @@
     margin-top: .8rem;
     border-radius: .65rem;
     padding: 1rem;
+    /* width: 100%; */
+    word-wrap: break-word;
 }
 
 #user-posts-title {

@@ -31,7 +31,8 @@
             {% if post.user.profile.user_image_or_none %}
             <img id='author-image' src='{{ post.user.profile.user_image_or_none.image.url }}' alt='author image'/>
             {% else %}
-            <div id='author-no-image'>[No image provided]</div>
+            <img id='author-image' src='{% static 'browse/img/default_profile_greengold.png' %}' alt='author image'/>
+            <!-- <div id='author-no-image'>[No image provided]</div> -->
             {% endif %}
             <div id='other-author-info'>
                 <a href='{% url 'browse:profile' user_id=post.user.id %}' class='button'><div id='author-name' class='custom-shadow'>{{ post.user.profile.name }}</div></a>

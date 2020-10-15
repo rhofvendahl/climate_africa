@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class='post-wrapper'>
     <p class='post-timestamp'>{{ post.created_at }}</p>
     <a href='{% url 'browse:post' post_id=post.id %}'>
@@ -7,7 +9,8 @@
                     {% if post.user.profile.user_image_or_none %}
                     <img class='author-image' src='{{ post.user.profile.user_image_or_none.image.url }}' alt='author image'/>
                     {% else %}
-                    <div class='author-no-image'>[No image provided]</div>
+                    <img class='author-image' src='{% static 'browse/img/default_profile_greengold.png' %}' alt='author image'/>
+                    <!-- <div class='author-no-image'>[No image provided]</div> -->
                     {% endif %}
                 </div>
                 <div class='post-header-right'>
@@ -15,18 +18,20 @@
                     <div class='title'>{{ post.title }}</div>
                 </div>
             </div>
+            {% if post.first_image and post.first_image.image %}
             <div class='post-body'>
                 <div class='post-body-left'>
-                    {% if post.first_image.image %}
                     <img class='post-image' src='{{ post.first_image.image.url }}' alt='post image'/>
-                    {% else %}
-                    <div class='post-no-image'>[No image provided]</div>
-                    {% endif %}
                 </div>
                 <div class='post-body-right'>
                     <p class='post-text'>{{ post.text }}</p>
                 </div>
             </div>
+            {% else %}
+            <div class='post-body-spanning'>
+                <p class='post-text-spanning'>{{ post.text }}</p>
+            </div>
+            {% endif %}
         </div>
     </a>
 </div>
