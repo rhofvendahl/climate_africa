@@ -1,11 +1,11 @@
 .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
 
 #menu {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    top: 0;
+    bottom: 0;
     width: 100%;
     background-color: #1E1E1E;
     overflow-y: scroll;
@@ -52,7 +52,9 @@
     margin-top: 0;
 }
 
-
+.row {
+    width: 100%;
+}
 /*
 #selection-wrapper > *:not(:first-child) {
     margin-top: 3rem;

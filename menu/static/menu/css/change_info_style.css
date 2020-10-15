@@ -129,6 +129,6 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill::first-line {
   border: none;
   -webkit-text-fill-color: #F1B773;
-  -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+  -webkit-box-shadow: 0 0 0 1000px #000000 inset;
   font-size: 1.2rem;
 }

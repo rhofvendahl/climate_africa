@@ -1,5 +1,5 @@
 .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
 
 #posts {
@@ -202,13 +202,13 @@
 }
 
 #clear-button {
-    left: 0px;
+    left: 0;
     /* vertical-align: middle; */
     padding-top: .4rem;
 }
 
 #search-button {
-    right: 0px;
+    right: 0;
     border: none;
 }
 

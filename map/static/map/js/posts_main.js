@@ -14,4 +14,14 @@ $(document).ready(function() {
     //     bottom: '0',
     //     // height: '',
     // });
+
+
+
+    // $('iframe').load(function() {
+    //     console.log('ugh', frame)
+    //     var frame = $('iframe').contents();
+    //     $('html', frame).css({
+    //         display: 'none',
+    //     })
+    // })
 });

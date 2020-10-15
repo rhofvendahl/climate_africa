@@ -145,6 +145,10 @@ def posts(request, post_id=None):
     )
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
+    #
+    # style_statement = '<style>html{display:none;}</style>'
+    # map.get_root().html.add_child(folium.Element(style_statement))
+
     # print('MAP DICT', map.__dict__)
     # print('DIGGING', map._children['openstreetmap'].show)
 

@@ -1,5 +1,5 @@
 .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
 
 #profile-wrapper {
@@ -112,7 +112,7 @@
     position: absolute;
     width: 100%;
     height: 4rem;
-    bottom: 0px;
+    bottom: 0;
     background-color: #434343;
     /* display: flex; */
     /* justify-content: space-between; */
