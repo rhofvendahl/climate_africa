@@ -60,7 +60,7 @@ def map_test(request):
 
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
-        icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
+        icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64))
         marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
         print('MARKER DICT', marker.__dict__)
         marker.add_to(map)
@@ -93,7 +93,7 @@ def alerts(request):
 
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
-        icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
+        icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64))
         marker = folium.Marker(
             [feature_dict['latitude'], feature_dict['longitude']],
             icon=icon
@@ -118,12 +118,25 @@ def alerts(request):
 
  # cartodbpositron
 
-def posts(request):
+def posts(request, post_id=None):
+    try:
+        new_post = Post.objects.get(id=post_id)
+    except:
+        new_post = None
+        print('ERROR: new post not found')
+
+    if new_post:
+        location_start = [new_post.city.latitude, new_post.city.longitude]
+        zoom_start = 6
+    else:
+        location_start = [5.273, 16.821]
+        zoom_start = 4
+
     map = folium.Map(
-        location=[5.273, 16.821],
+        location=location_start,
         min_zoom=3,
         max_zoom=12,
-        zoom_start=4,
+        zoom_start=zoom_start,
         tileSize=32,
         # tiles='alidade_smooth_dark',
         # custom='https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png'
@@ -144,16 +157,29 @@ def posts(request):
 
     posts = Post.objects.all()
     for post in posts:
-        # print(reverse('browse:post', kwargs={'post_id': post.id}))
-        icon = folium.features.CustomIcon('staticfiles/map/img/gdacs_icon_drought_green.png', icon_size=(64,64,))
-        popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': post.id}) + '" target="_top">View post</a></div>'
+        if post.id != post_id:
+            icon = folium.features.CustomIcon('staticfiles/map/img/bullseyefat_greengold.png', icon_size=(64,64))
+            popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': post.id}) + '" target="_top">View post</a></div>'
+            # popup = folium.Popup(html=popup_html, max_width=300)
+            marker = folium.Marker(
+                [post.city.latitude, post.city.longitude],
+                icon=icon,
+                popup=popup_html
+            )
+            marker.add_to(map)
+
+    # Executed last to render over other icons
+    if new_post:
+        icon = folium.features.CustomIcon('staticfiles/map/img/bullseyefat_goldgreen_longredarrowdown.png', icon_size=(512,512))
+        popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': new_post.id}) + '" target="_top">View post</a></div>'
         # popup = folium.Popup(html=popup_html, max_width=300)
         marker = folium.Marker(
-            [post.city.latitude, post.city.longitude],
+            [new_post.city.latitude, new_post.city.longitude],
             icon=icon,
             popup=popup_html
         )
         marker.add_to(map)
+
 
     # tile_layer = map._children['openstreetmap']
     # map.remove_layer(tile_layer)

@@ -87,7 +87,7 @@ def new(request):
                     )
                 post.tags.add(project_intention_tag)
 
-            return redirect('common:init') # replace with animation page
+            return redirect('map:posts', post_id=post.id) # replace with animation page
     else:
         form = PostForm()
     # tag_names = [tag.name for tag in Tag.objects.all()]
