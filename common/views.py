@@ -54,10 +54,11 @@ def join(request):
                 profile.name = form.cleaned_data.get('name')
                 profile.save()
 
-                image = UserImage.objects.create(
-                    user=user,
-                    image=form.cleaned_data.get('user_image')
-                )
+                if form.cleaned_data.get('user_image'):
+                    image = UserImage.objects.create(
+                        user=user,
+                        image=form.cleaned_data.get('user_image')
+                    )
 
                 user = auth.authenticate(username=username, password=password)
                 auth.login(request, user)

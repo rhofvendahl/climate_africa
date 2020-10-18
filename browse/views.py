@@ -68,6 +68,12 @@ def posts(request):
         'form': form,
         'available_city_names': available_country_city_names_json,
     }
+    for post in posts:
+        print('IMAgE OBJECT', post.user.profile.user_image_or_none)
+        if post.user.profile.user_image_or_none:
+            print('IMAGE STUFF', post.user.profile.user_image_or_none.image)
+            if post.user.profile.user_image_or_none.image:
+                print('FILES STUFF', post.user.profile.user_image_or_none.image.url)
     return render(request, 'browse/posts.html', context=context)
 
 def post(request, post_id):
