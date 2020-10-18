@@ -2,7 +2,7 @@ print('APPLYING PRODUCTION SETTINGS')
 
 from climate_africa.settings.base import *
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'climate-africa.herokuapp.com',
