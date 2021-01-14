@@ -29,12 +29,8 @@ INSTALLED_APPS = [
     'common',
     'compose',
     'map',
-    # 'story',
     'help',
     'menu',
-    'public',
-    # 'view_post',
-    # 'view_profile',
 
     'bootstrap4',
     'cities_light',
