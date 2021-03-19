@@ -20,7 +20,7 @@ django-cities-light = "==3.5.1"
 psycopg2 = "==2.8.6"
 psycopg2-binary = "==2.8.6"
 boto3 = "==1.14.57"
-pillow = "==7.2.0"
+pillow = "==8.1.1"
 django-storages = {extras = ["google"], version = "==1.10"}
 
 [requires]
