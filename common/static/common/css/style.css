@@ -107,7 +107,7 @@ body {
     width: calc(8*100vh/16);
     height: calc(1.5*100vh/16);
     transform: translateX(-50%);
-    top: -450px;
+    top: calc(-7.5*100vh/16);
     z-index: 2;
 }
 
