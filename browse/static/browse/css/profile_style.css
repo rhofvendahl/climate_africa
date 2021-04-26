@@ -86,7 +86,6 @@
 }
 
 #bio-text {
-    /* height: 50rem; */
     background-color: black;
     color: #F3F3F3;
     margin-left: 1rem;
@@ -94,13 +93,11 @@
     margin-top: .8rem;
     border-radius: .65rem;
     padding: 1rem;
-    /* width: 100%; */
     word-wrap: break-word;
 }
 
 #user-posts-title {
     font-size: 1.7rem;
-    /* color: #F3F3F3; */
     color: #1A8B74;
     font-weight: bold;
     margin-top: 2rem;
@@ -114,8 +111,6 @@
     height: 4rem;
     bottom: 0;
     background-color: #434343;
-    /* display: flex; */
-    /* justify-content: space-between; */
 }
 
 #back-button, #support-button, #unsupport-button {
@@ -135,9 +130,6 @@
     height: 2.1rem;
     margin-top: -.2rem;
     margin-right: -.1rem;
-}
-
-#back-icon {
 }
 
 #profile-footer span {

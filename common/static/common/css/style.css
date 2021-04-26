@@ -1,6 +1,4 @@
 html {
-    /* font-size: calc(.25em + 1vw); A really good technique, but ruined by the "phone" frame in web app. */
-    /* font-size: 16; */
     font-size: 32px;
 }
 
@@ -12,67 +10,17 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
-/*
-.custom-shadow-lg {
-    -webkit-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -moz-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -ms-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -o-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-}
-
-.custom-shadow {
-    -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-}
-
-.custom-shadow-sm {
-    -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -ms-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -o-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-} */
-
 .custom-shadow-lg {
     box-shadow: 0 .2rem .5rem rgba(0,0,0,.7);
-    /* box-shadow: 0 .3rem .7rem rgba(0,0,0,.8); */
-    /* -webkit-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -moz-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -ms-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    -o-filter: drop-shadow(0 3px 7px rgba(0,0,0,.8));
-    filter: drop-shadow(0 3px 7px rgba(0,0,0,.8)); */
 }
 
 .custom-shadow {
     box-shadow: 0 .1rem .3rem rgba(0,0,0,.6);
-    /* box-shadow: 0 .2rem .5rem rgba(0,0,0,.7); */
-    /* -webkit-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -moz-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -ms-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    -o-filter: drop-shadow(0 2px 5px rgba(0,0,0,.7));
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,.7)); */
 }
 
 .custom-shadow-sm {
     box-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
-    /* box-shadow: 0 .1rem .3rem rgba(0,0,0,.6); */
-    /* -webkit-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -moz-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -ms-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    -o-filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,.6)); */
 }
-
-/*
-.no-shadow {
-    -webkit-filter: none !important;
-    filter: none !important;
-    box-shadow: none !important;
-} */
 
 #phone {
     position: absolute;
@@ -92,8 +40,6 @@ body {
 
 #phone-mockup {
     position: absolute;
-    /* width: 480px; (8x60)
-    height: 900px; (15x60) */
     width: calc(8*100vh/16);
     height: calc(15*100vh/16);
     z-index: -1;
@@ -102,8 +48,6 @@ body {
 
 #phone-mockup-cutoff {
     position: absolute;
-    /* width: 480px;
-    height: 90px; */
     width: calc(8*100vh/16);
     height: calc(1.5*100vh/16);
     transform: translateX(-50%);
@@ -111,33 +55,12 @@ body {
     z-index: 2;
 }
 
-/* #phone-screen {
-    position: absolute;
-    width: 420px;
-    height: 747px;
-    left: -210.5px;
-    top: -360px;
-} */
-
 #phone-screen {
     position: absolute;
-    /* width: 420px; (7x60)
-    height: 720px; (12x60) */
     width: calc(7*100vh/16);
     height: calc(12*100vh/16);
     transform: translate(-50%, -50%);
 }
-
-/*
-#button-green {
-    background-color: #38761D;
-    color: #F3F3F3;
-}
-
-#submit-green:hover {
-    background-color: #274E13;
-    color: #D9D9D9;
-} */
 
 .button, .button:hover, .button:visited, .button:link, .button:active {
     text-decoration: none;

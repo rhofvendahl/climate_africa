@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('#id_new_email').val(oldInfo.email);
     $('#id_new_bio').val(oldInfo.bio);
     $('#id_new_website').val(oldInfo.website);
-    console.log(oldInfo.website)
 
     if (oldInfo.default_city_id) {
         $('#new-default-city').selectivity({

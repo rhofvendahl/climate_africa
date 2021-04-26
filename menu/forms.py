@@ -53,7 +53,6 @@ class ChangeInfoForm(forms.Form):
     def clean_new_default_city(self):
         new_default_city = self.cleaned_data['new_default_city']
         if new_default_city == '' or new_default_city == 'null':
-            # self.add_error('new_default_city', ValidationError('Please select a new city or leave as-is'))#, code='none_selected')
             return None
         else:
             return new_default_city

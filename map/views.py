@@ -55,20 +55,12 @@ def map_test(request):
     map = folium.Map(location=[5.273, 16.821], min_zoom=3, max_zoom=12, zoom_start=3, tileSize=32)
     map._children['openstreetmap'].options['tileSize'] = 512
     map._children['openstreetmap'].options['zoomOffset'] = -1
-    # print('MAP DICT', map.__dict__)
-    # print('DIGGING', map._children['openstreetmap'].show)
 
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
         icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64))
         marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
-        print('MARKER DICT', marker.__dict__)
         marker.add_to(map)
-
-    # tile_layer = map._children['openstreetmap']
-    # map.remove_layer(tile_layer)
-    # print('AGAIN', map._children['openstreetmap'].options)
-    # tile_layer = folium.raster_layers.TileLayer(tileSize=32).add_to(map)
 
     context = {
         'map_iframe': map._repr_html_(),
@@ -88,8 +80,6 @@ def alerts(request):
     )
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
-    # print('MAP DICT', map.__dict__)
-    # print('DIGGING', map._children['openstreetmap'].show)
 
     feature_dicts = get_feature_dicts()
     for feature_dict in feature_dicts:
@@ -98,25 +88,13 @@ def alerts(request):
             [feature_dict['latitude'], feature_dict['longitude']],
             icon=icon
         )
-        print('MARKER DICT', marker.__dict__)
         marker.add_to(map)
-
-    # tile_layer = map._children['openstreetmap']
-    # map.remove_layer(tile_layer)
-    # print('AGAIN', map._children['openstreetmap'].options)
-    # tile_layer = folium.raster_layers.TileLayer(tileSize=32).add_to(map)
 
     context = {
         'map_iframe': map._repr_html_(),
         'map_html': map.get_root().render(),
     }
     return render(request, 'map/alerts.html', context=context)
- #
- # Stadia.AlidadeSmoothDark
- # Thunderforest.MobileAtlas
- # Jawg.Dark
-
- # cartodbpositron
 
 def posts(request, post_id=None):
     try:
@@ -138,33 +116,17 @@ def posts(request, post_id=None):
         max_zoom=12,
         zoom_start=zoom_start,
         tileSize=32,
-        # tiles='alidade_smooth_dark',
-        # custom='https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png'
         tiles='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png',
         attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
     )
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['tileSize'] = 512
     map._children['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'].options['zoomOffset'] = -1
-    #
-    # style_statement = '<style>html{display:none;}</style>'
-    # map.get_root().html.add_child(folium.Element(style_statement))
-
-    # print('MAP DICT', map.__dict__)
-    # print('DIGGING', map._children['openstreetmap'].show)
-
-    # feature_dicts = get_feature_dicts()
-    # for feature_dict in feature_dicts:
-    #     icon = folium.features.CustomIcon(feature_dict['icon_link'], icon_size=(64,64,))
-    #     marker = folium.Marker([feature_dict['latitude'], feature_dict['longitude']], icon=icon)
-    #     print('MARKER DICT', marker.__dict__)
-    #     marker.add_to(map)
 
     posts = Post.objects.all()
     for post in posts:
         if post.id != post_id:
             icon = folium.features.CustomIcon('staticfiles/map/img/bullseyefat_greengold.png', icon_size=(64,64))
             popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': post.id}) + '" target="_top">View post</a></div>'
-            # popup = folium.Popup(html=popup_html, max_width=300)
             marker = folium.Marker(
                 [post.city.latitude, post.city.longitude],
                 icon=icon,
@@ -176,19 +138,12 @@ def posts(request, post_id=None):
     if new_post:
         icon = folium.features.CustomIcon('staticfiles/map/img/bullseyefat_goldgreen_longredarrowdown.png', icon_size=(512,512))
         popup_html = '<div style="font-size: 32px;"><a href="' + reverse('browse:post', kwargs={'post_id': new_post.id}) + '" target="_top">View post</a></div>'
-        # popup = folium.Popup(html=popup_html, max_width=300)
         marker = folium.Marker(
             [new_post.city.latitude, new_post.city.longitude],
             icon=icon,
             popup=popup_html
         )
         marker.add_to(map)
-
-
-    # tile_layer = map._children['openstreetmap']
-    # map.remove_layer(tile_layer)
-    # print('AGAIN', map._children['openstreetmap'].options)
-    # tile_layer = folium.raster_layers.TileLayer(tileSize=32).add_to(map)
 
     context = {
         'map_iframe': map._repr_html_(),

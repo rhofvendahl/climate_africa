@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput, Textarea, CheckboxInput, NullBooleanSelect, RadioSelect, EmailInput, ClearableFileInput
-# from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 
 IS_ORGANIZATION_CHOICES = [
@@ -9,15 +8,6 @@ IS_ORGANIZATION_CHOICES = [
     (False, 'myself'),
     (True, 'my organization'),
 ]
-#
-# class CustomNullBooleanSelect(NullBooleanSelect):
-#     def __init__(self, attrs=None):
-#         choices = (
-#             ('unknown', _('(select one)')),
-#             ('true', _('my organization')),
-#             ('false', _('myself')),
-#         )
-#         super().__init__(attrs, choices)
 
 class CustomUserCreationForm(UserCreationForm):
     username = forms.CharField(widget=TextInput(attrs={'placeholder': 'Username'}))

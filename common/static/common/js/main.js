@@ -6,6 +6,6 @@ $(document).ready(function() {
         $('#phone-screen').append($('#header'));
         $('#phone-screen').append($('#content-wrapper'));
 
-        $('html').css('font-size', '12px');
+        $('html').css('font-size', '10px');
     }
 });

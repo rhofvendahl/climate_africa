@@ -1,8 +1,5 @@
-# from django.contrib.auth import authenticate
-# from django.contrib.auth import login as auth_login
 from django.contrib import auth
 from django.contrib.auth.models import User
-# from django.contrib.auth.forms import AuthenticationForm
 from common.forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.shortcuts import render, redirect
 from cities_light.models import City, Country
@@ -10,13 +7,6 @@ from django.utils.safestring import mark_safe
 import json
 
 from common.models import Profile, UserImage
-
-# def test(request):
-#     posts = Post.objects.all()
-#     context = {
-#         'posts': posts,
-#     }
-#     return render(request, 'common/test.html', context=context)
 
 def init(request):
     return redirect('browse:init')
@@ -108,7 +98,7 @@ def login(request):
         return render(request, 'common/login.html', context=context)
     else:
         print('user is authenticated')
-        return redirect('common:init') # used to be '/'
+        return redirect('common:init')
 
 def logout(request):
     auth.logout(request)

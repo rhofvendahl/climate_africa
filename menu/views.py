@@ -34,18 +34,12 @@ def change_info(request):
             profile.website = form.cleaned_data.get('new_website')
             profile.save()
 
-            # TODO something funk abt websites
             # TODO allow an option to remove image entirely
             new_image = form.cleaned_data.get('new_user_image')
             if new_image:
                 image_object, created = UserImage.objects.get_or_create(user=user)
                 image_object.image = form.cleaned_data.get('new_user_image')
                 image_object.save()
-
-            # image = UserImage.objects.create(
-            #     user=user,
-            #     image=form.cleaned_data.get('user_image')
-            # )
 
             return redirect('menu:select')
     else:

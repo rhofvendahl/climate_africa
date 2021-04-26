@@ -12,7 +12,6 @@ def init(request):
 def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        # print('ABT TO TEST VALID', form, form.data)
         if form.is_valid():
             city_name = json.loads(form.cleaned_data['city'])['text']
             city_object = City.objects.get(name=city_name)
@@ -21,7 +20,6 @@ def new(request):
                 user=request.user,
                 title=form.cleaned_data.get('title'),
                 text=form.cleaned_data.get('text'),
-                # image=form.cleaned_data.get('image'),
                 city=city_object,
                 type=form.cleaned_data.get('type'),
                 event_date = form.cleaned_data.get('event_date'),
@@ -35,11 +33,6 @@ def new(request):
                     order_in_post=1,
                     image=form.cleaned_data.get('image'),
                 )
-
-            # tags = json.loads(form.cleaned_data['tags'])
-            # for tag in tags:
-            #     tag_object, created = Tag.objects.get_or_create(name=tag['text'])
-            #     post.tags.add(tag_object)
 
             if form.cleaned_data['report_type']:
                 report_type_dict = json.loads(form.cleaned_data['report_type'])
@@ -90,8 +83,6 @@ def new(request):
             return redirect('map:posts', post_id=post.id) # replace with animation page
     else:
         form = PostForm()
-    # tag_names = [tag.name for tag in Tag.objects.all()]
-    # tag_names_json = mark_safe(json.dumps(tag_names))
 
     country_city_names = [{
         'text': country.name,
@@ -121,12 +112,10 @@ def new(request):
 
     context = {
         'form': form,
-        # 'tag_names': tag_names_json,
         'city_names': country_city_names_json,
         'default_city_object': default_city_object_json,
         'report_type_names': report_type_names_json,
         'report_impact_names': report_impact_names_json,
         'project_intention_names': project_intention_names_json,
     }
-    # print('COUNTRY CITY NAMES', country_city_names_json)
     return render(request, 'compose/new.html', context=context)

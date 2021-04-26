@@ -1,13 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User # unsure how to do this with string, my preference
-# from cities_light.abstract_models import AbstractCity, AbstractRegion, AbstractCountry
-# from cities_light.receivers import connect_default_signals (not necessary at this time)
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 # ensures that multiple posts can upload same images without backblaze grouping them.
 def image_upload_path(instance, filename):
-    # return f'post-images/{instance.post.id}/{filename}'
     return f'users/{instance.post.user.id}/posts/{instance.post.id}/images/{filename}'
 
 # Refactor idea: change to PostImage, to mesh with ProfileImage
@@ -101,7 +98,6 @@ class Profile(models.Model):
     bio = models.TextField(null=True, blank=True) # suggested for orgs, maybe people too
     website = models.CharField(max_length=160, null=True, blank=True) # suggested for organizations
     email = models.EmailField(null=True, blank=True)
-    # birthday, required for people?
 
     @property
     def user_image_or_none(self):
@@ -129,10 +125,7 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-# class OrganizationInfo(models.Model):
-#     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
-#     website = models.CharField(max_length=160, null=True, blank=True)
-
+# DEPRECATED
 class Support(models.Model):
     supporter = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='supports_made')
     supported_post = models.ForeignKey('common.Post', on_delete=models.CASCADE, null=True, blank=True, related_name='supporters')

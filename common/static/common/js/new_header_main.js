@@ -10,8 +10,6 @@ $(document).ready(function() {
                 animating = false;
             });
             $('#return-header').fadeIn(400);
-            // $('#return-header').animate({marginTop: ".7rem"}, 400);
-            // headerHidden = true;
         }
     }
 
@@ -26,12 +24,6 @@ $(document).ready(function() {
             });
             $('#return-header').fadeOut(400);
 
-            // $('#return-header').animate({marginTop: "-2.5rem"}, 400, function() {
-            //     $('#return-header').hide();
-            // });
-            // headerHidden = false;
-
-            // setTimeout(hideHeader, 4000);
             if (hideHeaderTimeout) {
                 clearTimeout(hideHeaderTimeout);
                 hideHeaderTimeout = null;
@@ -47,10 +39,8 @@ $(document).ready(function() {
         var delta = event.originalEvent.detail;
 
         if (delta > 0) {
-            // console.log('scrollup', headerHidden);
             showHeader();
         } else {
-            // console.log('scrolldown', headerHidden);
             hideHeader(0);
         }
     });
@@ -60,12 +50,8 @@ $(document).ready(function() {
         var delta = event.originalEvent.wheelDelta;
 
         if (delta > 0) {
-            // console.log('scrollup')
             showHeader();
-            // console.log('about to clear', hideHeaderTimeout)
-            // console.log('cleared', hideHeaderTimeout)
         } else {
-            // console.log('scrolldown')
             hideHeader();
         }
     });

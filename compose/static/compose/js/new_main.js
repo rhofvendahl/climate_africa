@@ -78,7 +78,6 @@ $(document).ready(function() {
 
     $('#id_type').change(function() {
         render();
-        console.log($('#report-type').selectivity('data'))
     });
 
     $('#new-form').submit(function() {

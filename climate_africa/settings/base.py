@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cities_light',
     'tz_detect',
-    # 'stronghold'
 ]
 
 MIDDLEWARE = [
@@ -48,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'stronghold.middleware.LoginRequiredMiddleware',
     'climate_africa.middleware.RequireLoginMiddleware',
     'tz_detect.middleware.TimezoneMiddleware',
 ]
@@ -84,7 +82,6 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'postgres', # replace with env('DB_PASSWORD') asap.
         'HOST': 'localhost',
-        # 'PORT': '',
     }
 }
 
@@ -142,15 +139,7 @@ OPEN_URLS = [
 ]
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 GS_BUCKET_NAME = 'climate-africa-media'
-# AWS_S3_REGION_NAME = 'us-west-002'
-# AWS_S3_ENDPOINT_URL = 'https://s3.us-west-002.backblazeb2.com/'
-# AWS_S3_SIGNATURE_VERSION='v4'
-# STATICFILES_STORAGE
-
-# AUTH_USER_MODEL = 'common.CustomUser'
 
 try:
     print('Generating google credentials file')

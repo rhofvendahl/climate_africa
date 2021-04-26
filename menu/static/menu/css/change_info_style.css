@@ -11,7 +11,6 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    /* color: white; */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-bottom: 1.5rem;
@@ -24,7 +23,6 @@
 .mat {
     background-color: #174839;
     border-radius: .65rem;
-    /* padding: 1rem; */
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 1rem;
@@ -107,13 +105,10 @@ button:hover {
     color: #F1B773;
     font-size: 1.3rem;
     margin-top: .45rem;
-    /* position: absolute; */
 }
 
 #id_new_user_image {
     width: calc(100% - 7.5rem);
-    /* float: right; */
-    /* padding-top: 3rem; */
 }
 
 input:-webkit-autofill,

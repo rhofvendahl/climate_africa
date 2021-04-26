@@ -16,14 +16,12 @@ class PostForm(forms.Form):
     title = forms.CharField(widget=TextInput(attrs={'placeholder': 'Title'}))
     text = forms.CharField(widget=Textarea(attrs={'placeholder': 'Text'}))
     city = forms.CharField(max_length=80)
-    # image = forms.ImageField(widget=ClearableFileInput(attrs={'class': 'form-control-file'}))
     image = forms.ImageField(required=False)
     type = forms.ChoiceField(choices=POST_TYPE_CHOICES)
 
     report_type = forms.CharField(max_length=40, required=False) # selectivity single -> tag
     report_impacts = forms.CharField(max_length=800, required=False) # selectivity multiple -> tags
     project_intentions = forms.CharField(max_length=800, required=False) # selectivity multiple -> tags
-    # event_date = forms.DateField(required=False, initial=datetime.date.today)
     event_date = forms.DateField(required=False, widget=SelectDateWidget())
     well_amount = forms.IntegerField(required=False, min_value=0, max_value=999999999)
     well_population = forms.IntegerField(required=False, min_value=0, max_value=999999999)
@@ -44,8 +42,6 @@ class PostForm(forms.Form):
     def clean_report_type(self):
         type = self.cleaned_data['type']
         report_type = self.cleaned_data['report_type']
-        # print('CLEANED DATA IN FORM', self.cleaned_data)
-        # print('REPORT_TYPE', report_type)
         if (not report_type) or (report_type == 'null'):
             if type == 'extreme_weather_report':
                 self.add_error('report_type', ValidationError('Please select an extreme weather type from the dropdown'))

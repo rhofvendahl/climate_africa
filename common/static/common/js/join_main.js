@@ -1,9 +1,5 @@
 $(document).ready(function() {
     $('#additional-info-mat').hide();
-    // var viewAll = false;
-    // $('#continued').hide()
-    //
-    //
 
     var renderDefaultCity = function() {
         $('#default-city').selectivity({
@@ -37,45 +33,10 @@ $(document).ready(function() {
     }
     render()
 
-    // var renderPersonAll = function() {
-    //     $('#initial').show();
-    //     $('#continue-button').hide();
-    //     $('#continued').show();
-    // }
-    //
-    // var renderOrganizationAll = function() {
-    //     $('#initial').show();
-    //     $('#continue-button').hide();
-    //     $('#continued').show();
-    // }
-    //
-    // $('#continue-button').click(function() {
-    //     if ($('#id_is_organization').is(':checked')) {
-    //         renderOrganizationContinued();
-    //     } else {
-    //         renderPersonContinued();
-    //     }
-    // });
-    //
-
     $('#id_is_organization').change(function() {
         render()
-        // if ($('#id_is_organization').is(':checked')) {
-        //     renderOrganizationAll();
-        // } else {
-        //     renderPersonAll();
-        // }
     });
 
-    // $('#trigger-submission-button').click(function() {
-    //     if ($('#id_is_organization').is(':checked')) {
-    //         renderOrganizationAll();
-    //     } else {
-    //         renderPersonAll();
-    //     }
-    //     viewAll = true;
-    //     $('#submit-button-hidden').trigger('click');
-    // });
     $('#join-form').submit(function() {
         var defaultCityData = $('#default-city').selectivity('data');
         $('#default-city-input-hidden').val(JSON.stringify(defaultCityData));

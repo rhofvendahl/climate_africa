@@ -7,11 +7,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print('Seeding tags')
         tag_data = (
-            # ('Extreme weather report',
-            # 'Resilience project',
-            # 'Climate justice event',
-            # 'Organization profile',
-            # 'Water well needed',
             ('Cyclone', 'report_type'),
             ('Drought', 'report_type'),
             ('Flood/Landslide', 'report_type'),
