@@ -92,21 +92,18 @@ body {
 
 #phone-mockup {
     position: absolute;
-    /* width: 480px; (8x60)
-    height: 900px; (15x60) */
-    width: calc(8*100vh/16);
-    height: calc(15*100vh/16);
+    width: 480px; /* (8x60) */
+    height: 900px; /* (15x60) */
+    left: -240px;
+    top: -450px;
     z-index: -1;
-    transform: translate(-50%, -50%);
 }
 
 #phone-mockup-cutoff {
     position: absolute;
-    /* width: 480px;
-    height: 90px; */
-    width: calc(8*100vh/16);
-    height: calc(1.5*100vh/16);
-    transform: translateX(-50%);
+    width: 480px;
+    height: 90px;
+    left: -240px;
     top: -450px;
     z-index: 2;
 }
@@ -121,11 +118,10 @@ body {
 
 #phone-screen {
     position: absolute;
-    /* width: 420px; (7x60)
-    height: 720px; (12x60) */
-    width: calc(7*100vh/16);
-    height: calc(12*100vh/16);
-    transform: translate(-50%, -50%);
+    width: 420px; /* (7x60) */
+    height: 720px; /* (12x60) */
+    left: -210.5px;
+    top: -360px;
 }
 
 /*
