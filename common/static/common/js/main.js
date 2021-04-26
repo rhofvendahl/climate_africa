@@ -6,6 +6,14 @@ $(document).ready(function() {
         $('#phone-screen').append($('#header'));
         $('#phone-screen').append($('#content-wrapper'));
 
-        $('html').css('font-size', '10px');
+        $('html').css('font-size', '9px');
+
+        $('.map-wrapper').css({
+            'width': '250%',
+            'height': '250%',
+            'transform': 'scale(.4)',
+            'top': '-75%',
+            'left': '-75%',
+        })
     }
 });
